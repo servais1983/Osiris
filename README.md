@@ -154,25 +154,32 @@ print(f"Données collectées : {response.data}")
 
 ## 🗺️ Roadmap
 
-### Phase 1 : Le Cœur
-- [ ] Agent de base (collecte simple)
-- [ ] Serveur Hive avec gRPC
-- [ ] Implémentation OQL
+### Phase 1 : Le Cœur ✅
+- [x] Agent de base (collecte simple)
+- [x] Serveur Hive avec gRPC
+- [x] Implémentation OQL
 
-### Phase 2 : Intelligence de Collecte
-- [ ] Enrichissement OQL
-- [ ] Bibliothèque de Recettes
-- [ ] Pipeline de parsing
+### Phase 2 : Intelligence de Collecte ✅
+- [x] Enrichissement OQL
+- [x] Bibliothèque de Recettes
+- [x] Pipeline de parsing
 
-### Phase 3 : Interface et Analyse
-- [ ] Interface web React
-- [ ] Timeline unifiée
-- [ ] Moteurs Sigma/YARA
+### Phase 3 : Interface et Analyse ✅
+- [x] Interface web React
+- [x] Timeline unifiée
+- [x] Moteurs Sigma/YARA
 
-### Phase 4 : IA
-- [ ] Enrichissement TI
-- [ ] Détection d'anomalies
-- [ ] Assistance IA
+### Phase 4 : IA ✅
+- [x] Enrichissement TI
+- [x] Détection d'anomalies
+- [x] Assistance IA
+
+### Phase 5 : Améliorations et Optimisations 🚧
+- [ ] Optimisation des performances
+- [ ] Tests automatisés
+- [ ] Documentation complète
+- [ ] Support multi-langues
+- [ ] Intégration continue
 
 ## 🚀 Installation
 
