@@ -1,0 +1,27 @@
+# Configuration de l'agent Osiris
+agent:
+  # Identifiant unique pour cet agent. Laisser vide pour en générer un nouveau à chaque démarrage.
+  # Pour un déploiement réel, cet ID devrait être persistant.
+  id: "" 
+  version: "0.1.0-pro"
+
+hive:
+  # Adresse et port du serveur Hive
+  host: "localhost" # Doit correspondre au Common Name (CN) du certificat du serveur
+  port: 50051
+
+security:
+  # Activer mTLS (doit correspondre au serveur)
+  mtls_enabled: true
+  # Chemin vers le certificat de l'autorité de certification
+  ca_cert_path: "agent/certs/ca.crt"
+  # Chemin vers le certificat de l'agent
+  client_cert_path: "agent/certs/client.crt"
+  # Chemin vers la clé privée de l'agent
+  client_key_path: "agent/certs/client.key"
+
+logging:
+  # Niveaux possibles : DEBUG, INFO, WARNING, ERROR, CRITICAL
+  level: "INFO"
+  # Fichier pour sauvegarder les logs de l'agent
+  file: "agent/logs/agent.log" 
