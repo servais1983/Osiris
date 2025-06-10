@@ -1,0 +1,29 @@
+title: PowerShell Execution with Suspicious Parameters
+id: 1a2b3c4d-5e6f-7g8h-9i0j-1k2l3m4n5o6p
+status: stable
+description: Détecte l'exécution de PowerShell avec des paramètres potentiellement malveillants
+author: Osiris Team
+date: 2024/03/20
+modified: 2024/03/20
+level: high
+tags:
+    - attack.execution
+    - attack.t1059.001
+    - attack.defense_evasion
+    - attack.privilege_escalation
+logsource:
+    category: process_creation
+    product: windows
+detection:
+    selection:
+        Image|endswith: '\powershell.exe'
+        CommandLine|contains|all:
+            - '-enc'
+            - 'base64'
+    condition: selection
+falsepositives:
+    - Scripts légitimes utilisant l'encodage base64
+    - Outils d'administration utilisant PowerShell
+references:
+    - https://attack.mitre.org/techniques/T1059/001/
+    - https://www.powershellgallery.com/packages/PSDecode/1.0.0/Content/PSDecode.ps1 

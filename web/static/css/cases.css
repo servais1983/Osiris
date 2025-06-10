@@ -1,0 +1,100 @@
+/* Style pour la page des cas */
+.case-card {
+    transition: transform 0.2s ease-in-out;
+}
+
+.case-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.case-status {
+    font-size: 0.9rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+}
+
+.case-priority {
+    font-size: 0.9rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+}
+
+.case-details-tab {
+    padding: 1rem;
+}
+
+.case-details-tab .card {
+    margin-bottom: 1rem;
+}
+
+.case-details-tab .card-title {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.case-details-tab .card-text {
+    font-size: 0.9rem;
+}
+
+.case-notes {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.case-notes .card {
+    margin-bottom: 1rem;
+}
+
+.case-notes .card-text {
+    white-space: pre-wrap;
+}
+
+.case-notes .note-meta {
+    font-size: 0.8rem;
+    color: #6c757d;
+}
+
+.case-actions {
+    position: sticky;
+    bottom: 0;
+    background-color: #fff;
+    padding: 1rem;
+    border-top: 1px solid #dee2e6;
+    z-index: 1000;
+}
+
+.case-actions .btn {
+    margin-right: 0.5rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.case-card {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .case-details-tab {
+        padding: 0.5rem;
+    }
+    
+    .case-actions {
+        padding: 0.5rem;
+    }
+    
+    .case-actions .btn {
+        margin-bottom: 0.5rem;
+    }
+} 

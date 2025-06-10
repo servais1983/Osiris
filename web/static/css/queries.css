@@ -1,0 +1,68 @@
+/* Styles pour le traducteur OQL */
+#naturalLanguageQuery {
+    font-size: 1.1rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 2px solid #dee2e6;
+    transition: border-color 0.2s ease-in-out;
+}
+
+#naturalLanguageQuery:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+#generatedOqlQuery {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9rem;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+#oqlTranslationResult {
+    background-color: #f8f9fa;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+#oqlTranslationResult h6 {
+    color: #0d6efd;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.btn-outline-primary:hover {
+    background-color: #0d6efd;
+    color: white;
+}
+
+/* Animation pour le bouton de copie */
+@keyframes copySuccess {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.btn-outline-primary i.fa-check {
+    animation: copySuccess 0.5s ease-in-out;
+}
+
+/* Styles responsifs */
+@media (max-width: 768px) {
+    #naturalLanguageQuery {
+        font-size: 1rem;
+        padding: 0.75rem;
+    }
+    
+    #generatedOqlQuery {
+        font-size: 0.8rem;
+        padding: 0.75rem;
+    }
+    
+    #oqlTranslationResult {
+        padding: 1rem;
+    }
+} 

@@ -1,108 +1,64 @@
 syntax = "proto3";
 
+import "google/protobuf/struct.proto";
+
 package osiris;
 
-// Service principal pour la communication agent-serveur
-service OsirisService {
-  // Authentification de l'agent
-  rpc Authenticate(AuthRequest) returns (AuthResponse);
-  
-  // Envoi des données collectées
-  rpc SendData(DataRequest) returns (DataResponse);
-  
-  // Récupération des commandes
-  rpc GetCommands(CommandRequest) returns (stream Command);
-  
-  // Heartbeat pour maintenir la connexion
-  rpc Heartbeat(HeartbeatRequest) returns (HeartbeatResponse);
-}
-
-// Messages d'authentification
-message AuthRequest {
-  string agent_id = 1;
-  string agent_name = 2;
-  string version = 3;
-  bytes certificate = 4;
-}
-
-message AuthResponse {
-  bool success = 1;
-  string token = 2;
-  string error = 3;
-}
-
-// Messages de données
-message DataRequest {
-  string agent_id = 1;
-  string token = 2;
-  repeated Artifact artifacts = 3;
-}
-
-message DataResponse {
-  bool success = 1;
-  string error = 2;
-}
-
-message Artifact {
-  string name = 1;
-  string type = 2;
-  bytes data = 3;
-  int64 timestamp = 4;
-}
-
-// Messages de commandes
-message CommandRequest {
-  string agent_id = 1;
-  string token = 2;
-}
-
-message Command {
-  string id = 1;
-  string type = 2;
-  bytes payload = 3;
-  int64 timestamp = 4;
-}
-
-// Messages de heartbeat
-message HeartbeatRequest {
-  string agent_id = 1;
-  string token = 2;
-  SystemStatus status = 3;
-}
-
-message HeartbeatResponse {
-  bool success = 1;
-  string error = 2;
-}
-
-message SystemStatus {
-  float cpu_usage = 1;
-  float memory_usage = 2;
-  int64 uptime = 3;
-  repeated string active_collectors = 4;
-}
-
-// Le service de communication de l'agent
+// Service de communication entre l'agent et le Hive
 service AgentComms {
-  // RPC pour enregistrer un agent auprès du serveur et maintenir un contact régulier
-  rpc Heartbeat(stream RegistrationRequest) returns (stream HiveInstruction);
+  // Enregistrement de l'agent et heartbeat
+  rpc Register(RegistrationRequest) returns (RegistrationResponse);
+  
+  // Heartbeat et réception d'instructions
+  rpc Heartbeat(HeartbeatRequest) returns (HeartbeatResponse);
+  
+  // Envoi des résultats de requête
+  rpc SendQueryResults(QueryResult) returns (QueryResponse);
 }
 
-// Message de la requête d'enregistrement / heartbeat
+// Message de requête d'enregistrement
 message RegistrationRequest {
   string agent_id = 1;
   string hostname = 2;
-  string os_type = 3;
-  string version = 4;
+  string os_info = 3;
 }
 
-// Message d'instruction du Hive vers l'agent
+// Message de réponse d'enregistrement
+message RegistrationResponse {
+  string status = 1;
+}
+
+// Message de requête de heartbeat
+message HeartbeatRequest {
+  string agent_id = 1;
+}
+
+// Message de réponse de heartbeat
+message HeartbeatResponse {
+  string status = 1;
+  HiveInstruction instruction = 2;
+}
+
+// Message d'instruction du Hive
 message HiveInstruction {
-  string instruction_id = 1;
-  enum InstructionType {
-    NOOP = 0; // Aucune instruction, simple maintien de la connexion
-    EXECUTE_OQL = 1; // Demande d'exécution d'une requête OQL
-  }
-  InstructionType type = 2;
-  string payload = 3; // ex: la requête OQL à exécuter
+  string query = 1;
+  string query_id = 2;
+}
+
+// Message de résultat de requête
+message QueryResult {
+  string query_id = 1;
+  google.protobuf.Struct result = 2;
+  QuerySummary summary = 3;
+}
+
+// Message de résumé de requête
+message QuerySummary {
+  string query_id = 1;
+  string status = 2;
+}
+
+// Message de réponse pour les résultats de requête
+message QueryResponse {
+  string status = 1;
 } 

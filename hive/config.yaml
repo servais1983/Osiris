@@ -1,20 +1,79 @@
+# Configuration du Hive Osiris
+
+# Paramètres du serveur
+server:
+  host: "0.0.0.0"
+  port: 50051
+  web_port: 8000
+
+# Paramètres de la base de données
+database:
+  path: "hive/data/osiris.db"
+  backup_path: "hive/data/backups"
+
+# Paramètres de collecte
+collection:
+  max_results: 1000
+  timeout: 30
+  batch_size: 100
+
+# Paramètres de détection Sigma
+sigma:
+  rules_path: "hive/rules/sigma"
+  enabled: true
+  alert_levels:
+    - critical
+    - high
+    - medium
+    - low
+  excluded_tags:
+    - test
+    - deprecated
+  max_alerts_per_event: 10
+
+# Paramètres de normalisation
+normalization:
+  timezone: "UTC"
+  date_format: "%Y-%m-%d %H:%M:%S"
+  max_field_length: 1000
+
+# Paramètres de journalisation
+logging:
+  level: "INFO"
+  file: "hive/logs/hive.log"
+  max_size: 10485760  # 10 MB
+  backup_count: 5
+
+# Paramètres de sécurité
+security:
+  ssl_enabled: false
+  ssl_cert: "hive/certs/server.crt"
+  ssl_key: "hive/certs/server.key"
+  allowed_origins:
+    - "http://localhost:8000"
+    - "http://127.0.0.1:8000"
+
 # Configuration du serveur Osiris Hive
 server:
-  host: "0.0.0.0" # Écoute sur toutes les interfaces
-  port: 50051
+  grpc_port: 50051
+  api_port: 8000
 
 security:
   # Activer mTLS (fortement recommandé)
   mtls_enabled: true
   # Chemin vers le certificat de l'autorité de certification
-  ca_cert_path: "hive/certs/ca.crt"
+  ca_cert_path: certs/ca.crt
   # Chemin vers le certificat du serveur
-  server_cert_path: "hive/certs/server.crt"
+  server_cert_path: certs/hive.crt
   # Chemin vers la clé privée du serveur
-  server_key_path: "hive/certs/server.key"
+  server_key_path: certs/hive.key
 
 logging:
   # Niveaux possibles : DEBUG, INFO, WARNING, ERROR, CRITICAL
-  level: "INFO"
+  level: INFO
   # Fichier pour sauvegarder les logs du serveur
-  file: "hive/logs/hive.log" 
+  file: "logs/hive.log"
+
+enrichment:
+  virustotal:
+    api_key: ${VIRUSTOTAL_API_KEY} 

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investigation - Osiris</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="/static/css/investigation.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-shield-alt me-2"></i>
+                Osiris
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/"><i class="fas fa-home me-1"></i> Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/timeline"><i class="fas fa-clock me-1"></i> Timeline</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/investigation"><i class="fas fa-search me-1"></i> Investigation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/alerts"><i class="fas fa-bell me-1"></i> Alertes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/cases"><i class="fas fa-folder me-1"></i> Cas</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenu principal -->
+    <div class="container-fluid mt-4">
+        <div class="row">
+            <!-- Panneau de gauche : Traducteur OQL -->
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5 class="mb-0">
+                            <i class="fas fa-language me-2"></i>
+                            Traducteur OQL assisté par IA
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label for="naturalLanguageQuery" class="form-label">Votre demande en langage naturel</label>
+                            <textarea class="form-control" id="naturalLanguageQuery" rows="3" 
+                                      placeholder="Ex: Trouve tous les processus qui ont créé des fichiers .exe dans le dossier Downloads"></textarea>
+                        </div>
+                        <button class="btn btn-primary" onclick="translateToOql()">
+                            <i class="fas fa-magic me-2"></i>
+                            Générer la requête OQL
+                        </button>
+                        
+                        <div id="oqlTranslationResult" class="mt-4" style="display: none;">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <h6>Requête OQL générée :</h6>
+                                    <div class="input-group mb-3">
+                                        <textarea class="form-control" id="generatedOqlQuery" rows="4" readonly></textarea>
+                                        <button class="btn btn-outline-primary" onclick="copyOqlQuery()">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                    </div>
+                                    <button class="btn btn-success" onclick="executeGeneratedQuery()">
+                                        <i class="fas fa-play me-2"></i>
+                                        Exécuter la requête
+                                    </button>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h6 class="mb-0">Métadonnées</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="mb-3">
+                                                <h6 class="text-muted">Tables utilisées</h6>
+                                                <div id="tablesUsed" class="badge bg-info me-1"></div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <h6 class="text-muted">Complexité</h6>
+                                                <span id="queryComplexity" class="badge"></span>
+                                            </div>
+                                            <div>
+                                                <h6 class="text-muted">Optimisations suggérées</h6>
+                                                <ul id="queryOptimizations" class="list-unstyled"></ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="oqlTranslationError" class="alert alert-danger mt-3" style="display: none;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Panneau de droite : Éditeur OQL et résultats -->
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">
+                            <i class="fas fa-code me-2"></i>
+                            Éditeur OQL
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <textarea class="form-control" id="oqlEditor" rows="6" 
+                                    placeholder="Votre requête OQL ici..."></textarea>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <button class="btn btn-primary" onclick="executeQuery()">
+                                    <i class="fas fa-play me-2"></i>
+                                    Exécuter
+                                </button>
+                                <button class="btn btn-outline-secondary ms-2" onclick="clearQuery()">
+                                    <i class="fas fa-eraser me-2"></i>
+                                    Effacer
+                                </button>
+                            </div>
+                            <button class="btn btn-outline-primary" onclick="saveQuery()">
+                                <i class="fas fa-save me-2"></i>
+                                Sauvegarder
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Résultats -->
+                <div class="card mt-4">
+                    <div class="card-header">
+                        <h5 class="mb-0">
+                            <i class="fas fa-table me-2"></i>
+                            Résultats
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="queryResults">
+                            <div class="text-center text-muted py-5">
+                                <i class="fas fa-search fa-3x mb-3"></i>
+                                <p>Exécutez une requête pour voir les résultats</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/js/investigation.js"></script>
+</body>
+</html> 

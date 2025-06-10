@@ -1,133 +1,197 @@
+import os
+import sys
+import time
+import logging
+import threading
 import grpc
 import yaml
-import logging
-import os
 import uuid
 import platform
 import socket
-import time
-import sys
+from datetime import datetime
+from cryptography import x509
+from cryptography.hazmat.primitives import serialization
+from cryptography.hazmat.primitives.asymmetric import padding
+from cryptography.hazmat.primitives import hashes
+from cryptography.hazmat.primitives.serialization import load_pem_private_key
+from cryptography.hazmat.primitives.serialization import load_pem_certificate
 
-# Configuration pour trouver les fichiers .proto compilés
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../protos')))
-import osiris_pb2
-import osiris_pb2_grpc
+# Configuration du logging
+logger = logging.getLogger(__name__)
+
+# Ajout du répertoire racine au PYTHONPATH
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+# Import des messages proto
+from protos import osiris_pb2
+from protos import osiris_pb2_grpc
+from agent.oql.runner import OQLRunner
 
 def setup_logging(config):
-    """Configure la journalisation (logging) pour l'agent."""
-    log_level = config['logging']['level'].upper()
-    log_file = config['logging']['file']
-    os.makedirs(os.path.dirname(log_file), exist_ok=True)
-
+    """Configure le logging selon les paramètres du fichier de configuration."""
+    log_config = config.get('logging', {})
+    log_level = getattr(logging, log_config.get('level', 'INFO'))
+    log_format = log_config.get('format', '%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    
     logging.basicConfig(
         level=log_level,
-        format='%(asctime)s - %(levelname)s - %(message)s',
+        format=log_format,
         handlers=[
-            logging.FileHandler(log_file),
-            logging.StreamHandler()
+            logging.StreamHandler(),
+            logging.FileHandler(log_config.get('file', 'agent.log'))
         ]
     )
     logging.info("Logging configuré.")
 
-def get_agent_id(config):
-    """Récupère ou génère un ID unique pour l'agent."""
-    if config['agent']['id']:
-        return config['agent']['id']
-    # Pour un déploiement réel, cet ID devrait être stocké sur le disque
-    # pour persister entre les redémarrages.
-    return str(uuid.uuid4())
+class Agent:
+    def __init__(self, config):
+        self.config = config
+        self.agent_id = str(uuid.uuid4())
+        self.hostname = socket.gethostname()
+        self.os_info = f"{platform.system()} {platform.release()}"
+        self._load_certificates()
+        self._setup_grpc_channel()
+        self.oql_runner = OQLRunner()
 
-def initial_registration_message(agent_id, config):
-    """Crée le premier message envoyé au Hive."""
-    hostname = socket.gethostname()
-    os_type = f"{platform.system()} {platform.release()}"
-    return osiris_pb2.RegistrationRequest(
-        agent_id=agent_id,
-        hostname=hostname,
-        os_type=os_type,
-        version=config['agent']['version']
-    )
-
-def handle_hive_instructions(instruction_iterator):
-    """Traite les instructions reçues du serveur Hive."""
-    try:
-        for instruction in instruction_iterator:
-            logging.debug(f"Instruction reçue de Hive: {instruction.type}")
-            
-            if instruction.type == osiris_pb2.HiveInstruction.InstructionType.NOOP:
-                # C'est normal, on continue
-                pass
-            elif instruction.type == osiris_pb2.HiveInstruction.InstructionType.EXECUTE_OQL:
-                logging.info(f"Demande d'exécution OQL reçue: {instruction.payload}")
-                # Ici, on lancera le moteur OQL (Phase 2)
-                pass
-
-    except grpc.RpcError as e:
-        # La connexion a probablement été perdue
-        logging.warning(f"Erreur RPC lors de la réception d'instructions: {e.details()}")
-        raise e # Propage l'erreur pour déclencher la reconnexion
-
-def run(config):
-    """Démarre l'agent et sa boucle de communication/reconnexion."""
-    agent_id = get_agent_id(config)
-    logging.info(f"Démarrage de l'agent Osiris v{config['agent']['version']} avec l'ID: {agent_id}")
-    
-    # Charger les certificats pour mTLS
-    try:
-        with open(config['security']['ca_cert_path'], 'rb') as f:
-            ca_cert = f.read()
-        with open(config['security']['client_cert_path'], 'rb') as f:
-            client_cert = f.read()
-        with open(config['security']['client_key_path'], 'rb') as f:
-            client_key = f.read()
-    except FileNotFoundError as e:
-        logging.critical(f"Erreur de certificat: {e}. Avez-vous exécuté 'scripts/generate_certs.py'?")
-        return
-        
-    credentials = grpc.ssl_channel_credentials(
-        root_certificates=ca_cert,
-        private_key=client_key,
-        certificate_chain=client_cert
-    )
-    
-    hive_address = f"{config['hive']['host']}:{config['hive']['port']}"
-    backoff_time = 5 # Temps d'attente initial en secondes
-
-    while True:
+    def _load_certificates(self):
+        """Charge les certificats mTLS."""
         try:
-            logging.info(f"Tentative de connexion à Hive sur {hive_address}...")
-            with grpc.secure_channel(hive_address, credentials) as channel:
-                stub = osiris_pb2_grpc.AgentCommsStub(channel)
-                
-                # Le générateur envoie le message d'enregistrement initial
-                def request_generator():
-                    yield initial_registration_message(agent_id, config)
-                    # Le reste du temps, on attend juste
-                    while True:
-                        time.sleep(1)
-
-                instruction_iterator = stub.Heartbeat(request_generator())
-                logging.info("Connexion établie avec Hive. En attente d'instructions.")
-                backoff_time = 5 # Réinitialiser le temps d'attente en cas de succès
-                
-                handle_hive_instructions(instruction_iterator)
-
-        except grpc.RpcError as e:
-            logging.error(f"Impossible de se connecter à Hive: {e.code()} - {e.details()}")
-            logging.info(f"Nouvelle tentative dans {backoff_time} secondes...")
-            time.sleep(backoff_time)
-            backoff_time = min(backoff_time * 2, 300) # Augmenter le temps d'attente, max 5 minutes
+            # Charger le certificat de l'agent
+            with open(self.config['certs']['agent_cert'], 'rb') as f:
+                self.agent_cert = load_pem_certificate(f.read())
+            
+            # Charger la clé privée de l'agent
+            with open(self.config['certs']['agent_key'], 'rb') as f:
+                self.agent_key = load_pem_private_key(
+                    f.read(),
+                    password=None
+                )
+            
+            # Charger le certificat de la CA
+            with open(self.config['certs']['ca_cert'], 'rb') as f:
+                self.ca_cert = load_pem_certificate(f.read())
+            
+            logging.info("Certificats mTLS chargés avec succès.")
         except Exception as e:
-            logging.critical(f"Erreur fatale non gérée dans l'agent: {e}")
-            break
+            logging.error(f"Erreur lors du chargement des certificats: {e}")
+            raise
+
+    def _setup_grpc_channel(self):
+        """Configure le canal gRPC avec mTLS."""
+        try:
+            # Créer les credentials mTLS
+            credentials = grpc.ssl_channel_credentials(
+                root_certificates=self.ca_cert.public_bytes(serialization.Encoding.PEM),
+                private_key=self.agent_key.private_bytes(
+                    serialization.Encoding.PEM,
+                    serialization.PrivateFormat.PKCS8,
+                    serialization.NoEncryption()
+                ),
+                certificate_chain=self.agent_cert.public_bytes(serialization.Encoding.PEM)
+            )
+            
+            # Créer le canal gRPC
+            self.channel = grpc.secure_channel(
+                f"{self.config['hive']['host']}:{self.config['hive']['port']}",
+                credentials
+            )
+            
+            # Créer le stub
+            self.stub = osiris_pb2_grpc.AgentCommsStub(self.channel)
+            logging.info("Canal gRPC configuré avec succès.")
+        except Exception as e:
+            logging.error(f"Erreur lors de la configuration du canal gRPC: {e}")
+            raise
+
+    def register_with_hive(self):
+        """Enregistre l'agent auprès du Hive."""
+        try:
+            request = osiris_pb2.RegistrationRequest(
+                agent_id=self.agent_id,
+                hostname=self.hostname,
+                os_info=self.os_info
+            )
+            response = self.stub.Register(request)
+            logging.info(f"Enregistrement réussi auprès du Hive. Status: {response.status}")
+            return True
+        except grpc.RpcError as e:
+            logging.error(f"Erreur lors de l'enregistrement: {str(e)}")
+            return False
+
+    def handle_heartbeat(self, instruction):
+        """Gère un heartbeat du Hive."""
+        try:
+            if instruction.HasField('query'):
+                logging.info(f"Exécution de la requête: {instruction.query}")
+                results = self.oql_runner.execute_query(instruction.query)
+                
+                # Envoyer les résultats au Hive
+                for result in results:
+                    query_result = osiris_pb2.QueryResult(
+                        query_id=instruction.query_id,
+                        result=result,
+                        summary=osiris_pb2.QuerySummary(
+                            query_id=instruction.query_id,
+                            status="completed"
+                        )
+                    )
+                    self.stub.SendQueryResults(query_result)
+                
+                # Envoyer le résumé final
+                final_result = osiris_pb2.QueryResult(
+                    query_id=instruction.query_id,
+                    summary=osiris_pb2.QuerySummary(
+                        query_id=instruction.query_id,
+                        status="completed"
+                    )
+                )
+                self.stub.SendQueryResults(final_result)
+            
+            return osiris_pb2.HeartbeatResponse(status="ok")
+        except Exception as e:
+            logging.error(f"Erreur lors du traitement du heartbeat: {e}")
+            return osiris_pb2.HeartbeatResponse(status="error")
+
+    def run(self):
+        """Boucle principale de l'agent."""
+        while True:
+            try:
+                if not self.register_with_hive():
+                    logging.warning("Échec de l'enregistrement, nouvelle tentative dans 5 secondes...")
+                    time.sleep(5)
+                    continue
+
+                # Boucle de heartbeat
+                while True:
+                    try:
+                        response = self.stub.Heartbeat(osiris_pb2.HeartbeatRequest(agent_id=self.agent_id))
+                        if response.HasField('instruction'):
+                            self.handle_heartbeat(response.instruction)
+                    except grpc.RpcError as e:
+                        if e.code() == grpc.StatusCode.UNAVAILABLE:
+                            logging.error(f"Le Hive est indisponible: {str(e)}")
+                            break
+                        else:
+                            logging.error(f"Erreur de communication: {str(e)}")
+                    
+                    time.sleep(self.config['heartbeat']['interval'])
+
+            except Exception as e:
+                logging.error(f"Erreur dans la boucle principale: {e}")
+                time.sleep(5)
 
 if __name__ == '__main__':
     try:
-        with open('agent/config.yaml', 'r') as f:
+        # Charger la configuration
+        with open('config.yaml', 'r') as f:
             config = yaml.safe_load(f)
-    except FileNotFoundError:
-        print("[CRITICAL] Fichier de configuration 'agent/config.yaml' introuvable.")
-        sys.exit(1)
-
-    setup_logging(config)
-    run(config) 
+        
+        # Configurer le logging
+        setup_logging(config)
+        
+        # Créer et démarrer l'agent
+        agent = Agent(config)
+        agent.run()
+    except Exception as e:
+        logging.error(f"Erreur fatale: {e}", exc_info=True)
+        sys.exit(1) 

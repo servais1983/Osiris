@@ -55,6 +55,103 @@ Osiris est une plateforme unifiée de Réponse à Incidents et d'Investigation N
 | Communication | gRPC / Protobuf | Performance et efficacité |
 | Agents | Python / Go | Multi-plateforme, léger |
 
+## 📚 Exemples d'Utilisation
+
+### Collecte de Données Windows
+
+```python
+from collectors.windows import (
+    WindowsCollector,
+    BrowserHistoryCollector,
+    WindowsEventLogCollector,
+    WindowsFileCollector,
+    WindowsNetworkCollector,
+    WindowsProcessCollector,
+    WindowsRegistryCollector,
+    WindowsServiceCollector,
+    WindowsUserCollector
+)
+
+# Collecte d'historique de navigation
+browser_collector = BrowserHistoryCollector()
+browser_data = browser_collector.collect()
+print(f"Historique de navigation collecté : {len(browser_data['history'])} entrées")
+
+# Collecte de journaux d'événements
+event_collector = WindowsEventLogCollector()
+event_data = event_collector.collect()
+print(f"Événements collectés : {len(event_data['events'])} entrées")
+
+# Collecte de fichiers
+file_collector = WindowsFileCollector()
+file_data = file_collector.collect()
+print(f"Fichiers analysés : {len(file_data['files'])} entrées")
+
+# Collecte réseau
+network_collector = WindowsNetworkCollector()
+network_data = network_collector.collect()
+print(f"Connexions réseau : {len(network_data['connections'])} entrées")
+
+# Collecte de processus
+process_collector = WindowsProcessCollector()
+process_data = process_collector.collect()
+print(f"Processus en cours : {len(process_data['processes'])} entrées")
+
+# Collecte du registre
+registry_collector = WindowsRegistryCollector()
+registry_data = registry_collector.collect()
+print(f"Clés de registre analysées : {len(registry_data['keys'])} entrées")
+
+# Collecte de services
+service_collector = WindowsServiceCollector()
+service_data = service_collector.collect()
+print(f"Services analysés : {len(service_data['services'])} entrées")
+
+# Collecte d'utilisateurs
+user_collector = WindowsUserCollector()
+user_data = user_collector.collect()
+print(f"Utilisateurs analysés : {len(user_data['users'])} entrées")
+```
+
+### Utilisation de l'API
+
+```python
+import grpc
+from osiris_pb2 import CollectRequest
+from osiris_pb2_grpc import OsirisStub
+
+# Connexion au serveur
+channel = grpc.secure_channel(
+    'hive.example.com:443',
+    grpc.ssl_channel_credentials()
+)
+stub = OsirisStub(channel)
+
+# Collecte de données
+request = CollectRequest(
+    target="windows",
+    collectors=["browser_history", "event_logs", "files"],
+    options={
+        "browser_history": {"browsers": ["chrome", "firefox", "edge"]},
+        "event_logs": {"logs": ["security", "system", "application"]},
+        "files": {"paths": ["C:\\Windows\\System32", "C:\\Program Files"]}
+    }
+)
+
+response = stub.Collect(request)
+print(f"Données collectées : {response.data}")
+```
+
+### Utilisation de l'Interface Web
+
+1. Accédez à l'interface web : `https://hive.example.com`
+2. Connectez-vous avec vos identifiants
+3. Sélectionnez un agent dans la liste
+4. Choisissez les collecteurs à utiliser
+5. Configurez les options de collecte
+6. Lancez la collecte
+7. Visualisez les résultats dans le tableau de bord
+
 ## 🗺️ Roadmap
 
 ### Phase 1 : Le Cœur

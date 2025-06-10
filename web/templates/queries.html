@@ -1,0 +1,36 @@
+<!-- Section de traduction OQL -->
+<div class="card mb-4">
+    <div class="card-header">
+        <h5 class="mb-0">
+            <i class="fas fa-language me-2"></i>
+            Traducteur OQL assisté par IA
+        </h5>
+    </div>
+    <div class="card-body">
+        <div class="mb-3">
+            <label for="naturalLanguageQuery" class="form-label">Votre demande en langage naturel</label>
+            <textarea class="form-control" id="naturalLanguageQuery" rows="3" 
+                      placeholder="Ex: Trouve tous les processus qui ont créé des fichiers .exe dans le dossier Downloads"></textarea>
+        </div>
+        <button class="btn btn-primary" onclick="translateToOql()">
+            <i class="fas fa-magic me-2"></i>
+            Traduire en OQL
+        </button>
+        
+        <div id="oqlTranslationResult" class="mt-4" style="display: none;">
+            <h6>Requête OQL générée :</h6>
+            <div class="input-group mb-3">
+                <textarea class="form-control" id="generatedOqlQuery" rows="4" readonly></textarea>
+                <button class="btn btn-outline-primary" onclick="copyOqlQuery()">
+                    <i class="fas fa-copy"></i>
+                </button>
+            </div>
+            <button class="btn btn-success" onclick="executeGeneratedQuery()">
+                <i class="fas fa-play me-2"></i>
+                Exécuter la requête
+            </button>
+        </div>
+        
+        <div id="oqlTranslationError" class="alert alert-danger mt-3" style="display: none;"></div>
+    </div>
+</div> 
