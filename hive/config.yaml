@@ -1,0 +1,20 @@
+# Configuration du serveur Osiris Hive
+server:
+  host: "0.0.0.0" # Écoute sur toutes les interfaces
+  port: 50051
+
+security:
+  # Activer mTLS (fortement recommandé)
+  mtls_enabled: true
+  # Chemin vers le certificat de l'autorité de certification
+  ca_cert_path: "hive/certs/ca.crt"
+  # Chemin vers le certificat du serveur
+  server_cert_path: "hive/certs/server.crt"
+  # Chemin vers la clé privée du serveur
+  server_key_path: "hive/certs/server.key"
+
+logging:
+  # Niveaux possibles : DEBUG, INFO, WARNING, ERROR, CRITICAL
+  level: "INFO"
+  # Fichier pour sauvegarder les logs du serveur
+  file: "hive/logs/hive.log" 
