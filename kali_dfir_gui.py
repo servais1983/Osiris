@@ -1,1 +1,0 @@
-# Kali DFIR GUI Script - placeholder

@@ -1,1 +1,0 @@
-# SHA256 hashing utility

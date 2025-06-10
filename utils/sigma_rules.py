@@ -1,1 +1,0 @@
-# Basic Sigma rules implementation
