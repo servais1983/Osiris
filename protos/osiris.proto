@@ -1,0 +1,108 @@
+syntax = "proto3";
+
+package osiris;
+
+// Service principal pour la communication agent-serveur
+service OsirisService {
+  // Authentification de l'agent
+  rpc Authenticate(AuthRequest) returns (AuthResponse);
+  
+  // Envoi des données collectées
+  rpc SendData(DataRequest) returns (DataResponse);
+  
+  // Récupération des commandes
+  rpc GetCommands(CommandRequest) returns (stream Command);
+  
+  // Heartbeat pour maintenir la connexion
+  rpc Heartbeat(HeartbeatRequest) returns (HeartbeatResponse);
+}
+
+// Messages d'authentification
+message AuthRequest {
+  string agent_id = 1;
+  string agent_name = 2;
+  string version = 3;
+  bytes certificate = 4;
+}
+
+message AuthResponse {
+  bool success = 1;
+  string token = 2;
+  string error = 3;
+}
+
+// Messages de données
+message DataRequest {
+  string agent_id = 1;
+  string token = 2;
+  repeated Artifact artifacts = 3;
+}
+
+message DataResponse {
+  bool success = 1;
+  string error = 2;
+}
+
+message Artifact {
+  string name = 1;
+  string type = 2;
+  bytes data = 3;
+  int64 timestamp = 4;
+}
+
+// Messages de commandes
+message CommandRequest {
+  string agent_id = 1;
+  string token = 2;
+}
+
+message Command {
+  string id = 1;
+  string type = 2;
+  bytes payload = 3;
+  int64 timestamp = 4;
+}
+
+// Messages de heartbeat
+message HeartbeatRequest {
+  string agent_id = 1;
+  string token = 2;
+  SystemStatus status = 3;
+}
+
+message HeartbeatResponse {
+  bool success = 1;
+  string error = 2;
+}
+
+message SystemStatus {
+  float cpu_usage = 1;
+  float memory_usage = 2;
+  int64 uptime = 3;
+  repeated string active_collectors = 4;
+}
+
+// Le service de communication de l'agent
+service AgentComms {
+  // RPC pour enregistrer un agent auprès du serveur et maintenir un contact régulier
+  rpc Heartbeat(stream RegistrationRequest) returns (stream HiveInstruction);
+}
+
+// Message de la requête d'enregistrement / heartbeat
+message RegistrationRequest {
+  string agent_id = 1;
+  string hostname = 2;
+  string os_type = 3;
+  string version = 4;
+}
+
+// Message d'instruction du Hive vers l'agent
+message HiveInstruction {
+  string instruction_id = 1;
+  enum InstructionType {
+    NOOP = 0; // Aucune instruction, simple maintien de la connexion
+    EXECUTE_OQL = 1; // Demande d'exécution d'une requête OQL
+  }
+  InstructionType type = 2;
+  string payload = 3; // ex: la requête OQL à exécuter
+} 
