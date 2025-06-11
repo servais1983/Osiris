@@ -15,7 +15,7 @@ from concurrent import futures
 from dotenv import load_dotenv
 from cryptography.hazmat.primitives import serialization
 from cryptography.hazmat.primitives.asymmetric import padding
-from .web_server import start_web_server, update_agent_status, remove_agent
+from hive.web_server import start_web_server, update_agent_status, remove_agent
 import asyncio
 import uvicorn
 from fastapi import FastAPI, HTTPException, WebSocket, WebSocketDisconnect, Request
@@ -24,34 +24,24 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from . import database
-from hive.database import (
-    initialize_database, add_query_to_history, store_result_row,
-    update_query_status, get_all_queries, get_results_for_query,
-    get_agent_timeline, update_agent_info, get_all_agents,
-    create_case, get_all_cases, get_case, update_case_status,
-    add_agent_to_case, add_query_to_case, add_alert_to_case,
-    add_note_to_case, get_case_agents, get_case_queries,
-    get_case_alerts, get_case_notes
-)
-from hive.timeline_normalizer import normalize_results_to_timeline
+from hive.database import Database
+from hive.timeline_normalizer import TimelineNormalizer
+from hive.ai.analyzer import AIAnalyzer
+from hive.ai.assistant import AIAssistant
 from hive.detectors.sigma_detector import SigmaDetector
+from hive.enrichers.virustotal import VirusTotalEnricher
 import io
 import csv
 import json
 from fastapi.responses import StreamingResponse
 from hive.ai import AlertAnalyzer
-from hive.ai.assistant import AIAssistant
 
-# Ajout du répertoire parent au PYTHONPATH
+# Ajouter le répertoire parent au PYTHONPATH
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # Import des modules proto
 from protos import osiris_pb2
 from protos import osiris_pb2_grpc
-
-# Import des modules locaux
-from .enrichers.virustotal import VirusTotalEnricher
 
 # Charger les variables d'environnement
 load_dotenv()
