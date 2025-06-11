@@ -182,11 +182,12 @@ print(f"Données collectées : {response.data}")
 - [x] Intégration continue
 
 ### Phase 6 : Évolution Future 🚧
-- [ ] Support de nouvelles plateformes
-- [ ] Intégration avec d'autres outils DFIR
-- [ ] Amélioration des capacités d'IA
+- [ ] Support de nouvelles plateformes (macOS, Linux)
+- [ ] Intégration avec d'autres outils DFIR (Velociraptor, KAPE)
+- [ ] Amélioration des capacités d'IA (analyse comportementale)
 - [ ] API publique pour les développeurs
-- [ ] Marketplace de plugins
+- [ ] Marketplace de plugins et recettes OQL
+- [ ] Support des environnements cloud (AWS, Azure, GCP)
 
 ## 🚀 Installation
 
@@ -197,13 +198,21 @@ git clone https://github.com/votre-org/osiris.git
 # Accéder au répertoire
 cd osiris
 
-# Installer les dépendances
+# Méthode recommandée : Utiliser Docker Compose
+docker-compose up -d
+
+# Alternative : Installation manuelle
 pip install -r requirements.txt
 ```
 
 ## 💻 Utilisation
 
 ```bash
+# Avec Docker Compose (recommandé)
+# Le serveur Hive et les services associés sont déjà démarrés
+# Accédez à l'interface web : https://localhost:8443
+
+# Installation manuelle
 # Démarrer le serveur Hive
 python osiris_hive.py
 
@@ -235,3 +244,11 @@ Pour toute question ou problème :
 - Ouvrir une issue sur GitHub
 - Consulter la [documentation](docs/)
 - Rejoindre notre [Discord](https://discord.gg/osiris)
+
+## ⚠️ Configuration en Production
+
+Pour une utilisation en production, veuillez consulter la [documentation de configuration](docs/configuration.md) pour :
+- Configurer correctement les certificats TLS
+- Définir des identifiants sécurisés
+- Configurer les bases de données
+- Optimiser les performances
