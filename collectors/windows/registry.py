@@ -94,26 +94,44 @@ class WindowsRegistryCollector(WindowsCollector):
         }
     
     def collect(self) -> Dict[str, Any]:
-        """Collecte les informations sur les registres"""
-        if not self._check_privileges():
-            return {'error': 'Privilèges insuffisants'}
+        return super().collect()
+
+    def _collect(self) -> Dict[str, Any]:
+        results = {
+            'system_info': self.get_system_info(),
+            'registry_keys': {},
+            'suspicious_keys': [],
+            'summary': {}
+        }
         
         try:
-            return {
-                'timestamp': datetime.now().isoformat(),
-                'hives': {
-                    'HKEY_CLASSES_ROOT': self._get_hive_data(winreg.HKEY_CLASSES_ROOT),
-                    'HKEY_CURRENT_USER': self._get_hive_data(winreg.HKEY_CURRENT_USER),
-                    'HKEY_LOCAL_MACHINE': self._get_hive_data(winreg.HKEY_LOCAL_MACHINE),
-                    'HKEY_USERS': self._get_hive_data(winreg.HKEY_USERS),
-                    'HKEY_CURRENT_CONFIG': self._get_hive_data(winreg.HKEY_CURRENT_CONFIG)
-                },
-                'important_keys': self._get_important_keys()
+            # Collecter les clés importantes
+            results['registry_keys'] = self._get_important_keys()
+            
+            # Analyser les clés suspectes
+            all_keys = []
+            for category, keys in results['registry_keys'].items():
+                if isinstance(keys, list):
+                    all_keys.extend(keys)
+            
+            results['suspicious_keys'] = self._analyze_suspicious_keys(all_keys)
+            
+            # Générer un résumé
+            total_keys = sum(len(keys) for keys in results['registry_keys'].values() if isinstance(keys, list))
+            
+            results['summary'] = {
+                'total_categories': len(results['registry_keys']),
+                'total_keys_scanned': total_keys,
+                'suspicious_keys_count': len(results['suspicious_keys']),
+                'categories': list(results['registry_keys'].keys()),
+                'timestamp': datetime.now().isoformat()
             }
             
         except Exception as e:
-            self.logger.error(f"Erreur lors de la collecte des registres: {e}")
-            return {'error': str(e)}
+            self.logger.error(f"Erreur lors de la collecte du registre: {e}")
+            results['error'] = str(e)
+        
+        return results
     
     def _get_hive_data(self, hive: int) -> Dict[str, Any]:
         """Récupère les données d'une ruche"""
@@ -348,4 +366,86 @@ class WindowsRegistryCollector(WindowsCollector):
             
         except Exception as e:
             self.logger.error(f"Erreur lors de la suppression de la clé {key_path}: {e}")
-            return False 
+            return False
+    
+    def _analyze_suspicious_keys(self, keys: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """Analyse les clés de registre pour détecter les clés suspectes"""
+        suspicious_keys = []
+        
+        for key_info in keys:
+            suspicious_flags = []
+            
+            # Vérifier les noms de clés suspects
+            key_path = key_info.get('path', '').lower()
+            suspicious_patterns = [
+                'malware', 'virus', 'trojan', 'backdoor', 'keylogger', 'spyware',
+                'persistence', 'autorun', 'startup', 'shell', 'winlogon'
+            ]
+            if any(pattern in key_path for pattern in suspicious_patterns):
+                suspicious_flags.append("Nom de clé suspect")
+            
+            # Vérifier les valeurs suspectes
+            values = key_info.get('values', [])
+            for value in values:
+                value_name = value.get('name', '').lower()
+                value_data = str(value.get('value', '')).lower()
+                
+                # Vérifier les noms de valeurs suspects
+                suspicious_value_names = ['malware', 'virus', 'trojan', 'backdoor', 'keylogger']
+                if any(name in value_name for name in suspicious_value_names):
+                    suspicious_flags.append("Nom de valeur suspect")
+                
+                # Vérifier les données suspectes
+                suspicious_data_patterns = [
+                    'cmd.exe', 'powershell', 'wscript', 'cscript', 'rundll32',
+                    'regsvr32', 'mshta', 'certutil', 'bitsadmin'
+                ]
+                if any(pattern in value_data for pattern in suspicious_data_patterns):
+                    suspicious_flags.append("Données suspectes")
+                
+                # Vérifier les chemins suspects
+                if '\\temp\\' in value_data or '\\tmp\\' in value_data:
+                    suspicious_flags.append("Chemin temporaire")
+                
+                # Vérifier les URLs suspectes
+                if 'http://' in value_data or 'https://' in value_data:
+                    suspicious_flags.append("URL suspecte")
+            
+            # Vérifier les sous-clés suspectes
+            subkeys = key_info.get('subkeys', [])
+            for subkey in subkeys:
+                subkey_name = subkey.get('name', '').lower()
+                if any(pattern in subkey_name for pattern in suspicious_patterns):
+                    suspicious_flags.append("Sous-clé suspecte")
+            
+            # Si des flags suspects sont détectés, ajouter la clé à la liste
+            if suspicious_flags:
+                suspicious_key = key_info.copy()
+                suspicious_key['suspicious_flags'] = suspicious_flags
+                suspicious_key['risk_level'] = self._calculate_registry_risk_level(suspicious_flags)
+                suspicious_keys.append(suspicious_key)
+        
+        return suspicious_keys
+    
+    def _calculate_registry_risk_level(self, suspicious_flags: List[str]) -> str:
+        """Calcule le niveau de risque basé sur les flags suspects"""
+        high_risk_flags = [
+            "Nom de clé suspect",
+            "Données suspectes"
+        ]
+        
+        medium_risk_flags = [
+            "Nom de valeur suspect",
+            "Chemin temporaire",
+            "Sous-clé suspecte"
+        ]
+        
+        high_count = sum(1 for flag in suspicious_flags if flag in high_risk_flags)
+        medium_count = sum(1 for flag in suspicious_flags if flag in medium_risk_flags)
+        
+        if high_count > 0:
+            return "HIGH"
+        elif medium_count > 1 or len(suspicious_flags) > 2:
+            return "MEDIUM"
+        else:
+            return "LOW" 

@@ -1,0 +1,24 @@
+{
+  "system_info": {
+    "platform": "windows",
+    "platform_version": "10.0.26100",
+    "hostname": "Stshadow",
+    "current_user": "stser",
+    "python_version": "3.13.1",
+    "timestamp": "2025-07-06T22:51:17.810242",
+    "is_admin": 0
+  },
+  "data": {
+    "users": [],
+    "groups": [],
+    "sessions": []
+  },
+  "summary": {
+    "total_users": 0,
+    "total_groups": 0,
+    "total_sessions": 0,
+    "timestamp": "2025-07-06T22:51:17.816615",
+    "mode": "full"
+  },
+  "error": null
+}

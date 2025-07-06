@@ -1,0 +1,55 @@
+{
+  "system_info": {
+    "platform": "windows",
+    "platform_version": "10.0.26100",
+    "hostname": "Stshadow",
+    "current_user": "stser",
+    "python_version": "3.13.1",
+    "timestamp": "2025-07-06T22:57:57.613846",
+    "is_admin": 0
+  },
+  "data": {
+    "users": [
+      {
+        "name": "Administrateur",
+        "domain": "Stshadow",
+        "disabled": true,
+        "lockout": false
+      },
+      {
+        "name": "DefaultAccount",
+        "domain": "Stshadow",
+        "disabled": true,
+        "lockout": false
+      },
+      {
+        "name": "Invité",
+        "domain": "Stshadow",
+        "disabled": true,
+        "lockout": false
+      },
+      {
+        "name": "stser",
+        "domain": "Stshadow",
+        "disabled": false,
+        "lockout": false
+      },
+      {
+        "name": "WDAGUtilityAccount",
+        "domain": "Stshadow",
+        "disabled": true,
+        "lockout": false
+      }
+    ],
+    "groups": [],
+    "sessions": []
+  },
+  "summary": {
+    "total_users": 5,
+    "total_groups": 0,
+    "total_sessions": 0,
+    "timestamp": "2025-07-06T22:57:57.980828",
+    "mode": "full"
+  },
+  "error": null
+}

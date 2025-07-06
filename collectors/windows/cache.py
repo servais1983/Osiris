@@ -9,6 +9,7 @@ import threading
 import json
 import os
 from pathlib import Path
+import hashlib
 
 class Cache:
     """Classe de gestion du cache."""
@@ -95,8 +96,10 @@ class Cache:
                 cache_file.unlink()
     
     def _cleanup(self) -> None:
-        """Nettoie le cache en supprimant les entrées expirées."""
+        """Nettoie le cache en supprimant les entrées expirées et les plus anciennes si nécessaire."""
         now = datetime.now()
+        
+        # Supprimer les entrées expirées
         expired_keys = [
             key for key, entry in self._cache.items()
             if now >= entry['expires_at']
@@ -106,6 +109,22 @@ class Cache:
             cache_file = self._cache_dir / f"{key}.json"
             if cache_file.exists():
                 cache_file.unlink()
+        
+        # Si le cache est encore trop plein, supprimer les entrées les plus anciennes
+        if len(self._cache) >= self._max_size:
+            # Trier par date de création (la plus ancienne en premier)
+            sorted_entries = sorted(
+                self._cache.items(),
+                key=lambda x: x[1]['expires_at'] - timedelta(seconds=self._ttl)
+            )
+            
+            # Supprimer les entrées les plus anciennes
+            keys_to_remove = sorted_entries[:len(self._cache) - self._max_size + 1]
+            for key, _ in keys_to_remove:
+                del self._cache[key]
+                cache_file = self._cache_dir / f"{key}.json"
+                if cache_file.exists():
+                    cache_file.unlink()
     
     def _save_to_disk(self, key: str, value: Any) -> None:
         """
@@ -159,8 +178,9 @@ def cached(ttl: int = 300):
     def decorator(func: Callable) -> Callable:
         @functools.wraps(func)
         def wrapper(*args, **kwargs):
-            # Génération de la clé de cache
-            key = f"{func.__name__}:{str(args)}:{str(kwargs)}"
+            # Génération de la clé de cache avec hash pour éviter les caractères invalides
+            key_data = f"{func.__name__}:{str(args)}:{str(kwargs)}"
+            key = hashlib.md5(key_data.encode()).hexdigest()
             
             # Tentative de récupération depuis le cache
             result = cache.get(key)

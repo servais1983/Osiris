@@ -64,31 +64,69 @@ class BrowserHistoryCollector(WindowsCollector):
         }
     
     def collect(self) -> Dict[str, Any]:
-        """Collecte l'historique des navigateurs"""
-        browser_data = {}
+        return super().collect()
+
+    def _collect(self) -> Dict[str, Any]:
+        results = {
+            'system_info': self.get_system_info(),
+            'browser_data': {},
+            'summary': {}
+        }
         
-        # Chrome
         try:
-            browser_data['chrome'] = self._collect_chrome_data()
+            # Chrome
+            try:
+                results['browser_data']['chrome'] = self._collect_chrome_data()
+            except Exception as e:
+                self.logger.error(f"Erreur lors de la collecte des données Chrome: {e}")
+                results['browser_data']['chrome'] = {'error': str(e)}
+            
+            # Firefox
+            try:
+                results['browser_data']['firefox'] = self._collect_firefox_data()
+            except Exception as e:
+                self.logger.error(f"Erreur lors de la collecte des données Firefox: {e}")
+                results['browser_data']['firefox'] = {'error': str(e)}
+            
+            # Edge
+            try:
+                results['browser_data']['edge'] = self._collect_edge_data()
+            except Exception as e:
+                self.logger.error(f"Erreur lors de la collecte des données Edge: {e}")
+                results['browser_data']['edge'] = {'error': str(e)}
+            
+            # Générer un résumé
+            total_profiles = 0
+            total_history_entries = 0
+            total_cookies = 0
+            total_logins = 0
+            
+            for browser, data in results['browser_data'].items():
+                if isinstance(data, dict) and 'error' not in data:
+                    for profile, profile_data in data.items():
+                        if isinstance(profile_data, dict):
+                            total_profiles += 1
+                            if 'history' in profile_data and isinstance(profile_data['history'], list):
+                                total_history_entries += len(profile_data['history'])
+                            if 'cookies' in profile_data and isinstance(profile_data['cookies'], list):
+                                total_cookies += len(profile_data['cookies'])
+                            if 'logins' in profile_data and isinstance(profile_data['logins'], list):
+                                total_logins += len(profile_data['logins'])
+            
+            results['summary'] = {
+                'total_browsers': len(results['browser_data']),
+                'total_profiles': total_profiles,
+                'total_history_entries': total_history_entries,
+                'total_cookies': total_cookies,
+                'total_logins': total_logins,
+                'timestamp': datetime.now().isoformat()
+            }
+            
         except Exception as e:
-            self.logger.error(f"Erreur lors de la collecte des données Chrome: {e}")
-            browser_data['chrome'] = {'error': str(e)}
+            self.logger.error(f"Erreur lors de la collecte de l'historique des navigateurs: {e}")
+            results['error'] = str(e)
         
-        # Firefox
-        try:
-            browser_data['firefox'] = self._collect_firefox_data()
-        except Exception as e:
-            self.logger.error(f"Erreur lors de la collecte des données Firefox: {e}")
-            browser_data['firefox'] = {'error': str(e)}
-        
-        # Edge
-        try:
-            browser_data['edge'] = self._collect_edge_data()
-        except Exception as e:
-            self.logger.error(f"Erreur lors de la collecte des données Edge: {e}")
-            browser_data['edge'] = {'error': str(e)}
-        
-        return browser_data
+        return results
     
     def _collect_chrome_data(self) -> Dict[str, Any]:
         """Collecte les données de Chrome"""

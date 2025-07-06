@@ -1,36 +1,24 @@
-import { createBrowserRouter } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Layout from './components/Layout';
 import Dashboard from './components/Dashboard';
 import Agents from './components/Agents';
 import Hunt from './components/Hunt';
-import Timeline from './components/Timeline';
-import Cases from './components/Cases';
-import Layout from './components/Layout';
+import CasesDashboard from './components/CasesDashboard';
 
-export const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Layout />,
-    children: [
-      {
-        index: true,
-        element: <Dashboard />
-      },
-      {
-        path: 'agents',
-        element: <Agents />
-      },
-      {
-        path: 'hunt',
-        element: <Hunt />
-      },
-      {
-        path: 'timeline/:agentId',
-        element: <Timeline />
-      },
-      {
-        path: 'cases',
-        element: <Cases />
-      }
-    ]
-  }
-]); 
+function AppRoutes() {
+  return (
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/agents" element={<Agents />} />
+          <Route path="/hunt" element={<Hunt />} />
+          <Route path="/cases" element={<CasesDashboard />} />
+        </Routes>
+      </Layout>
+    </Router>
+  );
+}
+
+export default AppRoutes; 

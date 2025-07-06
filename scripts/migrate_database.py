@@ -9,6 +9,8 @@ from pathlib import Path
 from typing import Dict, List, Any, Optional
 import os
 from dotenv import load_dotenv
+import sys
+import psycopg2
 
 # Configuration du logging
 logging.basicConfig(
@@ -19,6 +21,9 @@ logger = logging.getLogger(__name__)
 
 # Chargement des variables d'environnement
 load_dotenv()
+
+# Ajouter le répertoire parent au path
+sys.path.append(str(Path(__file__).parent.parent))
 
 class DatabaseMigrator:
     """Gestionnaire de migration des bases de données"""
@@ -277,6 +282,59 @@ async def main():
         
     finally:
         await migrator.close()
+
+def run_migration():
+    """Exécute les migrations de base de données"""
+    
+    # Configuration de la base de données
+    db_config = {
+        'host': os.getenv('POSTGRES_HOST', 'localhost'),
+        'port': os.getenv('POSTGRES_PORT', '5432'),
+        'database': os.getenv('POSTGRES_DB', 'osiris'),
+        'user': os.getenv('POSTGRES_USER', 'osiris'),
+        'password': os.getenv('POSTGRES_PASSWORD', 'osiris')
+    }
+    
+    try:
+        # Connexion à la base de données
+        conn = psycopg2.connect(**db_config)
+        cursor = conn.cursor()
+        
+        print("✅ Connexion à la base de données établie")
+        
+        # Lire et exécuter le schéma de gestion de cas
+        schema_path = Path(__file__).parent.parent / "hive" / "storage" / "schemas" / "case_management.sql"
+        
+        if schema_path.exists():
+            with open(schema_path, 'r') as f:
+                schema_sql = f.read()
+            
+            # Exécuter le schéma
+            cursor.execute(schema_sql)
+            conn.commit()
+            print("✅ Tables de gestion de cas créées avec succès")
+        else:
+            print("⚠️  Fichier de schéma non trouvé:", schema_path)
+        
+        # Vérifier que les tables existent
+        cursor.execute("""
+            SELECT table_name 
+            FROM information_schema.tables 
+            WHERE table_schema = 'public' 
+            AND table_name IN ('cases', 'evidence', 'case_notes')
+        """)
+        
+        existing_tables = [row[0] for row in cursor.fetchall()]
+        print(f"📋 Tables existantes: {existing_tables}")
+        
+        cursor.close()
+        conn.close()
+        
+        print("✅ Migration terminée avec succès")
+        
+    except Exception as e:
+        print(f"❌ Erreur lors de la migration: {e}")
+        sys.exit(1)
 
 if __name__ == '__main__':
     asyncio.run(main()) 

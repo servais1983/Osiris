@@ -1,0 +1,2326 @@
+{
+  "system_info": {
+    "platform": "windows",
+    "platform_version": "10.0.26100",
+    "hostname": "Stshadow",
+    "current_user": "stser",
+    "python_version": "3.13.1",
+    "timestamp": "2025-07-06T23:02:10.316814",
+    "is_admin": 0
+  },
+  "data": {
+    "connections": [
+      {
+        "fd": -1,
+        "family": "23",
+        "type": "2",
+        "laddr": ":::5353",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 2088
+      },
+      {
+        "fd": -1,
+        "family": "23",
+        "type": "1",
+        "laddr": ":::445",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 4
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:49382",
+        "raddr": "127.0.0.1:8191",
+        "status": "ESTABLISHED",
+        "pid": 12436
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "0.0.0.0:49683",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 1460
+      },
+      {
+        "fd": -1,
+        "family": "23",
+        "type": "1",
+        "laddr": ":::3306",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 7280
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:48979",
+        "raddr": "127.0.0.1:8191",
+        "status": "ESTABLISHED",
+        "pid": 5836
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:40890",
+        "raddr": "127.0.0.1:40898",
+        "status": "ESTABLISHED",
+        "pid": 18424
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "2",
+        "laddr": "192.168.110.1:57729",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 8256
+      },
+      {
+        "fd": -1,
+        "family": "23",
+        "type": "2",
+        "laddr": ":::5355",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 2088
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:49672",
+        "raddr": "127.0.0.1:49671",
+        "status": "ESTABLISHED",
+        "pid": 7280
+      },
+      {
+        "fd": -1,
+        "family": "23",
+        "type": "1",
+        "laddr": "::1:27017",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 17080
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "2",
+        "laddr": "0.0.0.0:23232",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 5560
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "192.168.0.55:52591",
+        "raddr": "192.168.0.123:8009",
+        "status": "ESTABLISHED",
+        "pid": 17084
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "2",
+        "laddr": "0.0.0.0:51203",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 17084
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:41163",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 17080
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "192.168.0.55:29468",
+        "raddr": "192.168.0.59:8009",
+        "status": "ESTABLISHED",
+        "pid": 17084
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "0.0.0.0:49668",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 4528
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:52314",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 7444
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "2",
+        "laddr": "0.0.0.0:4500",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 5124
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "192.168.0.55:29785",
+        "raddr": "64.233.184.139:443",
+        "status": "ESTABLISHED",
+        "pid": 17084
+      },
+      {
+        "fd": -1,
+        "family": "23",
+        "type": "2",
+        "laddr": "fe80::7e1:8292:31cc:64eb:1900",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 8256
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "2",
+        "laddr": "0.0.0.0:5050",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 14792
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:15393",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 39068
+      },
+      {
+        "fd": -1,
+        "family": "23",
+        "type": "1",
+        "laddr": ":::135",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 1700
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "2",
+        "laddr": "172.30.144.1:57732",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 8256
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "2",
+        "laddr": "172.28.48.1:138",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 4
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:51044",
+        "raddr": "127.0.0.1:8191",
+        "status": "ESTABLISHED",
+        "pid": 5836
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "192.168.0.55:29360",
+        "raddr": "34.193.13.3:443",
+        "status": "ESTABLISHED",
+        "pid": 15784
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "0.0.0.0:445",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 4
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "2",
+        "laddr": "192.168.56.1:138",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 4
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "0.0.0.0:49667",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 3232
+      },
+      {
+        "fd": -1,
+        "family": "23",
+        "type": "2",
+        "laddr": ":::54435",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 33420
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "0.0.0.0:912",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 5980
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "2",
+        "laddr": "0.0.0.0:57271",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 4736
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "2",
+        "laddr": "192.168.56.1:57727",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 8256
+      },
+      {
+        "fd": -1,
+        "family": "23",
+        "type": "1",
+        "laddr": ":::63380",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 15784
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "2",
+        "laddr": "192.168.245.1:137",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 4
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "192.168.0.55:26808",
+        "raddr": "52.7.181.32:443",
+        "status": "ESTABLISHED",
+        "pid": 15784
+      },
+      {
+        "fd": -1,
+        "family": "23",
+        "type": "2",
+        "laddr": "fe80::455a:da75:966f:9cf2:57723",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 8256
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:8191",
+        "raddr": "127.0.0.1:51082",
+        "status": "ESTABLISHED",
+        "pid": 1224
+      },
+      {
+        "fd": -1,
+        "family": "23",
+        "type": "2",
+        "laddr": "fe80::b42f:f313:fafe:fb45:1900",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 8256
+      },
+      {
+        "fd": -1,
+        "family": "23",
+        "type": "2",
+        "laddr": "fe80::bcef:3000:7fd8:5a6:1900",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 8256
+      },
+      {
+        "fd": -1,
+        "family": "23",
+        "type": "2",
+        "laddr": ":::500",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 5124
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:49673",
+        "raddr": "127.0.0.1:49674",
+        "status": "ESTABLISHED",
+        "pid": 7280
+      },
+      {
+        "fd": -1,
+        "family": "23",
+        "type": "1",
+        "laddr": ":::49664",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 1488
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "2",
+        "laddr": "192.168.0.55:1900",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 8256
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "2",
+        "laddr": "0.0.0.0:123",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 36880
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "192.168.245.1:139",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 4
+      },
+      {
+        "fd": -1,
+        "family": "23",
+        "type": "1",
+        "laddr": ":::49668",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 4528
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "0.0.0.0:49682",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 5092
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:51003",
+        "raddr": "127.0.0.1:51004",
+        "status": "ESTABLISHED",
+        "pid": 7948
+      },
+      {
+        "fd": -1,
+        "family": "23",
+        "type": "2",
+        "laddr": ":::53453",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 2088
+      },
+      {
+        "fd": -1,
+        "family": "23",
+        "type": "2",
+        "laddr": "fe80::5a9d:b3ad:713e:fbbd:57725",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 8256
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "2",
+        "laddr": "127.0.0.1:61440",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 5144
+      },
+      {
+        "fd": -1,
+        "family": "23",
+        "type": "2",
+        "laddr": "::1:1900",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 8256
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:51047",
+        "raddr": "127.0.0.1:8191",
+        "status": "ESTABLISHED",
+        "pid": 5836
+      },
+      {
+        "fd": -1,
+        "family": "23",
+        "type": "1",
+        "laddr": ":::8834",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 7948
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "2",
+        "laddr": "0.0.0.0:51542",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 17084
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "2",
+        "laddr": "0.0.0.0:54434",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 33420
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "2",
+        "laddr": "172.30.144.1:1900",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 8256
+      },
+      {
+        "fd": -1,
+        "family": "23",
+        "type": "2",
+        "laddr": ":::5353",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 33420
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "192.168.0.55:29333",
+        "raddr": "44.198.144.134:443",
+        "status": "ESTABLISHED",
+        "pid": 15784
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "0.0.0.0:49679",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 5092
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "0.0.0.0:902",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 5980
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "192.168.0.55:45068",
+        "raddr": "104.18.19.125:443",
+        "status": "ESTABLISHED",
+        "pid": 15784
+      },
+      {
+        "fd": -1,
+        "family": "23",
+        "type": "1",
+        "laddr": ":::49667",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 3232
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "0.0.0.0:49665",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 1384
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "192.168.0.55:49395",
+        "raddr": "18.203.124.33:9090",
+        "status": "ESTABLISHED",
+        "pid": 5560
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "2",
+        "laddr": "192.168.110.1:138",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 4
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "2",
+        "laddr": "0.0.0.0:5353",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 33420
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:8191",
+        "raddr": "127.0.0.1:48977",
+        "status": "ESTABLISHED",
+        "pid": 1224
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "192.168.0.55:29757",
+        "raddr": "54.208.218.220:443",
+        "status": "ESTABLISHED",
+        "pid": 24340
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:51083",
+        "raddr": "127.0.0.1:8191",
+        "status": "ESTABLISHED",
+        "pid": 12436
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "2",
+        "laddr": "172.28.48.1:68",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 4736
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:8191",
+        "raddr": "127.0.0.1:51044",
+        "status": "ESTABLISHED",
+        "pid": 1224
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:50990",
+        "raddr": "127.0.0.1:50991",
+        "status": "ESTABLISHED",
+        "pid": 7948
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "0.0.0.0:49681",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 5092
+      },
+      {
+        "fd": -1,
+        "family": "23",
+        "type": "2",
+        "laddr": "fe80::923a:8ffb:6514:b842:57721",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 8256
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "192.168.0.55:52583",
+        "raddr": "192.168.0.238:8009",
+        "status": "ESTABLISHED",
+        "pid": 17084
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:8191",
+        "raddr": "127.0.0.1:51078",
+        "status": "ESTABLISHED",
+        "pid": 1224
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "192.168.110.1:139",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 4
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "192.168.0.55:49392",
+        "raddr": "54.73.243.218:9090",
+        "status": "ESTABLISHED",
+        "pid": 5560
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "192.168.0.55:27981",
+        "raddr": "192.168.0.59:32087",
+        "status": "ESTABLISHED",
+        "pid": 17084
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:40890",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 18424
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "2",
+        "laddr": "0.0.0.0:53",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 4736
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:8191",
+        "raddr": "127.0.0.1:51083",
+        "status": "ESTABLISHED",
+        "pid": 1224
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:64173",
+        "raddr": "127.0.0.1:8191",
+        "status": "ESTABLISHED",
+        "pid": 5836
+      },
+      {
+        "fd": -1,
+        "family": "23",
+        "type": "2",
+        "laddr": "fe80::5a9d:b3ad:713e:fbbd:1900",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 8256
+      },
+      {
+        "fd": -1,
+        "family": "23",
+        "type": "1",
+        "laddr": ":::49666",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 3124
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "172.28.48.1:139",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 4
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:49671",
+        "raddr": "127.0.0.1:49672",
+        "status": "ESTABLISHED",
+        "pid": 7280
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "2",
+        "laddr": "0.0.0.0:5355",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 2088
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "2",
+        "laddr": "192.168.56.1:137",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 4
+      },
+      {
+        "fd": -1,
+        "family": "23",
+        "type": "1",
+        "laddr": ":::2179",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 3116
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "2",
+        "laddr": "192.168.0.55:57730",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 8256
+      },
+      {
+        "fd": -1,
+        "family": "23",
+        "type": "2",
+        "laddr": ":::4500",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 5124
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:52318",
+        "raddr": "127.0.0.1:52314",
+        "status": "ESTABLISHED",
+        "pid": 9808
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "2",
+        "laddr": "192.168.245.1:57728",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 8256
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "0.0.0.0:2179",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 3116
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:49674",
+        "raddr": "127.0.0.1:49673",
+        "status": "ESTABLISHED",
+        "pid": 7280
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "0.0.0.0:33060",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 7280
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "192.168.0.55:28729",
+        "raddr": "3.77.249.83:443",
+        "status": "ESTABLISHED",
+        "pid": 5176
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "0.0.0.0:49680",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 5092
+      },
+      {
+        "fd": -1,
+        "family": "23",
+        "type": "2",
+        "laddr": ":::51087",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 4736
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "0.0.0.0:8000",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 5836
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "192.168.0.55:29844",
+        "raddr": "44.236.186.200:443",
+        "status": "TIME_WAIT",
+        "pid": 0
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "192.168.0.55:29464",
+        "raddr": "44.223.235.14:443",
+        "status": "ESTABLISHED",
+        "pid": 24340
+      },
+      {
+        "fd": -1,
+        "family": "23",
+        "type": "1",
+        "laddr": ":::33060",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 7280
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "2",
+        "laddr": "0.0.0.0:51086",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 4736
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "0.0.0.0:63380",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 15784
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "0.0.0.0:3306",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 7280
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "0.0.0.0:8191",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 1224
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "192.168.0.55:29846",
+        "raddr": "13.107.5.93:443",
+        "status": "TIME_WAIT",
+        "pid": 0
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:29857",
+        "raddr": "127.0.0.1:8089",
+        "status": "TIME_WAIT",
+        "pid": 0
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:45056",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 15784
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "192.168.0.55:49406",
+        "raddr": "34.253.86.147:9090",
+        "status": "ESTABLISHED",
+        "pid": 5560
+      },
+      {
+        "fd": -1,
+        "family": "23",
+        "type": "1",
+        "laddr": ":::63381",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 34452
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "2",
+        "laddr": "192.168.0.55:137",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 4
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "0.0.0.0:8834",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 7948
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "2",
+        "laddr": "192.168.0.55:138",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 4
+      },
+      {
+        "fd": -1,
+        "family": "23",
+        "type": "2",
+        "laddr": ":::57272",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 4736
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:52314",
+        "raddr": "127.0.0.1:52318",
+        "status": "ESTABLISHED",
+        "pid": 7444
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:8830",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 34452
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "192.168.0.55:28724",
+        "raddr": "104.75.232.13:80",
+        "status": "ESTABLISHED",
+        "pid": 2212
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:51078",
+        "raddr": "127.0.0.1:8191",
+        "status": "ESTABLISHED",
+        "pid": 12436
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "2",
+        "laddr": "192.168.110.1:1900",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 8256
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:51082",
+        "raddr": "127.0.0.1:8191",
+        "status": "ESTABLISHED",
+        "pid": 12436
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "2",
+        "laddr": "0.0.0.0:58576",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 33420
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "2",
+        "laddr": "0.0.0.0:5353",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 12180
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "0.0.0.0:49677",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 5092
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:50850",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 38312
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "0.0.0.0:27017",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 33484
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "2",
+        "laddr": "192.168.110.1:137",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 4
+      },
+      {
+        "fd": -1,
+        "family": "23",
+        "type": "1",
+        "laddr": ":::49683",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 1460
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "2",
+        "laddr": "172.28.48.1:57726",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 8256
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:50991",
+        "raddr": "127.0.0.1:50990",
+        "status": "ESTABLISHED",
+        "pid": 7948
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:8191",
+        "raddr": "127.0.0.1:51459",
+        "status": "ESTABLISHED",
+        "pid": 1224
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:8191",
+        "raddr": "127.0.0.1:48979",
+        "status": "ESTABLISHED",
+        "pid": 1224
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "2",
+        "laddr": "192.168.245.1:138",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 4
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:8065",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 13192
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:8191",
+        "raddr": "127.0.0.1:51080",
+        "status": "ESTABLISHED",
+        "pid": 1224
+      },
+      {
+        "fd": -1,
+        "family": "23",
+        "type": "2",
+        "laddr": "::1:57724",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 8256
+      },
+      {
+        "fd": -1,
+        "family": "23",
+        "type": "2",
+        "laddr": "fe80::7e1:8292:31cc:64eb:57720",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 8256
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "0.0.0.0:7680",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 6412
+      },
+      {
+        "fd": -1,
+        "family": "23",
+        "type": "2",
+        "laddr": "fe80::bcef:3000:7fd8:5a6:57722",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 8256
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "0.0.0.0:135",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 1700
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "2",
+        "laddr": "127.0.0.1:1900",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 8256
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "192.168.0.55:52704",
+        "raddr": "192.168.0.205:8009",
+        "status": "ESTABLISHED",
+        "pid": 17084
+      },
+      {
+        "fd": -1,
+        "family": "23",
+        "type": "1",
+        "laddr": ":::49665",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 1384
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "192.168.56.1:139",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 4
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:8828",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 15784
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "192.168.0.55:49401",
+        "raddr": "54.246.159.109:9090",
+        "status": "ESTABLISHED",
+        "pid": 5560
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "192.168.0.55:29833",
+        "raddr": "44.210.234.98:443",
+        "status": "ESTABLISHED",
+        "pid": 34452
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "0.0.0.0:49666",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 3124
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "2",
+        "laddr": "0.0.0.0:53453",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 2088
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "2",
+        "laddr": "172.30.144.1:138",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 4
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:8089",
+        "raddr": "127.0.0.1:29223",
+        "status": "ESTABLISHED",
+        "pid": 5836
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:51046",
+        "raddr": "127.0.0.1:8191",
+        "status": "ESTABLISHED",
+        "pid": 5836
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "192.168.0.55:28723",
+        "raddr": "104.75.232.13:80",
+        "status": "ESTABLISHED",
+        "pid": 2212
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "192.168.0.55:27965",
+        "raddr": "75.101.182.174:443",
+        "status": "ESTABLISHED",
+        "pid": 15784
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:19292",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 39604
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:51459",
+        "raddr": "127.0.0.1:8191",
+        "status": "ESTABLISHED",
+        "pid": 12436
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "0.0.0.0:63381",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 34452
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "2",
+        "laddr": "127.0.0.1:57731",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 8256
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "192.168.0.55:28904",
+        "raddr": "44.209.32.89:443",
+        "status": "ESTABLISHED",
+        "pid": 4996
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "192.168.0.55:139",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 4
+      },
+      {
+        "fd": -1,
+        "family": "23",
+        "type": "2",
+        "laddr": "fe80::455a:da75:966f:9cf2:1900",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 8256
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:11434",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 17772
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:48978",
+        "raddr": "127.0.0.1:8191",
+        "status": "ESTABLISHED",
+        "pid": 5836
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "0.0.0.0:49664",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 1488
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "2",
+        "laddr": "0.0.0.0:51085",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 4736
+      },
+      {
+        "fd": -1,
+        "family": "23",
+        "type": "2",
+        "laddr": ":::5353",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 12180
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:16494",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 39068
+      },
+      {
+        "fd": -1,
+        "family": "23",
+        "type": "2",
+        "laddr": "fe80::b42f:f313:fafe:fb45:57719",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 8256
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "2",
+        "laddr": "0.0.0.0:5353",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 2088
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "192.168.0.55:28947",
+        "raddr": "75.101.219.103:443",
+        "status": "ESTABLISHED",
+        "pid": 34452
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "192.168.0.55:49462",
+        "raddr": "172.166.106.148:443",
+        "status": "ESTABLISHED",
+        "pid": 6012
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:51454",
+        "raddr": "127.0.0.1:8191",
+        "status": "ESTABLISHED",
+        "pid": 5836
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:8191",
+        "raddr": "127.0.0.1:51454",
+        "status": "ESTABLISHED",
+        "pid": 1224
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "0.0.0.0:5040",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 14792
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:8191",
+        "raddr": "127.0.0.1:64173",
+        "status": "ESTABLISHED",
+        "pid": 1224
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "192.168.0.55:52580",
+        "raddr": "192.168.0.177:8009",
+        "status": "ESTABLISHED",
+        "pid": 17084
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "192.168.0.55:56449",
+        "raddr": "74.125.206.188:5228",
+        "status": "ESTABLISHED",
+        "pid": 17084
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "2",
+        "laddr": "172.28.48.1:67",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 4736
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "2",
+        "laddr": "0.0.0.0:54435",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 33420
+      },
+      {
+        "fd": -1,
+        "family": "23",
+        "type": "1",
+        "laddr": ":::27017",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 33484
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:51004",
+        "raddr": "127.0.0.1:51003",
+        "status": "ESTABLISHED",
+        "pid": 7948
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:29223",
+        "raddr": "127.0.0.1:8089",
+        "status": "ESTABLISHED",
+        "pid": 18424
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "2",
+        "laddr": "172.28.48.1:1900",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 8256
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "192.168.0.55:29439",
+        "raddr": "3.224.44.50:443",
+        "status": "ESTABLISHED",
+        "pid": 34452
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:8191",
+        "raddr": "127.0.0.1:51047",
+        "status": "ESTABLISHED",
+        "pid": 1224
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "0.0.0.0:8089",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 5836
+      },
+      {
+        "fd": -1,
+        "family": "23",
+        "type": "2",
+        "laddr": "fe80::923a:8ffb:6514:b842:1900",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 8256
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:24447",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 34452
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "2",
+        "laddr": "0.0.0.0:61127",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 17084
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:8191",
+        "raddr": "127.0.0.1:51046",
+        "status": "ESTABLISHED",
+        "pid": 1224
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "0.0.0.0:23232",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 5560
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "192.168.0.55:28825",
+        "raddr": "104.18.19.125:443",
+        "status": "ESTABLISHED",
+        "pid": 34452
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:52315",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 7444
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "2",
+        "laddr": "172.30.144.1:137",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 4
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:24830",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 31524
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:8191",
+        "raddr": "127.0.0.1:48978",
+        "status": "ESTABLISHED",
+        "pid": 1224
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "192.168.0.55:56473",
+        "raddr": "172.166.106.148:443",
+        "status": "ESTABLISHED",
+        "pid": 15796
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:8191",
+        "raddr": "127.0.0.1:49382",
+        "status": "ESTABLISHED",
+        "pid": 1224
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:40892",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 18424
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "2",
+        "laddr": "192.168.245.1:1900",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 8256
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "2",
+        "laddr": "0.0.0.0:500",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 5124
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "192.168.0.55:29560",
+        "raddr": "34.193.240.241:443",
+        "status": "ESTABLISHED",
+        "pid": 15784
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:48977",
+        "raddr": "127.0.0.1:8191",
+        "status": "ESTABLISHED",
+        "pid": 12436
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "172.30.144.1:139",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 4
+      },
+      {
+        "fd": -1,
+        "family": "23",
+        "type": "2",
+        "laddr": ":::123",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 36880
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:40898",
+        "raddr": "127.0.0.1:40890",
+        "status": "ESTABLISHED",
+        "pid": 9808
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:51080",
+        "raddr": "127.0.0.1:8191",
+        "status": "ESTABLISHED",
+        "pid": 12436
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "127.0.0.1:15292",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 39068
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "192.168.0.55:56356",
+        "raddr": "74.248.74.126:443",
+        "status": "ESTABLISHED",
+        "pid": 18088
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "192.168.0.55:29293",
+        "raddr": "140.82.114.26:443",
+        "status": "ESTABLISHED",
+        "pid": 17084
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "2",
+        "laddr": "172.28.48.1:137",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 4
+      },
+      {
+        "fd": -1,
+        "family": "23",
+        "type": "2",
+        "laddr": ":::23232",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 5560
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "0.0.0.0:49678",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 5092
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "1",
+        "laddr": "192.168.0.55:29424",
+        "raddr": "52.44.201.121:443",
+        "status": "ESTABLISHED",
+        "pid": 34452
+      },
+      {
+        "fd": -1,
+        "family": "2",
+        "type": "2",
+        "laddr": "192.168.56.1:1900",
+        "raddr": null,
+        "status": "NONE",
+        "pid": 8256
+      },
+      {
+        "fd": -1,
+        "family": "23",
+        "type": "1",
+        "laddr": ":::7680",
+        "raddr": null,
+        "status": "LISTEN",
+        "pid": 6412
+      }
+    ],
+    "interfaces": [
+      {
+        "name": "vEthernet (Default Switch)",
+        "addresses": [
+          {
+            "family": "-1",
+            "address": "00-15-5D-2B-43-0B",
+            "netmask": null,
+            "broadcast": null
+          },
+          {
+            "family": "2",
+            "address": "172.28.48.1",
+            "netmask": "255.255.240.0",
+            "broadcast": null
+          },
+          {
+            "family": "23",
+            "address": "fe80::b42f:f313:fafe:fb45",
+            "netmask": null,
+            "broadcast": null
+          }
+        ]
+      },
+      {
+        "name": "Ethernet 3",
+        "addresses": [
+          {
+            "family": "-1",
+            "address": "0A-00-27-00-00-06",
+            "netmask": null,
+            "broadcast": null
+          },
+          {
+            "family": "2",
+            "address": "192.168.56.1",
+            "netmask": "255.255.255.0",
+            "broadcast": null
+          },
+          {
+            "family": "23",
+            "address": "fe80::7e1:8292:31cc:64eb",
+            "netmask": null,
+            "broadcast": null
+          }
+        ]
+      },
+      {
+        "name": "McAfee VPN",
+        "addresses": [
+          {
+            "family": "-1",
+            "address": "00-FF-15-A3-74-A8",
+            "netmask": null,
+            "broadcast": null
+          },
+          {
+            "family": "2",
+            "address": "169.254.32.30",
+            "netmask": "255.255.0.0",
+            "broadcast": null
+          },
+          {
+            "family": "23",
+            "address": "fe80::7502:952b:2cd8:9a17",
+            "netmask": null,
+            "broadcast": null
+          }
+        ]
+      },
+      {
+        "name": "Connexion au réseau local",
+        "addresses": [
+          {
+            "family": "-1",
+            "address": "00-FF-91-E7-B8-C2",
+            "netmask": null,
+            "broadcast": null
+          },
+          {
+            "family": "2",
+            "address": "169.254.105.147",
+            "netmask": "255.255.0.0",
+            "broadcast": null
+          },
+          {
+            "family": "23",
+            "address": "fe80::5e8d:eb4b:d5a0:b055",
+            "netmask": null,
+            "broadcast": null
+          }
+        ]
+      },
+      {
+        "name": "Connexion au réseau local* 1",
+        "addresses": [
+          {
+            "family": "-1",
+            "address": "96-BB-43-5A-BD-14",
+            "netmask": null,
+            "broadcast": null
+          },
+          {
+            "family": "2",
+            "address": "169.254.189.136",
+            "netmask": "255.255.0.0",
+            "broadcast": null
+          },
+          {
+            "family": "23",
+            "address": "fe80::182c:7012:d9cc:1e57",
+            "netmask": null,
+            "broadcast": null
+          }
+        ]
+      },
+      {
+        "name": "Connexion au réseau local* 2",
+        "addresses": [
+          {
+            "family": "-1",
+            "address": "96-BB-43-5A-AD-04",
+            "netmask": null,
+            "broadcast": null
+          },
+          {
+            "family": "2",
+            "address": "169.254.56.244",
+            "netmask": "255.255.0.0",
+            "broadcast": null
+          },
+          {
+            "family": "23",
+            "address": "fe80::fafc:daa7:2c2:42d6",
+            "netmask": null,
+            "broadcast": null
+          }
+        ]
+      },
+      {
+        "name": "VMware Network Adapter VMnet1",
+        "addresses": [
+          {
+            "family": "-1",
+            "address": "00-50-56-C0-00-01",
+            "netmask": null,
+            "broadcast": null
+          },
+          {
+            "family": "2",
+            "address": "192.168.245.1",
+            "netmask": "255.255.255.0",
+            "broadcast": null
+          },
+          {
+            "family": "23",
+            "address": "fe80::923a:8ffb:6514:b842",
+            "netmask": null,
+            "broadcast": null
+          }
+        ]
+      },
+      {
+        "name": "VMware Network Adapter VMnet8",
+        "addresses": [
+          {
+            "family": "-1",
+            "address": "00-50-56-C0-00-08",
+            "netmask": null,
+            "broadcast": null
+          },
+          {
+            "family": "2",
+            "address": "192.168.110.1",
+            "netmask": "255.255.255.0",
+            "broadcast": null
+          },
+          {
+            "family": "23",
+            "address": "fe80::bcef:3000:7fd8:5a6",
+            "netmask": null,
+            "broadcast": null
+          }
+        ]
+      },
+      {
+        "name": "Wi-Fi",
+        "addresses": [
+          {
+            "family": "-1",
+            "address": "94-BB-43-5A-9D-34",
+            "netmask": null,
+            "broadcast": null
+          },
+          {
+            "family": "2",
+            "address": "192.168.0.55",
+            "netmask": "255.255.255.0",
+            "broadcast": null
+          },
+          {
+            "family": "23",
+            "address": "2a02:2788:624:468:defe:e4f3:d1e0:bad8",
+            "netmask": null,
+            "broadcast": null
+          },
+          {
+            "family": "23",
+            "address": "fe80::455a:da75:966f:9cf2",
+            "netmask": null,
+            "broadcast": null
+          }
+        ]
+      },
+      {
+        "name": "vEthernet (WSL (Hyper-V firewall))",
+        "addresses": [
+          {
+            "family": "-1",
+            "address": "00-15-5D-9F-27-ED",
+            "netmask": null,
+            "broadcast": null
+          },
+          {
+            "family": "2",
+            "address": "172.30.144.1",
+            "netmask": "255.255.240.0",
+            "broadcast": null
+          },
+          {
+            "family": "23",
+            "address": "fe80::5a9d:b3ad:713e:fbbd",
+            "netmask": null,
+            "broadcast": null
+          }
+        ]
+      },
+      {
+        "name": "Connexion au réseau local 2",
+        "addresses": [
+          {
+            "family": "2",
+            "address": "169.254.137.92",
+            "netmask": "255.255.0.0",
+            "broadcast": null
+          },
+          {
+            "family": "23",
+            "address": "fe80::6ccc:4e04:40a8:a63e",
+            "netmask": null,
+            "broadcast": null
+          }
+        ]
+      },
+      {
+        "name": "Connexion au réseau local 3",
+        "addresses": [
+          {
+            "family": "2",
+            "address": "169.254.170.227",
+            "netmask": "255.255.0.0",
+            "broadcast": null
+          },
+          {
+            "family": "23",
+            "address": "fe80::6ccc:4e04:40a8:a63e",
+            "netmask": null,
+            "broadcast": null
+          }
+        ]
+      },
+      {
+        "name": "OpenVPN Connect DCO Adapter",
+        "addresses": [
+          {
+            "family": "2",
+            "address": "169.254.155.81",
+            "netmask": "255.255.0.0",
+            "broadcast": null
+          },
+          {
+            "family": "23",
+            "address": "fe80::6ccc:4e04:40a8:a63e",
+            "netmask": null,
+            "broadcast": null
+          }
+        ]
+      },
+      {
+        "name": "Loopback Pseudo-Interface 1",
+        "addresses": [
+          {
+            "family": "2",
+            "address": "127.0.0.1",
+            "netmask": "255.0.0.0",
+            "broadcast": null
+          },
+          {
+            "family": "23",
+            "address": "::1",
+            "netmask": null,
+            "broadcast": null
+          }
+        ]
+      }
+    ]
+  },
+  "summary": {
+    "total_connections": 222,
+    "total_interfaces": 14,
+    "timestamp": "2025-07-06T23:02:10.396684",
+    "mode": "full"
+  },
+  "error": null
+}

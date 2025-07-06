@@ -43,27 +43,52 @@ class WindowsNetworkCollector(WindowsCollector):
         self.MIB_UDPTABLE_OWNER_PID = struct.Struct('II')
     
     def collect(self) -> Dict[str, Any]:
-        """Collecte les informations sur les connexions réseau"""
-        if not self._check_privileges():
-            return {'error': 'Privilèges insuffisants'}
+        return super().collect()
+
+    def _collect(self) -> Dict[str, Any]:
+        results = {
+            'system_info': self.get_system_info(),
+            'connections': {
+                'tcp': [],
+                'udp': []
+            },
+            'interfaces': [],
+            'routing': [],
+            'dns': {},
+            'arp': [],
+            'firewall': [],
+            'summary': {}
+        }
         
         try:
-            return {
-                'timestamp': datetime.now().isoformat(),
-                'connections': {
-                    'tcp': self._get_tcp_connections(),
-                    'udp': self._get_udp_connections()
-                },
-                'interfaces': self._get_network_interfaces(),
-                'routing': self._get_routing_table(),
-                'dns': self._get_dns_info(),
-                'arp': self._get_arp_table(),
-                'firewall': self._get_firewall_rules()
+            if not self.check_privileges():
+                results['error'] = 'Privilèges insuffisants'
+                return results
+            
+            results['connections']['tcp'] = self._get_tcp_connections()
+            results['connections']['udp'] = self._get_udp_connections()
+            results['interfaces'] = self._get_network_interfaces()
+            results['routing'] = self._get_routing_table()
+            results['dns'] = self._get_dns_info()
+            results['arp'] = self._get_arp_table()
+            results['firewall'] = self._get_firewall_rules()
+            
+            # Générer un résumé
+            results['summary'] = {
+                'total_tcp_connections': len(results['connections']['tcp']),
+                'total_udp_connections': len(results['connections']['udp']),
+                'total_interfaces': len(results['interfaces']),
+                'total_routes': len(results['routing']),
+                'total_arp_entries': len(results['arp']),
+                'total_firewall_rules': len(results['firewall']),
+                'timestamp': datetime.now().isoformat()
             }
             
         except Exception as e:
             self.logger.error(f"Erreur lors de la collecte des connexions réseau: {e}")
-            return {'error': str(e)}
+            results['error'] = str(e)
+        
+        return results
     
     def _get_tcp_connections(self) -> List[Dict[str, Any]]:
         """Récupère les connexions TCP"""

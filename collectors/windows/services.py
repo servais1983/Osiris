@@ -35,20 +35,46 @@ class WindowsServiceCollector(WindowsCollector):
         self.requires_admin = True
     
     def collect(self) -> Dict[str, Any]:
-        """Collecte les informations sur les services"""
-        if not self._check_privileges():
-            return {'error': 'Privilèges insuffisants'}
+        return super().collect()
+
+    def _collect(self) -> Dict[str, Any]:
+        results = {
+            'system_info': self.get_system_info(),
+            'services': [],
+            'drivers': [],
+            'running_services': [],
+            'stopped_services': [],
+            'summary': {}
+        }
         
         try:
-            return {
-                'timestamp': datetime.now().isoformat(),
-                'services': self._get_services(),
-                'drivers': self._get_drivers()
+            # Collecter les services
+            results['services'] = self._get_services()
+            
+            # Collecter les pilotes
+            results['drivers'] = self._get_drivers()
+            
+            # Séparer les services en cours d'exécution et arrêtés
+            for service in results['services']:
+                if service.get('status', {}).get('state') == 'RUNNING':
+                    results['running_services'].append(service)
+                else:
+                    results['stopped_services'].append(service)
+            
+            # Générer un résumé
+            results['summary'] = {
+                'total_services': len(results['services']),
+                'total_drivers': len(results['drivers']),
+                'running_services_count': len(results['running_services']),
+                'stopped_services_count': len(results['stopped_services']),
+                'timestamp': datetime.now().isoformat()
             }
             
         except Exception as e:
             self.logger.error(f"Erreur lors de la collecte des services: {e}")
-            return {'error': str(e)}
+            results['error'] = str(e)
+        
+        return results
     
     def _get_services(self) -> List[Dict[str, Any]]:
         """Récupère la liste des services"""

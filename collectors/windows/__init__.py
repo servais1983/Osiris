@@ -24,6 +24,7 @@ import pythoncom
 import yara
 import hashlib
 import os
+import psutil
 from pathlib import Path
 
 from .base import WindowsCollector
@@ -32,7 +33,7 @@ from .event_logs import WindowsEventLogCollector
 from .events import WindowsEventCollector
 from .files import WindowsFileCollector
 from .network import WindowsNetworkCollector
-from .processes import WindowsProcessCollector
+from .processes import ProcessesCollector
 from .registry import WindowsRegistryCollector
 from .services import WindowsServiceCollector
 from .users import WindowsUserCollector
@@ -44,10 +45,11 @@ __all__ = [
     'WindowsEventCollector',
     'WindowsFileCollector',
     'WindowsNetworkCollector',
-    'WindowsProcessCollector',
+    'ProcessesCollector',
     'WindowsRegistryCollector',
     'WindowsServiceCollector',
-    'WindowsUserCollector'
+    'WindowsUserCollector',
+    'WindowsCollectorManager'
 ]
 
 # Version du module
@@ -158,46 +160,7 @@ def get_browser_info(browser: str) -> Optional[BrowserInfo]:
     except Exception:
         return None
 
-class WindowsEventLogCollector:
-    """Collecteur pour les journaux d'événements Windows"""
-    
-    def __init__(self):
-        self.log_types = ['Security', 'System', 'Application']
-    
-    def collect_events(self, log_type: str, start_time: Optional[datetime] = None) -> List[Dict]:
-        """Collecte les événements d'un type de journal spécifique"""
-        events = []
-        handle = win32evtlog.OpenEventLog(None, log_type)
-        
-        try:
-            while True:
-                events_batch = win32evtlog.ReadEventLog(
-                    handle,
-                    win32evtlog.EVENTLOG_BACKWARDS_READ | win32evtlog.EVENTLOG_SEQUENTIAL_READ,
-                    0
-                )
-                
-                if not events_batch:
-                    break
-                    
-                for event in events_batch:
-                    event_time = datetime.fromtimestamp(event.TimeGenerated)
-                    if start_time and event_time < start_time:
-                        continue
-                        
-                    events.append({
-                        'timestamp': event_time.isoformat(),
-                        'source': event.SourceName,
-                        'event_id': event.EventID,
-                        'event_type': event.EventType,
-                        'category': event.EventCategory,
-                        'message': win32evtlogutil.SafeFormatMessage(event, log_type)
-                    })
-                    
-        finally:
-            win32evtlog.CloseEventLog(handle)
-            
-        return events
+
 
 class RegistryCollector:
     """Collecteur pour le Registre Windows"""
@@ -240,61 +203,7 @@ class RegistryCollector:
         except WindowsError as e:
             return {'error': str(e)}
 
-class BrowserHistoryCollector:
-    """Collecteur pour l'historique des navigateurs"""
-    
-    def __init__(self):
-        self.browser_paths = {
-            'chrome': Path.home() / 'AppData/Local/Google/Chrome/User Data/Default/History',
-            'firefox': Path.home() / 'AppData/Roaming/Mozilla/Firefox/Profiles',
-            'edge': Path.home() / 'AppData/Local/Microsoft/Edge/User Data/Default/History'
-        }
-    
-    def collect_chrome_history(self) -> List[Dict]:
-        """Collecte l'historique Chrome"""
-        history_path = self.browser_paths['chrome']
-        if not history_path.exists():
-            return []
-            
-        # Copie temporaire car la base est verrouillée
-        temp_path = history_path.parent / 'temp_history'
-        import shutil
-        shutil.copy2(history_path, temp_path)
-        
-        try:
-            conn = sqlite3.connect(temp_path)
-            cursor = conn.cursor()
-            
-            cursor.execute("""
-                SELECT url, title, last_visit_time, visit_count
-                FROM urls
-                ORDER BY last_visit_time DESC
-            """)
-            
-            history = []
-            for row in cursor.fetchall():
-                history.append({
-                    'url': row[0],
-                    'title': row[1],
-                    'last_visit': datetime.fromtimestamp(row[2] / 1000000 - 11644473600),
-                    'visit_count': row[3]
-                })
-                
-            return history
-            
-        finally:
-            conn.close()
-            temp_path.unlink()
-    
-    def collect_firefox_history(self) -> List[Dict]:
-        """Collecte l'historique Firefox"""
-        # TODO: Implémenter la collecte Firefox
-        pass
-    
-    def collect_edge_history(self) -> List[Dict]:
-        """Collecte l'historique Edge"""
-        # TODO: Implémenter la collecte Edge
-        pass
+
 
 class ProcessMemoryCollector:
     """Collecteur pour la mémoire des processus"""
@@ -337,3 +246,35 @@ class ProcessMemoryCollector:
             return maps
         except psutil.AccessDenied:
             return [] 
+
+class WindowsCollectorManager:
+    """Gestionnaire des collecteurs Windows"""
+    def __init__(self):
+        self.collectors = {
+            'processes': ProcessesCollector,
+            'services': WindowsServiceCollector,
+            'registry': WindowsRegistryCollector,
+            'event_logs': WindowsEventLogCollector,
+            'network': WindowsNetworkCollector,
+            'files': WindowsFileCollector,
+            'users': WindowsUserCollector,
+            'browser_history': BrowserHistoryCollector
+        }
+
+    def get_collector(self, name: str):
+        if name not in self.collectors:
+            raise ValueError(f"Collecteur inconnu: {name}")
+        return self.collectors[name]()
+
+    def list_collectors(self):
+        return list(self.collectors.keys())
+
+    def collect_all(self):
+        results = {}
+        for name, collector_class in self.collectors.items():
+            try:
+                collector = collector_class()
+                results[name] = collector.collect()
+            except Exception as e:
+                results[name] = {'error': str(e)}
+        return results 

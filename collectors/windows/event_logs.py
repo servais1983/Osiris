@@ -23,19 +23,50 @@ class WindowsEventLogCollector(WindowsCollector):
         ]
     
     def collect(self, start_time: Optional[datetime] = None) -> Dict[str, Any]:
-        """Collecte les événements des journaux Windows"""
-        if not self.check_privileges():
-            return {'error': 'Privilèges insuffisants'}
+        return super().collect()
+
+    def _collect(self, start_time: Optional[datetime] = None) -> Dict[str, Any]:
+        results = {
+            'system_info': self.get_system_info(),
+            'event_logs': {},
+            'log_statistics': {},
+            'summary': {}
+        }
         
-        events = {}
-        for log_type in self.log_types:
-            try:
-                events[log_type] = self._collect_log_events(log_type, start_time)
-            except Exception as e:
-                self.logger.error(f"Erreur lors de la collecte des événements {log_type}: {e}")
-                events[log_type] = {'error': str(e)}
+        try:
+            if not self.check_privileges():
+                results['error'] = 'Privilèges insuffisants'
+                return results
+            
+            # Collecter les événements pour chaque type de journal
+            for log_type in self.log_types:
+                try:
+                    results['event_logs'][log_type] = self._collect_log_events(log_type, start_time)
+                except Exception as e:
+                    self.logger.error(f"Erreur lors de la collecte des événements {log_type}: {e}")
+                    results['event_logs'][log_type] = {'error': str(e)}
+            
+            # Collecter les statistiques
+            results['log_statistics'] = self.get_log_statistics()
+            
+            # Générer un résumé
+            total_events = 0
+            for log_type, events in results['event_logs'].items():
+                if isinstance(events, list):
+                    total_events += len(events)
+            
+            results['summary'] = {
+                'total_log_types': len(self.log_types),
+                'total_events': total_events,
+                'start_time': start_time.isoformat() if start_time else None,
+                'timestamp': datetime.now().isoformat()
+            }
+            
+        except Exception as e:
+            self.logger.error(f"Erreur lors de la collecte des journaux d'événements: {e}")
+            results['error'] = str(e)
         
-        return events
+        return results
     
     def _collect_log_events(self, log_type: str, start_time: Optional[datetime] = None) -> List[Dict[str, Any]]:
         """Collecte les événements d'un type de journal spécifique"""

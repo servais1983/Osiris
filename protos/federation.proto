@@ -1,0 +1,226 @@
+syntax = "proto3";
+
+package federation;
+
+service FederationService {
+  // Un Node envoie un rapport périodique de son état et de ses alertes critiques.
+  rpc SyncNode(NodeReport) returns (MasterDirectives) {}
+  
+  // Le Master peut demander des informations spécifiques à un Node
+  rpc GetNodeStatus(NodeStatusRequest) returns (NodeStatusResponse) {}
+  
+  // Le Master peut envoyer des commandes à un Node
+  rpc SendCommand(NodeCommand) returns (CommandResponse) {}
+  
+  // Synchronisation bidirectionnelle des données
+  rpc SyncData(DataSyncRequest) returns (DataSyncResponse) {}
+}
+
+message NodeReport {
+  string node_id = 1;
+  string node_name = 2;
+  string region = 3;
+  int32 active_agents = 4;
+  int32 total_agents = 5;
+  repeated CriticalAlert critical_alerts = 6;
+  NodeHealth health = 7;
+  int64 timestamp = 8;
+  map<string, string> metadata = 9;
+}
+
+message CriticalAlert {
+  string alert_id = 1;
+  string alert_type = 2;
+  string severity = 3;
+  string description = 4;
+  string agent_id = 5;
+  string user_id = 6;
+  int64 timestamp = 7;
+  map<string, string> details = 8;
+}
+
+message NodeHealth {
+  string status = 1; // "healthy", "warning", "critical"
+  double cpu_usage = 2;
+  double memory_usage = 3;
+  double disk_usage = 4;
+  int32 active_connections = 5;
+  repeated string warnings = 6;
+  repeated string errors = 7;
+}
+
+message MasterDirectives {
+  // Le Master peut pousser de nouvelles règles Sigma ou des indicateurs
+  // de menace à tous les Nodes.
+  repeated string new_threat_intel = 1;
+  repeated SigmaRule sigma_rules = 2;
+  repeated PlaybookConfig playbooks = 3;
+  repeated string node_commands = 4;
+  map<string, string> configuration = 5;
+}
+
+message SigmaRule {
+  string rule_id = 1;
+  string title = 2;
+  string description = 3;
+  string yaml_content = 4;
+  bool enabled = 5;
+  int64 created_at = 6;
+}
+
+message PlaybookConfig {
+  string playbook_id = 1;
+  string name = 2;
+  string description = 3;
+  string yaml_content = 4;
+  bool enabled = 5;
+  int64 created_at = 6;
+}
+
+message NodeStatusRequest {
+  string node_id = 1;
+  repeated string requested_info = 2; // "agents", "alerts", "health", "performance"
+}
+
+message NodeStatusResponse {
+  string node_id = 1;
+  NodeHealth health = 2;
+  repeated AgentInfo agents = 3;
+  repeated AlertSummary alerts = 4;
+  PerformanceMetrics performance = 5;
+  int64 timestamp = 6;
+}
+
+message AgentInfo {
+  string agent_id = 1;
+  string name = 2;
+  string platform = 3;
+  string status = 4;
+  int64 last_seen = 5;
+  string version = 6;
+  map<string, string> capabilities = 7;
+}
+
+message AlertSummary {
+  string alert_type = 1;
+  int32 count = 2;
+  string severity = 3;
+  int64 last_occurrence = 4;
+}
+
+message PerformanceMetrics {
+  double avg_response_time = 1;
+  int32 events_per_second = 2;
+  double threat_detection_rate = 3;
+  double false_positive_rate = 4;
+  int32 active_playbooks = 5;
+}
+
+message NodeCommand {
+  string command_id = 1;
+  string node_id = 2;
+  string command_type = 3; // "isolate_agent", "update_config", "restart_service"
+  map<string, string> parameters = 4;
+  int64 timestamp = 5;
+  int32 timeout_seconds = 6;
+}
+
+message CommandResponse {
+  string command_id = 1;
+  bool success = 2;
+  string message = 3;
+  map<string, string> results = 4;
+  int64 execution_time_ms = 5;
+}
+
+message DataSyncRequest {
+  string node_id = 1;
+  string sync_type = 2; // "threat_intel", "user_profiles", "cases", "alerts"
+  int64 last_sync_timestamp = 3;
+  int32 max_items = 4;
+}
+
+message DataSyncResponse {
+  string node_id = 1;
+  string sync_type = 2;
+  repeated bytes data_chunks = 3;
+  bool has_more = 4;
+  int64 sync_timestamp = 5;
+  int32 total_items = 6;
+}
+
+// Service pour la chasse globale
+service GlobalHuntingService {
+  // Exécute une requête OQL sur tous les Nodes
+  rpc ExecuteGlobalQuery(GlobalQueryRequest) returns (GlobalQueryResponse) {}
+  
+  // Récupère les résultats de chasse depuis tous les Nodes
+  rpc GetHuntingResults(HuntingResultsRequest) returns (HuntingResultsResponse) {}
+  
+  // Lance une chasse de menace globale
+  rpc LaunchGlobalHunt(GlobalHuntRequest) returns (GlobalHuntResponse) {}
+}
+
+message GlobalQueryRequest {
+  string query_id = 1;
+  string oql_query = 2;
+  repeated string target_nodes = 3; // Si vide, tous les nodes
+  int32 timeout_seconds = 4;
+  map<string, string> parameters = 5;
+}
+
+message GlobalQueryResponse {
+  string query_id = 1;
+  bool success = 2;
+  repeated QueryResult results = 3;
+  map<string, string> node_status = 4; // Status par node
+  int64 total_execution_time_ms = 5;
+  int32 total_results = 6;
+}
+
+message QueryResult {
+  string node_id = 1;
+  string agent_id = 2;
+  bytes result_data = 3;
+  int64 timestamp = 4;
+  map<string, string> metadata = 5;
+}
+
+message HuntingResultsRequest {
+  string hunt_id = 1;
+  repeated string target_nodes = 2;
+  int32 max_results = 3;
+}
+
+message HuntingResultsResponse {
+  string hunt_id = 1;
+  repeated HuntingResult results = 2;
+  bool has_more = 3;
+  int32 total_results = 4;
+}
+
+message HuntingResult {
+  string node_id = 1;
+  string agent_id = 2;
+  string threat_type = 3;
+  string severity = 4;
+  string description = 5;
+  int64 timestamp = 6;
+  map<string, string> indicators = 7;
+}
+
+message GlobalHuntRequest {
+  string hunt_id = 1;
+  string hunt_type = 2; // "malware", "lateral_movement", "data_exfiltration"
+  map<string, string> parameters = 3;
+  repeated string target_nodes = 4;
+  int32 priority = 5;
+}
+
+message GlobalHuntResponse {
+  string hunt_id = 1;
+  bool success = 2;
+  string message = 3;
+  int32 nodes_contacted = 4;
+  int64 estimated_duration_ms = 5;
+} 

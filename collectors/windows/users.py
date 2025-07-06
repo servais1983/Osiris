@@ -29,25 +29,74 @@ class WindowsUserCollector(WindowsCollector):
     
     def __init__(self):
         super().__init__()
-        self.requires_admin = True
+        self.requires_admin = False
     
     def collect(self) -> Dict[str, Any]:
-        """Collecte les informations sur les utilisateurs"""
-        if not self._check_privileges():
-            return {'error': 'Privilèges insuffisants'}
+        return super().collect()
+
+    def _collect(self) -> Dict[str, Any]:
+        results = {
+            'system_info': self.get_system_info(),
+            'users': [],
+            'groups': [],
+            'sessions': [],
+            'profiles': [],
+            'suspicious_users': [],
+            'summary': {}
+        }
         
         try:
-            return {
-                'timestamp': datetime.now().isoformat(),
-                'users': self._get_users(),
-                'groups': self._get_groups(),
-                'sessions': self._get_sessions(),
-                'profiles': self._get_profiles()
+            # Vérifier les privilèges
+            if not self.check_privileges():
+                # Mode dégradé : collecter les informations de base disponibles
+                results['users'] = self._get_basic_users()
+                results['groups'] = self._get_basic_groups()
+                results['sessions'] = []
+                results['profiles'] = []
+                results['suspicious_users'] = []
+                results['summary'] = {
+                    'total_users': len(results['users']),
+                    'total_groups': len(results['groups']),
+                    'total_sessions': 0,
+                    'total_profiles': 0,
+                    'suspicious_users_count': 0,
+                    'mode': 'degraded',
+                    'note': 'Collecte en mode dégradé - privilèges administrateur requis pour les données complètes',
+                    'timestamp': datetime.now().isoformat()
+                }
+                return results
+            
+            # Collecter les utilisateurs
+            results['users'] = self._get_users()
+            
+            # Collecter les groupes
+            results['groups'] = self._get_groups()
+            
+            # Collecter les sessions actives
+            results['sessions'] = self._get_sessions()
+            
+            # Collecter les profils utilisateur
+            results['profiles'] = self._get_profiles()
+            
+            # Analyser les utilisateurs suspects
+            results['suspicious_users'] = self._analyze_suspicious_users(results['users'])
+            
+            # Générer un résumé
+            results['summary'] = {
+                'total_users': len(results['users']),
+                'total_groups': len(results['groups']),
+                'total_sessions': len(results['sessions']),
+                'total_profiles': len(results['profiles']),
+                'suspicious_users_count': len(results['suspicious_users']),
+                'mode': 'full',
+                'timestamp': datetime.now().isoformat()
             }
             
         except Exception as e:
             self.logger.error(f"Erreur lors de la collecte des utilisateurs: {e}")
-            return {'error': str(e)}
+            results['error'] = str(e)
+        
+        return results
     
     def _get_users(self) -> List[Dict[str, Any]]:
         """Récupère la liste des utilisateurs"""
@@ -658,3 +707,153 @@ class WindowsUserCollector(WindowsCollector):
             masks.append('OTHER_EXECUTE')
         
         return masks 
+    
+    def _analyze_suspicious_users(self, users: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """Analyse les utilisateurs pour détecter les comptes suspects"""
+        suspicious_users = []
+        
+        for user in users:
+            suspicious_flags = []
+            
+            # Vérifier les comptes avec des noms suspects
+            username = user.get('name', '').lower()
+            if any(suspicious in username for suspicious in ['admin', 'root', 'test', 'guest', 'temp']):
+                suspicious_flags.append("Nom d'utilisateur suspect")
+            
+            # Vérifier les comptes sans mot de passe requis
+            flags = user.get('flags', [])
+            if 'PASSWD_NOTREQD' in flags:
+                suspicious_flags.append("Aucun mot de passe requis")
+            
+            # Vérifier les comptes avec des mots de passe qui ne peuvent pas être changés
+            if 'PASSWD_CANT_CHANGE' in flags:
+                suspicious_flags.append("Mot de passe ne peut pas être changé")
+            
+            # Vérifier les comptes avec des mots de passe qui n'expirent jamais
+            if 'DONT_EXPIRE_PASSWD' in flags:
+                suspicious_flags.append("Mot de passe n'expire jamais")
+            
+            # Vérifier les comptes avec des mots de passe expirés
+            if 'PASSWORD_EXPIRED' in flags:
+                suspicious_flags.append("Mot de passe expiré")
+            
+            # Vérifier les comptes désactivés
+            if 'ACCOUNTDISABLE' in flags:
+                suspicious_flags.append("Compte désactivé")
+            
+            # Vérifier les comptes verrouillés
+            if 'LOCKOUT' in flags:
+                suspicious_flags.append("Compte verrouillé")
+            
+            # Vérifier les comptes avec des privilèges élevés
+            privileges = user.get('privileges', [])
+            high_privilege_roles = ['SeDebugPrivilege', 'SeTcbPrivilege', 'SeSecurityPrivilege']
+            for priv in privileges:
+                if priv.get('name') in high_privilege_roles and priv.get('enabled', False):
+                    suspicious_flags.append(f"Privilège élevé: {priv.get('name')}")
+            
+            # Vérifier les comptes avec beaucoup d'échecs de connexion
+            bad_pw_count = user.get('bad_pw_count', 0)
+            if bad_pw_count > 5:
+                suspicious_flags.append(f"Nombreux échecs de connexion: {bad_pw_count}")
+            
+            # Si des flags suspects sont détectés, ajouter l'utilisateur à la liste
+            if suspicious_flags:
+                suspicious_user = user.copy()
+                suspicious_user['suspicious_flags'] = suspicious_flags
+                suspicious_user['risk_level'] = self._calculate_risk_level(suspicious_flags)
+                suspicious_users.append(suspicious_user)
+        
+        return suspicious_users
+    
+    def _calculate_risk_level(self, suspicious_flags: List[str]) -> str:
+        """Calcule le niveau de risque basé sur les flags suspects"""
+        high_risk_flags = [
+            "Privilège élevé: SeDebugPrivilege",
+            "Privilège élevé: SeTcbPrivilege", 
+            "Privilège élevé: SeSecurityPrivilege",
+            "Aucun mot de passe requis"
+        ]
+        
+        medium_risk_flags = [
+            "Nom d'utilisateur suspect",
+            "Mot de passe n'expire jamais",
+            "Compte verrouillé"
+        ]
+        
+        high_count = sum(1 for flag in suspicious_flags if flag in high_risk_flags)
+        medium_count = sum(1 for flag in suspicious_flags if flag in medium_risk_flags)
+        
+        if high_count > 0:
+            return "HIGH"
+        elif medium_count > 1 or len(suspicious_flags) > 2:
+            return "MEDIUM"
+        else:
+            return "LOW"
+    
+    def _get_basic_users(self) -> List[Dict[str, Any]]:
+        """Récupère les informations de base des utilisateurs (mode dégradé)"""
+        users = []
+        
+        try:
+            # Utiliser des méthodes qui ne nécessitent pas de privilèges admin
+            current_user = win32api.GetUserName()
+            users.append({
+                'name': current_user,
+                'full_name': current_user,
+                'comment': 'Utilisateur actuel',
+                'flags': ['CURRENT_USER'],
+                'script_path': '',
+                'auth_flags': 0,
+                'password_age': 0,
+                'last_logon': datetime.now().isoformat(),
+                'last_logoff': None,
+                'acct_expires': None,
+                'max_storage': 0,
+                'units_per_week': 0,
+                'logon_hours': [],
+                'bad_pw_count': 0,
+                'num_logons': 1,
+                'logon_server': '',
+                'country_code': 0,
+                'code_page': 0,
+                'user_id': 0,
+                'primary_group_id': 0,
+                'profile': '',
+                'home_dir': '',
+                'home_dir_drive': '',
+                'groups': [],
+                'privileges': [],
+                'security': {}
+            })
+            
+        except Exception as e:
+            self.logger.error(f"Erreur lors de la récupération des utilisateurs de base: {e}")
+        
+        return users
+    
+    def _get_basic_groups(self) -> List[Dict[str, Any]]:
+        """Récupère les informations de base des groupes (mode dégradé)"""
+        groups = []
+        
+        try:
+            # Informations de base sur les groupes système
+            basic_groups = [
+                {'name': 'Users', 'comment': 'Groupe utilisateurs standard'},
+                {'name': 'Administrators', 'comment': 'Groupe administrateurs'},
+                {'name': 'Guests', 'comment': 'Groupe invités'}
+            ]
+            
+            for group_info in basic_groups:
+                groups.append({
+                    'name': group_info['name'],
+                    'comment': group_info['comment'],
+                    'flags': ['BASIC_INFO'],
+                    'members': [],
+                    'security': {}
+                })
+            
+        except Exception as e:
+            self.logger.error(f"Erreur lors de la récupération des groupes de base: {e}")
+        
+        return groups 

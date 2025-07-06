@@ -1,3 +1,4 @@
+import React from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import { Home, Users, Search, Clock, FolderOpen } from 'lucide-react';
 
@@ -11,6 +12,10 @@ const navigation = [
 export default function Layout() {
   const location = useLocation();
 
+  const isActive = (path) => {
+    return location.pathname === path ? 'active' : '';
+  };
+
   return (
     <div className="min-h-screen bg-gray-100">
       <nav className="bg-white shadow-sm">
@@ -23,13 +28,12 @@ export default function Layout() {
               <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
                 {navigation.map((item) => {
                   const Icon = item.icon;
-                  const isActive = location.pathname === item.href;
                   return (
                     <Link
                       key={item.name}
                       to={item.href}
                       className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium ${
-                        isActive
+                        isActive(item.href)
                           ? 'border-indigo-500 text-gray-900'
                           : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
                       }`}

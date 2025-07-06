@@ -41,20 +41,36 @@ class WindowsEventCollector(WindowsCollector):
         ]
     
     def collect(self) -> Dict[str, Any]:
-        """Collecte les informations sur les événements"""
-        if not self._check_privileges():
-            return {'error': 'Privilèges insuffisants'}
+        return super().collect()
+
+    def _collect(self) -> Dict[str, Any]:
+        results = {
+            'system_info': self.get_system_info(),
+            'event_logs': {},
+            'event_stats': {},
+            'summary': {}
+        }
         
         try:
-            return {
-                'timestamp': datetime.now().isoformat(),
-                'logs': self._get_event_logs(),
-                'stats': self._get_event_stats()
+            if not self.check_privileges():
+                results['error'] = 'Privilèges insuffisants'
+                return results
+            
+            results['event_logs'] = self._get_event_logs()
+            results['event_stats'] = self._get_event_stats()
+            
+            # Générer un résumé
+            results['summary'] = {
+                'total_logs': len(results['event_logs']),
+                'total_events': sum(len(events) for events in results['event_logs'].values() if isinstance(events, list)),
+                'timestamp': datetime.now().isoformat()
             }
             
         except Exception as e:
             self.logger.error(f"Erreur lors de la collecte des événements: {e}")
-            return {'error': str(e)}
+            results['error'] = str(e)
+        
+        return results
     
     def _get_event_logs(self) -> Dict[str, List[Dict[str, Any]]]:
         """Récupère les journaux d'événements"""

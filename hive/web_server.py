@@ -16,6 +16,14 @@ from pathlib import Path
 from sqlalchemy.orm import Session
 from . import database
 from .database import get_db, Case as DBCase, Query as DBQuery, Agent as DBAgent, Alert as DBAlert, TimelineEvent as DBTimelineEvent
+from fastapi.middleware.cors import CORSMiddleware
+
+# Import des endpoints de gestion de cas
+try:
+    from .api.endpoints.cases import router as cases_router
+except ImportError:
+    # Fallback si le module n'existe pas encore
+    cases_router = None
 
 # Modèles Pydantic pour la validation des données
 class CaseBase(BaseModel):
@@ -80,6 +88,19 @@ app.mount("/static", StaticFiles(directory="web/static"), name="static")
 
 # Sécurité
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+
+# Configuration CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # En production, spécifier les domaines autorisés
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# Inclusion des routes de gestion de cas
+if cases_router:
+    app.include_router(cases_router, prefix="/api/v1", tags=["cases"])
 
 # Endpoints d'authentification
 @app.post("/api/auth/token")

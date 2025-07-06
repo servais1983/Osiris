@@ -1,0 +1,3709 @@
+{
+  "system_info": {
+    "platform": "windows",
+    "platform_version": "10.0.26100",
+    "hostname": "Stshadow",
+    "current_user": "stser",
+    "python_version": "3.13.1",
+    "timestamp": "2025-07-06T22:55:11.047090",
+    "is_admin": 0
+  },
+  "data": {
+    "processes": [
+      {
+        "pid": 0,
+        "name": "System Idle Process",
+        "username": "NT AUTHORITY\\SYSTEM",
+        "cpu_percent": 0.0,
+        "memory_percent": 4.9530304125973396e-05,
+        "create_time": "1970-01-01T01:00:00"
+      },
+      {
+        "pid": 4,
+        "name": "System",
+        "username": "NT AUTHORITY\\SYSTEM",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.029569591563206116,
+        "create_time": "1970-01-01T01:00:00"
+      },
+      {
+        "pid": 236,
+        "name": "",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.4131075015626811,
+        "create_time": "2025-06-27T18:40:36.571038"
+      },
+      {
+        "pid": 248,
+        "name": "powershell.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.07897606992886458,
+        "create_time": "2025-07-06T22:35:36.853005"
+      },
+      {
+        "pid": 280,
+        "name": "Registry",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.22088039124977835,
+        "create_time": "2025-06-27T18:40:36.583923"
+      },
+      {
+        "pid": 796,
+        "name": "smss.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 2.4765152062986698e-05,
+        "create_time": "2025-06-27T18:40:40.090590"
+      },
+      {
+        "pid": 1012,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.01993594741070429,
+        "create_time": "2025-06-27T18:40:49.984197"
+      },
+      {
+        "pid": 1100,
+        "name": "rsAppUI.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.05842099371658562,
+        "create_time": "2025-07-06T19:36:59.352094"
+      },
+      {
+        "pid": 1224,
+        "name": "mongod.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.3242749011127478,
+        "create_time": "2025-06-27T18:41:28.501000"
+      },
+      {
+        "pid": 1236,
+        "name": "csrss.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.00802390926840769,
+        "create_time": "2025-06-27T18:40:47.566417"
+      },
+      {
+        "pid": 1384,
+        "name": "wininit.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0,
+        "create_time": "2025-06-27T18:40:48.836811"
+      },
+      {
+        "pid": 1460,
+        "name": "services.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.04096156151217999,
+        "create_time": "2025-06-27T18:40:48.899700"
+      },
+      {
+        "pid": 1480,
+        "name": "LsaIso.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 2.4765152062986698e-05,
+        "create_time": "2025-06-27T18:40:48.932742"
+      },
+      {
+        "pid": 1488,
+        "name": "lsass.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.1031468583423396,
+        "create_time": "2025-06-27T18:40:48.935727"
+      },
+      {
+        "pid": 1560,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.005918871343053821,
+        "create_time": "2025-06-27T18:40:49.984224"
+      },
+      {
+        "pid": 1612,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.1937873148928709,
+        "create_time": "2025-06-27T18:40:49.516998"
+      },
+      {
+        "pid": 1644,
+        "name": "fontdrvhost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.00019812121650389359,
+        "create_time": "2025-06-27T18:40:49.529463"
+      },
+      {
+        "pid": 1680,
+        "name": "Copilot.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.09876342642719095,
+        "create_time": "2025-07-06T19:37:40.125116"
+      },
+      {
+        "pid": 1700,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.09319126721301894,
+        "create_time": "2025-06-27T18:40:49.584458"
+      },
+      {
+        "pid": 1760,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.024046962653160083,
+        "create_time": "2025-06-27T18:40:49.615693"
+      },
+      {
+        "pid": 1884,
+        "name": "AsusSystemDiagnosis.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.00044577273713376054,
+        "create_time": "2025-07-02T11:43:52.996796"
+      },
+      {
+        "pid": 1964,
+        "name": "docker-language-server-windows-amd64.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0445029782571871,
+        "create_time": "2025-07-06T22:24:12.006721"
+      },
+      {
+        "pid": 2032,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.00861827291791937,
+        "create_time": "2025-06-27T18:40:49.977565"
+      },
+      {
+        "pid": 2044,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0057702804306759,
+        "create_time": "2025-06-27T18:40:49.977606"
+      },
+      {
+        "pid": 2064,
+        "name": "Cursor.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.027538849094041206,
+        "create_time": "2025-07-06T21:30:29.942420"
+      },
+      {
+        "pid": 2088,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.04056531907917221,
+        "create_time": "2025-06-27T18:40:49.998778"
+      },
+      {
+        "pid": 2096,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.010277538106139478,
+        "create_time": "2025-06-27T18:40:50.000758"
+      },
+      {
+        "pid": 2104,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.03083261431841844,
+        "create_time": "2025-06-27T18:40:50.000885"
+      },
+      {
+        "pid": 2160,
+        "name": "atieclxx.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.017335606444090688,
+        "create_time": "2025-07-05T23:20:38.718140"
+      },
+      {
+        "pid": 2180,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.014660970021288125,
+        "create_time": "2025-06-27T18:40:50.010978"
+      },
+      {
+        "pid": 2204,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.006488469840502515,
+        "create_time": "2025-06-27T18:40:50.184363"
+      },
+      {
+        "pid": 2212,
+        "name": "WhatsApp.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0027984621831174967,
+        "create_time": "2025-07-06T19:43:04.709671"
+      },
+      {
+        "pid": 2240,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.00794961381221873,
+        "create_time": "2025-06-27T18:40:50.029963"
+      },
+      {
+        "pid": 2252,
+        "name": "powershell.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.03194704616125284,
+        "create_time": "2025-07-06T21:49:22.559351"
+      },
+      {
+        "pid": 2352,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.06597436509579657,
+        "create_time": "2025-06-27T18:40:50.048314"
+      },
+      {
+        "pid": 2396,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.02322971263508152,
+        "create_time": "2025-06-27T18:40:50.059516"
+      },
+      {
+        "pid": 2472,
+        "name": "Creative Cloud UI Helper.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.044304857040683196,
+        "create_time": "2025-07-06T19:37:57.318418"
+      },
+      {
+        "pid": 2528,
+        "name": "ChatGPT.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.12221602543083934,
+        "create_time": "2025-07-06T19:37:41.218726"
+      },
+      {
+        "pid": 2544,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.08511782764048527,
+        "create_time": "2025-06-27T18:40:50.192901"
+      },
+      {
+        "pid": 2548,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.009262166871557025,
+        "create_time": "2025-06-29T12:28:28.563783"
+      },
+      {
+        "pid": 2584,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.016691712490453033,
+        "create_time": "2025-06-27T18:40:50.095156"
+      },
+      {
+        "pid": 2640,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.007652431987462889,
+        "create_time": "2025-06-27T18:40:50.112417"
+      },
+      {
+        "pid": 2684,
+        "name": "conhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.002600340966613603,
+        "create_time": "2025-07-06T22:28:31.906543"
+      },
+      {
+        "pid": 2696,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.011887272990233615,
+        "create_time": "2025-06-27T18:40:50.124451"
+      },
+      {
+        "pid": 2804,
+        "name": "cncmd.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.00042100758507077383,
+        "create_time": "2025-07-06T19:37:25.098251"
+      },
+      {
+        "pid": 2884,
+        "name": "rsAppUI.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.10520236596356748,
+        "create_time": "2025-07-06T19:36:58.281556"
+      },
+      {
+        "pid": 2924,
+        "name": "chrome.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.07469169862196788,
+        "create_time": "2025-07-06T20:14:13.105536"
+      },
+      {
+        "pid": 3116,
+        "name": "vmms.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.03878222813063716,
+        "create_time": "2025-06-27T18:40:50.222365"
+      },
+      {
+        "pid": 3124,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.04408197067211632,
+        "create_time": "2025-06-27T18:40:50.223944"
+      },
+      {
+        "pid": 3192,
+        "name": "conhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0017335606444090687,
+        "create_time": "2025-07-06T22:28:18.219836"
+      },
+      {
+        "pid": 3216,
+        "name": "amdfendrsr.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.00034671212888181375,
+        "create_time": "2025-06-27T18:40:50.268219"
+      },
+      {
+        "pid": 3224,
+        "name": "atiesrxx.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0005448333453857073,
+        "create_time": "2025-06-27T18:40:50.268664"
+      },
+      {
+        "pid": 3232,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.051684872355453236,
+        "create_time": "2025-06-27T18:40:50.269360"
+      },
+      {
+        "pid": 3240,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.008197265332848596,
+        "create_time": "2025-06-27T18:40:50.270729"
+      },
+      {
+        "pid": 3352,
+        "name": "vmcompute.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0150819776063589,
+        "create_time": "2025-06-27T18:40:51.036566"
+      },
+      {
+        "pid": 3396,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.03474550834437034,
+        "create_time": "2025-06-27T18:40:50.302371"
+      },
+      {
+        "pid": 3472,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.012357810879430362,
+        "create_time": "2025-06-27T18:40:50.335824"
+      },
+      {
+        "pid": 3480,
+        "name": "powershell.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.5208606781887363,
+        "create_time": "2025-07-06T22:50:36.027466"
+      },
+      {
+        "pid": 3560,
+        "name": "com.docker.backend.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.1263765709774211,
+        "create_time": "2025-07-06T22:28:09.521391"
+      },
+      {
+        "pid": 3564,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.006686591057006409,
+        "create_time": "2025-06-27T18:40:50.412904"
+      },
+      {
+        "pid": 3568,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.03915370541158197,
+        "create_time": "2025-06-27T18:40:50.412907"
+      },
+      {
+        "pid": 3580,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.007454310770958995,
+        "create_time": "2025-06-27T18:40:50.412971"
+      },
+      {
+        "pid": 3692,
+        "name": "MemCompression",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 1.896961117720655,
+        "create_time": "2025-06-27T18:40:50.434846"
+      },
+      {
+        "pid": 3728,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.003838598569762938,
+        "create_time": "2025-06-27T18:40:50.436321"
+      },
+      {
+        "pid": 3736,
+        "name": "rsEDRSvc.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.5669238610258914,
+        "create_time": "2025-07-04T22:59:39.311714"
+      },
+      {
+        "pid": 3768,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.007900083508092758,
+        "create_time": "2025-06-27T18:40:50.451021"
+      },
+      {
+        "pid": 3776,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.01087190175565116,
+        "create_time": "2025-06-27T18:40:50.451459"
+      },
+      {
+        "pid": 3884,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.014636204869225138,
+        "create_time": "2025-06-27T18:40:50.501892"
+      },
+      {
+        "pid": 3924,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0065380001446284875,
+        "create_time": "2025-06-27T18:40:50.517375"
+      },
+      {
+        "pid": 4032,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.09888725218750588,
+        "create_time": "2025-06-27T18:40:50.577470"
+      },
+      {
+        "pid": 4044,
+        "name": "msedgewebview2.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.00809820472459665,
+        "create_time": "2025-07-06T19:37:01.476591"
+      },
+      {
+        "pid": 4076,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.13447477570201777,
+        "create_time": "2025-06-27T18:40:51.040561"
+      },
+      {
+        "pid": 4112,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.009683174456627799,
+        "create_time": "2025-06-27T18:40:50.659034"
+      },
+      {
+        "pid": 4184,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.007132363794140169,
+        "create_time": "2025-06-27T18:40:50.745606"
+      },
+      {
+        "pid": 4192,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.04972842534247729,
+        "create_time": "2025-06-27T18:40:50.749596"
+      },
+      {
+        "pid": 4232,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.008147735028722623,
+        "create_time": "2025-06-27T18:40:51.043147"
+      },
+      {
+        "pid": 4252,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.011416735101036867,
+        "create_time": "2025-06-27T18:40:50.764608"
+      },
+      {
+        "pid": 4360,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.04695472831142278,
+        "create_time": "2025-06-27T18:40:50.785160"
+      },
+      {
+        "pid": 4368,
+        "name": "ctfmon.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.05643978155154668,
+        "create_time": "2025-07-06T19:37:01.864165"
+      },
+      {
+        "pid": 4384,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.14566862443448775,
+        "create_time": "2025-06-27T18:40:51.045053"
+      },
+      {
+        "pid": 4480,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.009633644152501826,
+        "create_time": "2025-06-27T18:40:51.047447"
+      },
+      {
+        "pid": 4528,
+        "name": "spoolsv.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0065380001446284875,
+        "create_time": "2025-06-27T18:40:50.885196"
+      },
+      {
+        "pid": 4564,
+        "name": "conhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0005448333453857073,
+        "create_time": "2025-07-06T21:49:15.887832"
+      },
+      {
+        "pid": 4680,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.008667803222045344,
+        "create_time": "2025-06-27T18:40:50.955684"
+      },
+      {
+        "pid": 4736,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0035414167450070976,
+        "create_time": "2025-06-27T18:40:50.974155"
+      },
+      {
+        "pid": 4780,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.01371989424289463,
+        "create_time": "2025-06-27T18:40:50.996033"
+      },
+      {
+        "pid": 4856,
+        "name": "NgcIso.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0,
+        "create_time": "2025-06-27T18:40:51.012369"
+      },
+      {
+        "pid": 4936,
+        "name": "msedgewebview2.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.042026463050888425,
+        "create_time": "2025-07-06T19:37:44.018431"
+      },
+      {
+        "pid": 4960,
+        "name": "msedgewebview2.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.020233129235460133,
+        "create_time": "2025-07-06T19:37:01.406074"
+      },
+      {
+        "pid": 4972,
+        "name": "agent_ovpnconnect.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0010896666907714147,
+        "create_time": "2025-06-27T18:40:51.025680"
+      },
+      {
+        "pid": 4996,
+        "name": "Creative Cloud Helper.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.05591971335822397,
+        "create_time": "2025-07-06T19:37:58.910313"
+      },
+      {
+        "pid": 5000,
+        "name": "deviosvc.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.00024765152062986695,
+        "create_time": "2025-06-27T18:40:51.027569"
+      },
+      {
+        "pid": 5008,
+        "name": "GlideXServiceExt.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.00039624243300778717,
+        "create_time": "2025-06-27T18:40:51.028583"
+      },
+      {
+        "pid": 5020,
+        "name": "GlideXRemoteService.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.00039624243300778717,
+        "create_time": "2025-06-27T18:40:51.029297"
+      },
+      {
+        "pid": 5028,
+        "name": "armsvc.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0001485909123779202,
+        "create_time": "2025-06-27T18:40:51.029364"
+      },
+      {
+        "pid": 5060,
+        "name": "AdobeUpdateService.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0015354394279051753,
+        "create_time": "2025-06-27T18:40:51.030837"
+      },
+      {
+        "pid": 5076,
+        "name": "DtsApo4Service.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0005448333453857073,
+        "create_time": "2025-06-27T18:40:51.033260"
+      },
+      {
+        "pid": 5084,
+        "name": "GlideXNearService.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.00044577273713376054,
+        "create_time": "2025-06-27T18:40:51.034968"
+      },
+      {
+        "pid": 5092,
+        "name": "GlideXService.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.020753197428782854,
+        "create_time": "2025-06-27T18:40:51.035233"
+      },
+      {
+        "pid": 5104,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.06934242577636275,
+        "create_time": "2025-06-27T18:40:51.035418"
+      },
+      {
+        "pid": 5124,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.007280954706518089,
+        "create_time": "2025-06-27T18:40:51.050642"
+      },
+      {
+        "pid": 5144,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.003962424330077871,
+        "create_time": "2025-06-27T18:40:51.051652"
+      },
+      {
+        "pid": 5168,
+        "name": "servicehost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.15631763982157204,
+        "create_time": "2025-06-27T18:40:51.057102"
+      },
+      {
+        "pid": 5176,
+        "name": "mc-fw-host.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.7759912747416252,
+        "create_time": "2025-06-27T18:40:51.057549"
+      },
+      {
+        "pid": 5308,
+        "name": "ovpnhelper_service.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0010896666907714147,
+        "create_time": "2025-06-27T18:40:51.091065"
+      },
+      {
+        "pid": 5352,
+        "name": "mysqld.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.00039624243300778717,
+        "create_time": "2025-06-27T18:40:51.094887"
+      },
+      {
+        "pid": 5380,
+        "name": "msedgewebview2.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.026350121795017844,
+        "create_time": "2025-07-06T20:09:41.996198"
+      },
+      {
+        "pid": 5480,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.04031766755854234,
+        "create_time": "2025-06-27T18:40:59.581949"
+      },
+      {
+        "pid": 5508,
+        "name": "rsDNSResolver.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.028058917287363927,
+        "create_time": "2025-06-27T18:40:51.122078"
+      },
+      {
+        "pid": 5516,
+        "name": "rsDNSClientSvc.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0007677197139525876,
+        "create_time": "2025-06-27T18:40:51.122198"
+      },
+      {
+        "pid": 5524,
+        "name": "rsDNSSvc.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.14940816239599874,
+        "create_time": "2025-06-27T18:40:51.122904"
+      },
+      {
+        "pid": 5532,
+        "name": "rsSyncSvc.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.017286076139964714,
+        "create_time": "2025-06-27T18:40:51.124292"
+      },
+      {
+        "pid": 5560,
+        "name": "Service.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.009014515350927158,
+        "create_time": "2025-06-27T18:41:16.638096"
+      },
+      {
+        "pid": 5572,
+        "name": "rsVPNClientSvc.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0006686591057006408,
+        "create_time": "2025-06-27T18:40:51.128057"
+      },
+      {
+        "pid": 5580,
+        "name": "rsClientSvc.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0006934242577636275,
+        "create_time": "2025-06-27T18:40:51.128138"
+      },
+      {
+        "pid": 5608,
+        "name": "rsEngineSvc.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 2.777486099320147,
+        "create_time": "2025-06-27T18:40:51.130764"
+      },
+      {
+        "pid": 5644,
+        "name": "rsVPNSvc.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.5876522933026114,
+        "create_time": "2025-06-27T18:40:51.134602"
+      },
+      {
+        "pid": 5652,
+        "name": "runSW.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.012134924510863482,
+        "create_time": "2025-06-27T18:40:51.135536"
+      },
+      {
+        "pid": 5664,
+        "name": "RtkAudUService64.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0006438939536376542,
+        "create_time": "2025-06-27T18:40:51.137348"
+      },
+      {
+        "pid": 5672,
+        "name": "rsWSC.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.014487613956847218,
+        "create_time": "2025-06-27T18:40:51.139892"
+      },
+      {
+        "pid": 5764,
+        "name": "com.docker.dev-envs.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.003219469768188271,
+        "create_time": "2025-07-06T22:28:11.259794"
+      },
+      {
+        "pid": 5776,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.01919299284881469,
+        "create_time": "2025-06-27T18:40:51.150813"
+      },
+      {
+        "pid": 5800,
+        "name": "csrss.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.09311697175682998,
+        "create_time": "2025-07-05T23:20:30.691746"
+      },
+      {
+        "pid": 5836,
+        "name": "splunkd.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 1.0826333875855263,
+        "create_time": "2025-06-27T18:40:51.159558"
+      },
+      {
+        "pid": 5924,
+        "name": "RuntimeBroker.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.009509818392186892,
+        "create_time": "2025-07-06T20:09:35.786105"
+      },
+      {
+        "pid": 5972,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0017830909485350422,
+        "create_time": "2025-06-27T18:40:51.178406"
+      },
+      {
+        "pid": 5980,
+        "name": "vmware-authd.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0001485909123779202,
+        "create_time": "2025-06-27T18:40:51.179837"
+      },
+      {
+        "pid": 5988,
+        "name": "vmnetdhcp.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0012630227552123216,
+        "create_time": "2025-06-27T18:40:51.180138"
+      },
+      {
+        "pid": 6004,
+        "name": "vmnat.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0031451743119993106,
+        "create_time": "2025-06-27T18:40:51.181756"
+      },
+      {
+        "pid": 6012,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.03588470533926773,
+        "create_time": "2025-06-27T18:40:51.185161"
+      },
+      {
+        "pid": 6020,
+        "name": "nessus-service.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0002971818247558404,
+        "create_time": "2025-06-27T18:40:51.186061"
+      },
+      {
+        "pid": 6036,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.007974378964281718,
+        "create_time": "2025-06-27T18:40:51.188756"
+      },
+      {
+        "pid": 6044,
+        "name": "Velociraptor.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.15292481398894286,
+        "create_time": "2025-06-27T18:40:51.188888"
+      },
+      {
+        "pid": 6412,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.05376514512874412,
+        "create_time": "2025-06-27T18:42:02.673504"
+      },
+      {
+        "pid": 6456,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.02429461417378995,
+        "create_time": "2025-06-27T18:40:51.300231"
+      },
+      {
+        "pid": 6644,
+        "name": "dasHost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.00042100758507077383,
+        "create_time": "2025-06-27T18:40:51.341906"
+      },
+      {
+        "pid": 6732,
+        "name": "conhost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0031947046161252836,
+        "create_time": "2025-06-27T18:40:51.353767"
+      },
+      {
+        "pid": 6964,
+        "name": "python.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.10592055537339409,
+        "create_time": "2025-07-06T22:44:02.960194"
+      },
+      {
+        "pid": 7072,
+        "name": "rsAppUI.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.015403924583177726,
+        "create_time": "2025-07-06T19:37:01.170191"
+      },
+      {
+        "pid": 7280,
+        "name": "mysqld.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.01102049266802908,
+        "create_time": "2025-06-27T18:40:51.520190"
+      },
+      {
+        "pid": 7436,
+        "name": "python.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.024641326302671768,
+        "create_time": "2025-07-06T22:55:10.798919"
+      },
+      {
+        "pid": 7444,
+        "name": "identity.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.05963448616767196,
+        "create_time": "2025-07-03T18:34:10.585648"
+      },
+      {
+        "pid": 7492,
+        "name": "conhost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.00262510611867659,
+        "create_time": "2025-06-27T18:40:51.563833"
+      },
+      {
+        "pid": 7584,
+        "name": "WmiPrvSE.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.025309985408372405,
+        "create_time": "2025-06-27T18:40:51.594875"
+      },
+      {
+        "pid": 7596,
+        "name": "Cursor.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.01505721245429591,
+        "create_time": "2025-07-06T22:18:10.310557"
+      },
+      {
+        "pid": 7700,
+        "name": "RtkAudUService64.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0008172500180785609,
+        "create_time": "2025-06-27T18:40:51.613061"
+      },
+      {
+        "pid": 7820,
+        "name": "TextInputHost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.11285479795103037,
+        "create_time": "2025-07-06T19:37:08.201445"
+      },
+      {
+        "pid": 7924,
+        "name": "python.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.17305888261615104,
+        "create_time": "2025-07-06T22:55:10.827888"
+      },
+      {
+        "pid": 7948,
+        "name": "nessusd.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.17122626136349003,
+        "create_time": "2025-06-27T18:40:51.702741"
+      },
+      {
+        "pid": 8256,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.006736121361132381,
+        "create_time": "2025-06-27T18:40:51.904009"
+      },
+      {
+        "pid": 8424,
+        "name": "ms-teams.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.06253200895904142,
+        "create_time": "2025-07-06T19:37:43.075341"
+      },
+      {
+        "pid": 8588,
+        "name": "RuntimeBroker.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.007701962291588863,
+        "create_time": "2025-07-06T19:37:11.852832"
+      },
+      {
+        "pid": 8632,
+        "name": "powershell.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.1063167978064019,
+        "create_time": "2025-07-06T22:38:40.110753"
+      },
+      {
+        "pid": 8856,
+        "name": "conhost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0060179319513057675,
+        "create_time": "2025-06-27T18:40:52.256538"
+      },
+      {
+        "pid": 9208,
+        "name": "com.docker.build.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.07761398656540032,
+        "create_time": "2025-07-06T22:28:11.267329"
+      },
+      {
+        "pid": 9624,
+        "name": "conhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.001807856100598029,
+        "create_time": "2025-07-06T19:37:48.152706"
+      },
+      {
+        "pid": 9628,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.018202386766295223,
+        "create_time": "2025-06-27T18:40:55.004587"
+      },
+      {
+        "pid": 9804,
+        "name": "wslhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0021793333815428293,
+        "create_time": "2025-07-06T22:28:16.397623"
+      },
+      {
+        "pid": 9808,
+        "name": "compsup.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.08784199436741381,
+        "create_time": "2025-06-27T18:47:29.991418"
+      },
+      {
+        "pid": 9944,
+        "name": "wlanext.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.00037147728094480046,
+        "create_time": "2025-06-27T18:40:54.910338"
+      },
+      {
+        "pid": 9996,
+        "name": "chrome.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.12179501784576857,
+        "create_time": "2025-07-06T20:14:13.102968"
+      },
+      {
+        "pid": 10072,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.006859947121447315,
+        "create_time": "2025-06-27T18:40:55.589172"
+      },
+      {
+        "pid": 10112,
+        "name": "AggregatorHost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.021941924727806213,
+        "create_time": "2025-06-27T18:40:55.381337"
+      },
+      {
+        "pid": 10192,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.09101193383147611,
+        "create_time": "2025-06-27T18:40:54.749434"
+      },
+      {
+        "pid": 10368,
+        "name": "msedgewebview2.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.02008453832308221,
+        "create_time": "2025-07-06T20:09:36.514864"
+      },
+      {
+        "pid": 10436,
+        "name": "Cursor.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.4835891243339412,
+        "create_time": "2025-07-06T21:30:07.120979"
+      },
+      {
+        "pid": 10440,
+        "name": "wslservice.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.04574123586033643,
+        "create_time": "2025-06-27T18:40:57.697417"
+      },
+      {
+        "pid": 10472,
+        "name": "msedgewebview2.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.02384884143665619,
+        "create_time": "2025-07-06T19:37:01.685992"
+      },
+      {
+        "pid": 10772,
+        "name": "WmiApSrv.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.00975746991281676,
+        "create_time": "2025-07-04T23:38:06.400770"
+      },
+      {
+        "pid": 10848,
+        "name": "chrome.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.016345000361571223,
+        "create_time": "2025-07-06T20:14:17.019808"
+      },
+      {
+        "pid": 11048,
+        "name": "mc-neo-host.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.059560190711483,
+        "create_time": "2025-06-27T18:40:58.260689"
+      },
+      {
+        "pid": 11380,
+        "name": "rsAppUI.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.08858494892930341,
+        "create_time": "2025-07-06T19:37:01.083369"
+      },
+      {
+        "pid": 11452,
+        "name": "PhoneExperienceHost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.12560885126346852,
+        "create_time": "2025-07-06T19:43:09.566151"
+      },
+      {
+        "pid": 11928,
+        "name": "Docker Desktop.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.4173918728695778,
+        "create_time": "2025-07-06T22:28:12.749651"
+      },
+      {
+        "pid": 12068,
+        "name": "Cursor.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.7783687293396719,
+        "create_time": "2025-07-06T20:13:36.635162"
+      },
+      {
+        "pid": 12180,
+        "name": "chrome.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 1.4130252812578319,
+        "create_time": "2025-07-06T20:14:12.511602"
+      },
+      {
+        "pid": 12236,
+        "name": "svchost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.006513234992565502,
+        "create_time": "2025-07-06T19:36:55.428341"
+      },
+      {
+        "pid": 12436,
+        "name": "splunkd.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.09925872946845068,
+        "create_time": "2025-06-27T18:41:35.424243"
+      },
+      {
+        "pid": 12644,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.09509818392186892,
+        "create_time": "2025-06-27T18:42:12.235839"
+      },
+      {
+        "pid": 13192,
+        "name": "python3.9.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.08026385783613989,
+        "create_time": "2025-06-27T18:41:31.831355"
+      },
+      {
+        "pid": 13344,
+        "name": "CefSharp.BrowserSubprocess.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.014784795781603058,
+        "create_time": "2025-07-06T19:37:15.198974"
+      },
+      {
+        "pid": 13392,
+        "name": "SecurityHealthService.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.00802390926840769,
+        "create_time": "2025-06-27T18:42:37.772439"
+      },
+      {
+        "pid": 13576,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.009039280502990145,
+        "create_time": "2025-06-27T18:46:05.050174"
+      },
+      {
+        "pid": 13652,
+        "name": "uihost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.07050638792332313,
+        "create_time": "2025-07-06T19:36:55.125540"
+      },
+      {
+        "pid": 13660,
+        "name": "msedgewebview2.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.03967377360490469,
+        "create_time": "2025-07-06T19:37:01.304429"
+      },
+      {
+        "pid": 13788,
+        "name": "WidgetService.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0396490084528417,
+        "create_time": "2025-07-06T19:37:29.699794"
+      },
+      {
+        "pid": 13840,
+        "name": "conhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.007999144116344703,
+        "create_time": "2025-07-06T22:35:36.693383"
+      },
+      {
+        "pid": 13904,
+        "name": "WidgetBoard.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.05074379657705974,
+        "create_time": "2025-07-06T19:36:58.545964"
+      },
+      {
+        "pid": 13948,
+        "name": "rsAppUI.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.013373182114012817,
+        "create_time": "2025-07-06T19:36:59.064837"
+      },
+      {
+        "pid": 13956,
+        "name": "conhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0021793333815428293,
+        "create_time": "2025-07-06T22:28:20.966906"
+      },
+      {
+        "pid": 14028,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.006414174384313555,
+        "create_time": "2025-07-05T17:24:26.266226"
+      },
+      {
+        "pid": 14052,
+        "name": "powershell.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0150819776063589,
+        "create_time": "2025-07-06T21:30:21.464614"
+      },
+      {
+        "pid": 14064,
+        "name": "CoreSync.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.06914430455985886,
+        "create_time": "2025-07-06T19:37:59.387211"
+      },
+      {
+        "pid": 14116,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.05804951643564081,
+        "create_time": "2025-07-06T22:50:27.160017"
+      },
+      {
+        "pid": 14292,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.009385992631871957,
+        "create_time": "2025-06-27T18:42:03.311487"
+      },
+      {
+        "pid": 14348,
+        "name": "msedge.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.014537144260973193,
+        "create_time": "2025-07-06T21:50:23.776360"
+      },
+      {
+        "pid": 14460,
+        "name": "msedgewebview2.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.09121005504798001,
+        "create_time": "2025-07-06T20:09:49.635818"
+      },
+      {
+        "pid": 14532,
+        "name": "winlogon.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0003219469768188271,
+        "create_time": "2025-07-05T23:20:30.777522"
+      },
+      {
+        "pid": 14708,
+        "name": "ChatGPT.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.04901023593265068,
+        "create_time": "2025-07-06T19:37:39.057007"
+      },
+      {
+        "pid": 14792,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.021174205013853625,
+        "create_time": "2025-06-27T18:42:12.860645"
+      },
+      {
+        "pid": 14828,
+        "name": "AsusOptimization.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0035414167450070976,
+        "create_time": "2025-07-02T11:43:52.904130"
+      },
+      {
+        "pid": 14924,
+        "name": "wsl.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.002303159141857763,
+        "create_time": "2025-07-06T22:28:17.055104"
+      },
+      {
+        "pid": 14984,
+        "name": "Cursor.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.13286504081792364,
+        "create_time": "2025-07-06T21:41:34.165471"
+      },
+      {
+        "pid": 15020,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.01939111406531858,
+        "create_time": "2025-06-27T18:44:31.147502"
+      },
+      {
+        "pid": 15088,
+        "name": "Cursor.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.7898102295927717,
+        "create_time": "2025-07-06T21:49:18.149185"
+      },
+      {
+        "pid": 15164,
+        "name": "wsl.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0042843713068966985,
+        "create_time": "2025-07-06T22:28:29.167209"
+      },
+      {
+        "pid": 15180,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0413330387931248,
+        "create_time": "2025-06-27T18:42:13.153457"
+      },
+      {
+        "pid": 15224,
+        "name": "cmd.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0004953030412597339,
+        "create_time": "2025-07-06T19:37:25.169890"
+      },
+      {
+        "pid": 15396,
+        "name": "AdobeCollabSync.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0007429545618896009,
+        "create_time": "2025-07-06T19:37:33.905503"
+      },
+      {
+        "pid": 15500,
+        "name": "chrome.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.05277453904622466,
+        "create_time": "2025-07-06T20:14:13.111581"
+      },
+      {
+        "pid": 15560,
+        "name": "Ui.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.07132363794140169,
+        "create_time": "2025-07-06T19:36:55.517797"
+      },
+      {
+        "pid": 15568,
+        "name": "chrome.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.07526129711941658,
+        "create_time": "2025-07-06T20:14:16.346433"
+      },
+      {
+        "pid": 15740,
+        "name": "OpenVPNConnect.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.062482478654915435,
+        "create_time": "2025-07-06T19:37:35.727892"
+      },
+      {
+        "pid": 15784,
+        "name": "Cursor.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 1.9169218302834226,
+        "create_time": "2025-07-06T21:30:00.129259"
+      },
+      {
+        "pid": 15796,
+        "name": "OneDrive.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.08514259279254827,
+        "create_time": "2025-07-06T19:37:28.711513"
+      },
+      {
+        "pid": 15900,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.007380015314770037,
+        "create_time": "2025-07-06T19:36:57.350262"
+      },
+      {
+        "pid": 15908,
+        "name": "wslhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0022288636856688028,
+        "create_time": "2025-07-06T22:28:18.447321"
+      },
+      {
+        "pid": 15944,
+        "name": "msedgewebview2.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.06565241811897773,
+        "create_time": "2025-07-06T20:09:36.438523"
+      },
+      {
+        "pid": 15960,
+        "name": "python3.9.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.3682082808724862,
+        "create_time": "2025-07-06T22:47:50.401421"
+      },
+      {
+        "pid": 16116,
+        "name": "dwm.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.24750292971748908,
+        "create_time": "2025-07-05T23:20:31.009177"
+      },
+      {
+        "pid": 16160,
+        "name": "powershell.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.01874722011168093,
+        "create_time": "2025-07-06T22:22:04.385033"
+      },
+      {
+        "pid": 16316,
+        "name": "wsl.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0025508106624876296,
+        "create_time": "2025-07-06T22:28:17.133965"
+      },
+      {
+        "pid": 16436,
+        "name": "chrome.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.20161310294477472,
+        "create_time": "2025-07-06T21:15:30.252178"
+      },
+      {
+        "pid": 16716,
+        "name": "conhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0013373182114012816,
+        "create_time": "2025-07-06T21:50:25.757036"
+      },
+      {
+        "pid": 16744,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.017409901900279648,
+        "create_time": "2025-07-05T19:24:32.872029"
+      },
+      {
+        "pid": 16748,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.025607167233128246,
+        "create_time": "2025-06-27T18:42:21.246838"
+      },
+      {
+        "pid": 16820,
+        "name": "powershell.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.015403924583177726,
+        "create_time": "2025-07-06T21:49:16.099120"
+      },
+      {
+        "pid": 16824,
+        "name": "conhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0016345000361571219,
+        "create_time": "2025-07-06T22:28:17.482106"
+      },
+      {
+        "pid": 16868,
+        "name": "AppVShNotify.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.00037147728094480046,
+        "create_time": "2025-07-06T19:49:28.749246"
+      },
+      {
+        "pid": 16880,
+        "name": "chrome.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.7237120387366602,
+        "create_time": "2025-07-06T20:14:12.821948"
+      },
+      {
+        "pid": 16992,
+        "name": "rsAppUI.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.15631763982157204,
+        "create_time": "2025-07-06T19:36:59.247208"
+      },
+      {
+        "pid": 17012,
+        "name": "conhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.04851493289139094,
+        "create_time": "2025-07-06T22:48:34.411941"
+      },
+      {
+        "pid": 17060,
+        "name": "chrome.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.3013919006065481,
+        "create_time": "2025-07-06T22:55:00.998559"
+      },
+      {
+        "pid": 17080,
+        "name": "wslrelay.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0021545682294798426,
+        "create_time": "2025-07-06T22:28:15.994246"
+      },
+      {
+        "pid": 17084,
+        "name": "chrome.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.19450550430269753,
+        "create_time": "2025-07-06T20:14:12.825051"
+      },
+      {
+        "pid": 17152,
+        "name": "rsAppUI.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.11342439644847907,
+        "create_time": "2025-07-06T19:36:58.279330"
+      },
+      {
+        "pid": 17288,
+        "name": "msedgewebview2.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.3391835226546658,
+        "create_time": "2025-07-06T20:09:36.596076"
+      },
+      {
+        "pid": 17304,
+        "name": "Creative Cloud UI Helper.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.022957295962388668,
+        "create_time": "2025-07-06T19:37:57.365186"
+      },
+      {
+        "pid": 17424,
+        "name": "cmd.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.00019812121650389359,
+        "create_time": "2025-07-06T20:14:15.143776"
+      },
+      {
+        "pid": 17676,
+        "name": "powershell.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.19430738308619364,
+        "create_time": "2025-07-06T22:44:01.623283"
+      },
+      {
+        "pid": 17772,
+        "name": "ollama.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.04210075850707738,
+        "create_time": "2025-07-06T19:37:48.001802"
+      },
+      {
+        "pid": 17796,
+        "name": "vmmemCmZygote",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0,
+        "create_time": "2025-06-27T18:45:37.933990"
+      },
+      {
+        "pid": 18088,
+        "name": "msedgewebview2.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.04452774340925008,
+        "create_time": "2025-07-06T19:37:44.036101"
+      },
+      {
+        "pid": 18156,
+        "name": "python.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.109808684247283,
+        "create_time": "2025-07-06T22:42:56.561611"
+      },
+      {
+        "pid": 18164,
+        "name": "CrossDeviceService.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.08912978227468912,
+        "create_time": "2025-07-06T19:37:47.307985"
+      },
+      {
+        "pid": 18168,
+        "name": "Creative Cloud.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.135886389369608,
+        "create_time": "2025-07-06T19:37:57.011415"
+      },
+      {
+        "pid": 18300,
+        "name": "chrome.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.034497856823740465,
+        "create_time": "2025-07-06T20:14:14.302027"
+      },
+      {
+        "pid": 18336,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.015923992776500445,
+        "create_time": "2025-06-27T18:42:33.493500"
+      },
+      {
+        "pid": 18384,
+        "name": "cmd.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.00017335606444090687,
+        "create_time": "2025-07-06T21:50:25.653900"
+      },
+      {
+        "pid": 18424,
+        "name": "agent-manager.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.054706220907137615,
+        "create_time": "2025-06-27T18:47:30.647889"
+      },
+      {
+        "pid": 18552,
+        "name": "powershell.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.5210092691011141,
+        "create_time": "2025-07-06T22:48:34.554723"
+      },
+      {
+        "pid": 18556,
+        "name": "conhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0004953030412597339,
+        "create_time": "2025-07-06T21:30:01.939770"
+      },
+      {
+        "pid": 18844,
+        "name": "unsecapp.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.01438855334859527,
+        "create_time": "2025-06-27T18:42:54.724637"
+      },
+      {
+        "pid": 19028,
+        "name": "svchost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.01409137152383943,
+        "create_time": "2025-07-06T19:36:58.775020"
+      },
+      {
+        "pid": 19064,
+        "name": "vmmemWSL",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 6.823047044873465,
+        "create_time": "2025-07-06T22:28:14.203017"
+      },
+      {
+        "pid": 19464,
+        "name": "RuntimeBroker.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.06097180437907325,
+        "create_time": "2025-07-06T19:36:58.738282"
+      },
+      {
+        "pid": 19572,
+        "name": "Cursor.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.055597766381405136,
+        "create_time": "2025-07-06T21:49:07.646200"
+      },
+      {
+        "pid": 19596,
+        "name": "AsusSoftwareManagerAgent.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.044899220690194884,
+        "create_time": "2025-07-06T19:40:52.889640"
+      },
+      {
+        "pid": 19656,
+        "name": "chrome.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.036404773532590445,
+        "create_time": "2025-07-06T20:14:17.021343"
+      },
+      {
+        "pid": 19672,
+        "name": "RuntimeBroker.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.008643038069982357,
+        "create_time": "2025-07-06T19:37:43.444989"
+      },
+      {
+        "pid": 19744,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.016666947338390047,
+        "create_time": "2025-06-27T18:42:36.709612"
+      },
+      {
+        "pid": 19800,
+        "name": "Creative Cloud UI Helper.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.07248760008836205,
+        "create_time": "2025-07-06T19:37:57.488005"
+      },
+      {
+        "pid": 19808,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.011342439644847907,
+        "create_time": "2025-06-27T18:42:49.820397"
+      },
+      {
+        "pid": 19936,
+        "name": "WmiPrvSE.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0994320855328916,
+        "create_time": "2025-07-03T18:53:57.776472"
+      },
+      {
+        "pid": 19940,
+        "name": "ChatGPT.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.04163022061788064,
+        "create_time": "2025-07-06T19:37:39.027894"
+      },
+      {
+        "pid": 20212,
+        "name": "conhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.05074379657705974,
+        "create_time": "2025-07-06T22:54:28.559521"
+      },
+      {
+        "pid": 20236,
+        "name": "Cursor.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.08100681239802948,
+        "create_time": "2025-07-06T22:07:05.299489"
+      },
+      {
+        "pid": 20288,
+        "name": "SecurityHealthSystray.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0007429545618896009,
+        "create_time": "2025-07-06T19:37:17.208407"
+      },
+      {
+        "pid": 20376,
+        "name": "powershell.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.5247488070626252,
+        "create_time": "2025-07-06T22:49:14.176160"
+      },
+      {
+        "pid": 20644,
+        "name": "rsAppUI.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.041580690313754665,
+        "create_time": "2025-07-06T19:37:03.715428"
+      },
+      {
+        "pid": 20684,
+        "name": "python3.9.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.24160882352649823,
+        "create_time": "2025-07-06T22:55:00.204634"
+      },
+      {
+        "pid": 20808,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.009410757783934945,
+        "create_time": "2025-07-02T11:16:31.901755"
+      },
+      {
+        "pid": 20984,
+        "name": "RuntimeBroker.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.009559348696312866,
+        "create_time": "2025-07-06T19:37:48.479050"
+      },
+      {
+        "pid": 21060,
+        "name": "wslhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0024269849021726964,
+        "create_time": "2025-07-06T22:28:18.093735"
+      },
+      {
+        "pid": 21100,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.007479075923021983,
+        "create_time": "2025-06-27T18:42:53.186192"
+      },
+      {
+        "pid": 21144,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.05552347092521617,
+        "create_time": "2025-06-27T18:42:53.275075"
+      },
+      {
+        "pid": 21168,
+        "name": "FileCoAuth.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0005448333453857073,
+        "create_time": "2025-07-06T21:28:03.602783"
+      },
+      {
+        "pid": 21384,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.014140901827965405,
+        "create_time": "2025-06-27T18:42:54.238568"
+      },
+      {
+        "pid": 21528,
+        "name": "wslhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0025755758145506167,
+        "create_time": "2025-07-06T22:28:16.472497"
+      },
+      {
+        "pid": 21572,
+        "name": "Cursor.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.5613517018117195,
+        "create_time": "2025-07-06T22:51:57.659171"
+      },
+      {
+        "pid": 21596,
+        "name": "python3.9.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.24344144477915922,
+        "create_time": "2025-07-06T22:55:00.404758"
+      },
+      {
+        "pid": 21704,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.07456787286165295,
+        "create_time": "2025-06-27T18:43:03.105932"
+      },
+      {
+        "pid": 21712,
+        "name": "node.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.20634324698880516,
+        "create_time": "2025-07-06T19:37:47.995668"
+      },
+      {
+        "pid": 21724,
+        "name": "conhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.02798462183117497,
+        "create_time": "2025-07-06T22:42:54.994257"
+      },
+      {
+        "pid": 22064,
+        "name": "python.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.2116925198344103,
+        "create_time": "2025-07-06T22:48:35.925628"
+      },
+      {
+        "pid": 22084,
+        "name": "conhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.001386848515527255,
+        "create_time": "2025-07-06T21:50:25.757023"
+      },
+      {
+        "pid": 22124,
+        "name": "Cursor.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.3088462113775071,
+        "create_time": "2025-07-06T22:07:02.754458"
+      },
+      {
+        "pid": 22164,
+        "name": "RtkAudUService64.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0005943636495116808,
+        "create_time": "2025-07-06T19:37:26.066528"
+      },
+      {
+        "pid": 22184,
+        "name": "conhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.007082833490014195,
+        "create_time": "2025-07-06T21:49:22.164046"
+      },
+      {
+        "pid": 22212,
+        "name": "wslhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0025755758145506167,
+        "create_time": "2025-07-06T22:28:20.904391"
+      },
+      {
+        "pid": 22244,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.00973270476075377,
+        "create_time": "2025-06-27T18:42:58.923685"
+      },
+      {
+        "pid": 22776,
+        "name": "OpenVPNConnect.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.03761826598367679,
+        "create_time": "2025-07-06T19:37:36.226707"
+      },
+      {
+        "pid": 22860,
+        "name": "vmware-tray.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0009658409304564811,
+        "create_time": "2025-07-06T19:37:51.605389"
+      },
+      {
+        "pid": 23200,
+        "name": "AcrobatNotificationClient.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.00019812121650389359,
+        "create_time": "2025-07-06T19:37:43.440993"
+      },
+      {
+        "pid": 23228,
+        "name": "conhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0014859091237792018,
+        "create_time": "2025-07-06T20:14:15.181090"
+      },
+      {
+        "pid": 24000,
+        "name": "wslhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0025260455104246433,
+        "create_time": "2025-07-06T22:28:18.740349"
+      },
+      {
+        "pid": 24044,
+        "name": "wsl.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0015849697320311487,
+        "create_time": "2025-07-06T22:28:16.708316"
+      },
+      {
+        "pid": 24172,
+        "name": "Cursor.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.06357214534568685,
+        "create_time": "2025-07-06T22:24:11.224600"
+      },
+      {
+        "pid": 24220,
+        "name": "msedgewebview2.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.016493591273949143,
+        "create_time": "2025-07-06T20:09:42.691901"
+      },
+      {
+        "pid": 24272,
+        "name": "wsl.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0035661818970700843,
+        "create_time": "2025-07-06T22:28:29.247697"
+      },
+      {
+        "pid": 24340,
+        "name": "Cursor.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.059857372536238844,
+        "create_time": "2025-07-06T20:13:39.206513"
+      },
+      {
+        "pid": 24380,
+        "name": "conhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.001238257603149335,
+        "create_time": "2025-07-06T22:22:04.262994"
+      },
+      {
+        "pid": 24412,
+        "name": "AMDRSSrcExt.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.026201530882639924,
+        "create_time": "2025-07-06T19:42:25.706800"
+      },
+      {
+        "pid": 24548,
+        "name": "CefSharp.BrowserSubprocess.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.013546538178453723,
+        "create_time": "2025-07-06T19:37:15.249120"
+      },
+      {
+        "pid": 24556,
+        "name": "conhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0015106742758421885,
+        "create_time": "2025-07-06T22:28:16.475473"
+      },
+      {
+        "pid": 24664,
+        "name": "svchost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.01364559878670567,
+        "create_time": "2025-07-06T19:37:03.097573"
+      },
+      {
+        "pid": 24684,
+        "name": "python.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.06476087264471021,
+        "create_time": "2025-07-06T22:38:41.486235"
+      },
+      {
+        "pid": 24800,
+        "name": "rsAppUI.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.041877872138510505,
+        "create_time": "2025-07-06T19:36:58.977911"
+      },
+      {
+        "pid": 24844,
+        "name": "explorer.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.6596941206538396,
+        "create_time": "2025-07-06T19:36:56.408468"
+      },
+      {
+        "pid": 24872,
+        "name": "Cursor.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 1.7006477573173595,
+        "create_time": "2025-07-06T20:13:38.812375"
+      },
+      {
+        "pid": 24892,
+        "name": "CPUMetricsServer.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0006191288015746675,
+        "create_time": "2025-07-06T19:37:22.362882"
+      },
+      {
+        "pid": 25008,
+        "name": "wsl.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0034423561367551508,
+        "create_time": "2025-07-06T22:28:17.026402"
+      },
+      {
+        "pid": 25060,
+        "name": "msrdc.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.03794021296049562,
+        "create_time": "2025-07-06T22:28:18.611718"
+      },
+      {
+        "pid": 25080,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.006042697103368754,
+        "create_time": "2025-06-27T18:44:42.419212"
+      },
+      {
+        "pid": 25368,
+        "name": "Adobe Crash Processor.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.008494447157604437,
+        "create_time": "2025-07-06T19:38:04.138119"
+      },
+      {
+        "pid": 25508,
+        "name": "AsusOLEDShifter.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.033953023478354764,
+        "create_time": "2025-07-06T19:37:02.011917"
+      },
+      {
+        "pid": 25652,
+        "name": "uvicorn.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.010079416889635585,
+        "create_time": "2025-07-06T22:44:02.882917"
+      },
+      {
+        "pid": 25760,
+        "name": "rsAppUI.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.10047222191953704,
+        "create_time": "2025-07-06T19:36:55.684695"
+      },
+      {
+        "pid": 26000,
+        "name": "wslhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0029965833996213904,
+        "create_time": "2025-07-06T22:28:31.740477"
+      },
+      {
+        "pid": 26044,
+        "name": "conhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0015849697320311487,
+        "create_time": "2025-07-06T21:30:31.246128"
+      },
+      {
+        "pid": 26248,
+        "name": "msedgewebview2.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.00547309860592006,
+        "create_time": "2025-07-06T20:09:36.198251"
+      },
+      {
+        "pid": 26360,
+        "name": "backgroundTaskHost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.00042100758507077383,
+        "create_time": "2025-07-06T19:43:04.717014"
+      },
+      {
+        "pid": 26560,
+        "name": "vmwp.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.04787103893775328,
+        "create_time": "2025-07-06T22:28:14.030031"
+      },
+      {
+        "pid": 26564,
+        "name": "AsusOSD.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0008172500180785609,
+        "create_time": "2025-07-06T19:37:55.782294"
+      },
+      {
+        "pid": 26588,
+        "name": "powershell.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.5202910796912875,
+        "create_time": "2025-07-06T22:49:01.520505"
+      },
+      {
+        "pid": 26636,
+        "name": "wsl.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0012134924510863482,
+        "create_time": "2025-07-06T22:28:16.976348"
+      },
+      {
+        "pid": 26700,
+        "name": "dllhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.010698545691210253,
+        "create_time": "2025-07-06T22:28:14.582026"
+      },
+      {
+        "pid": 26872,
+        "name": "AMDRSServ.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.01785567463741341,
+        "create_time": "2025-07-06T19:37:25.456566"
+      },
+      {
+        "pid": 26928,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.006265583471935634,
+        "create_time": "2025-06-29T13:16:17.032248"
+      },
+      {
+        "pid": 26936,
+        "name": "MicrosoftStartFeedProvider.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.19319295124335922,
+        "create_time": "2025-07-06T19:37:30.109664"
+      },
+      {
+        "pid": 27016,
+        "name": "jusched.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0006191288015746675,
+        "create_time": "2025-07-06T19:37:56.438529"
+      },
+      {
+        "pid": 27448,
+        "name": "ShellExperienceHost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0006191288015746675,
+        "create_time": "2025-07-06T19:37:11.331852"
+      },
+      {
+        "pid": 27504,
+        "name": "uvicorn.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.023105886874766588,
+        "create_time": "2025-07-06T22:48:35.855819"
+      },
+      {
+        "pid": 27544,
+        "name": "msedgewebview2.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.08224507000117882,
+        "create_time": "2025-07-06T19:37:44.167824"
+      },
+      {
+        "pid": 27624,
+        "name": "Cursor.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.4725686316659121,
+        "create_time": "2025-07-06T22:07:03.494475"
+      },
+      {
+        "pid": 27848,
+        "name": "conhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0049777955646603264,
+        "create_time": "2025-07-06T22:28:29.514568"
+      },
+      {
+        "pid": 28272,
+        "name": "AsusSystemAnalysis.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.00037147728094480046,
+        "create_time": "2025-07-06T19:39:09.349274"
+      },
+      {
+        "pid": 28364,
+        "name": "SearchHost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.06471134234058425,
+        "create_time": "2025-07-06T19:36:58.298750"
+      },
+      {
+        "pid": 28404,
+        "name": "powershell.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.5828478538023919,
+        "create_time": "2025-07-06T22:54:28.732460"
+      },
+      {
+        "pid": 28416,
+        "name": "wslhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.002947053095495417,
+        "create_time": "2025-07-06T22:28:16.863026"
+      },
+      {
+        "pid": 28492,
+        "name": "conhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0002971818247558404,
+        "create_time": "2025-07-06T19:37:25.189894"
+      },
+      {
+        "pid": 28520,
+        "name": "msedgewebview2.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.09784711580086043,
+        "create_time": "2025-07-06T20:09:41.021854"
+      },
+      {
+        "pid": 28548,
+        "name": "conhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0005943636495116808,
+        "create_time": "2025-07-06T19:37:48.109463"
+      },
+      {
+        "pid": 28732,
+        "name": "svchost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.02340306869952243,
+        "create_time": "2025-07-06T19:36:55.382574"
+      },
+      {
+        "pid": 28840,
+        "name": "powershell.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.03516651592944111,
+        "create_time": "2025-07-06T21:30:31.455246"
+      },
+      {
+        "pid": 28940,
+        "name": "conhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0015354394279051753,
+        "create_time": "2025-07-06T22:28:16.520080"
+      },
+      {
+        "pid": 29016,
+        "name": "Cursor.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.010178477497887533,
+        "create_time": "2025-07-06T21:30:36.319354"
+      },
+      {
+        "pid": 29248,
+        "name": "RuntimeBroker.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.008246795636974572,
+        "create_time": "2025-07-06T19:37:30.351400"
+      },
+      {
+        "pid": 29280,
+        "name": "conhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.020579841364341944,
+        "create_time": "2025-07-06T22:38:39.963608"
+      },
+      {
+        "pid": 29456,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.009683174456627799,
+        "create_time": "2025-06-30T12:49:51.002005"
+      },
+      {
+        "pid": 29468,
+        "name": "Cursor.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.12233985119115427,
+        "create_time": "2025-07-06T21:30:01.050105"
+      },
+      {
+        "pid": 29612,
+        "name": "conhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0015106742758421885,
+        "create_time": "2025-07-06T22:28:18.814266"
+      },
+      {
+        "pid": 29640,
+        "name": "docker-language-server-windows-amd64.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.11070022972155054,
+        "create_time": "2025-07-06T22:24:12.453174"
+      },
+      {
+        "pid": 29680,
+        "name": "wsl.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.004234841002770725,
+        "create_time": "2025-07-06T22:28:17.040365"
+      },
+      {
+        "pid": 29784,
+        "name": "dllhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.004482492523400592,
+        "create_time": "2025-07-06T22:28:15.794826"
+      },
+      {
+        "pid": 30156,
+        "name": "uvicorn.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.007355250162707049,
+        "create_time": "2025-07-06T22:38:41.415075"
+      },
+      {
+        "pid": 30292,
+        "name": "svchost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.048118690458383157,
+        "create_time": "2025-07-06T19:36:57.434266"
+      },
+      {
+        "pid": 30300,
+        "name": "Docker Desktop.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.05158581174720129,
+        "create_time": "2025-07-06T22:28:12.164864"
+      },
+      {
+        "pid": 30312,
+        "name": "Cursor.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.44815019173180726,
+        "create_time": "2025-07-06T22:52:48.569992"
+      },
+      {
+        "pid": 30404,
+        "name": "cmd.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.00019812121650389359,
+        "create_time": "2025-07-06T21:50:25.654307"
+      },
+      {
+        "pid": 30420,
+        "name": "CCXProcess.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.00017335606444090687,
+        "create_time": "2025-07-06T19:37:47.969784"
+      },
+      {
+        "pid": 30480,
+        "name": "uvicorn.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.013298886657823857,
+        "create_time": "2025-07-06T22:42:56.483702"
+      },
+      {
+        "pid": 30768,
+        "name": "AsusSwitch.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.00034671212888181375,
+        "create_time": "2025-07-02T11:43:58.362220"
+      },
+      {
+        "pid": 30788,
+        "name": "SearchIndexer.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.06768316058814264,
+        "create_time": "2025-07-06T19:50:21.030682"
+      },
+      {
+        "pid": 30812,
+        "name": "msedgewebview2.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.16236033692494078,
+        "create_time": "2025-07-06T19:37:43.702625"
+      },
+      {
+        "pid": 31068,
+        "name": "msedgewebview2.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.00532450769354214,
+        "create_time": "2025-07-06T19:37:00.798181"
+      },
+      {
+        "pid": 31196,
+        "name": "Docker Desktop.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.2358880733999483,
+        "create_time": "2025-07-06T22:28:11.404637"
+      },
+      {
+        "pid": 31216,
+        "name": "rsAppUI.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.18511951167082555,
+        "create_time": "2025-07-06T19:37:01.408071"
+      },
+      {
+        "pid": 31308,
+        "name": "wslhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0033928258326291773,
+        "create_time": "2025-07-06T22:28:29.395559"
+      },
+      {
+        "pid": 31524,
+        "name": "AsusSoftwareManager.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.03209563707363076,
+        "create_time": "2025-07-02T11:43:56.131607"
+      },
+      {
+        "pid": 31596,
+        "name": "RuntimeBroker.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.023947902044908136,
+        "create_time": "2025-07-06T19:43:17.852706"
+      },
+      {
+        "pid": 31748,
+        "name": "chrome.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 2.471908888014954,
+        "create_time": "2025-07-06T20:14:15.836493"
+      },
+      {
+        "pid": 31880,
+        "name": "msedgewebview2.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.011936803294359588,
+        "create_time": "2025-07-06T19:37:44.084447"
+      },
+      {
+        "pid": 31976,
+        "name": "powershell.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.015181038214610846,
+        "create_time": "2025-07-06T21:30:02.156174"
+      },
+      {
+        "pid": 31992,
+        "name": "wsl.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.002674636422802563,
+        "create_time": "2025-07-06T22:28:31.334241"
+      },
+      {
+        "pid": 32048,
+        "name": "conhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0017335606444090687,
+        "create_time": "2025-07-06T22:28:18.152120"
+      },
+      {
+        "pid": 32268,
+        "name": "Creative Cloud UI Helper.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.01072331084327324,
+        "create_time": "2025-07-06T19:37:57.345908"
+      },
+      {
+        "pid": 32340,
+        "name": "wsl.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.003789068265636965,
+        "create_time": "2025-07-06T22:28:16.754395"
+      },
+      {
+        "pid": 32480,
+        "name": "rsHelper.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.03979759936521962,
+        "create_time": "2025-07-06T19:37:31.093376"
+      },
+      {
+        "pid": 32860,
+        "name": "conhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.04977795564660326,
+        "create_time": "2025-07-06T22:49:13.969139"
+      },
+      {
+        "pid": 33100,
+        "name": "wslhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.00547309860592006,
+        "create_time": "2025-07-06T22:28:22.499057"
+      },
+      {
+        "pid": 33228,
+        "name": "RuntimeBroker.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.004086250090392806,
+        "create_time": "2025-07-06T19:38:01.386568"
+      },
+      {
+        "pid": 33244,
+        "name": "Cursor.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 4.136548114232731,
+        "create_time": "2025-07-06T21:23:49.760209"
+      },
+      {
+        "pid": 33256,
+        "name": "msedge.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.12781294979707433,
+        "create_time": "2025-07-06T21:50:23.585623"
+      },
+      {
+        "pid": 33268,
+        "name": "AsusAppService.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.006240818319872648,
+        "create_time": "2025-07-02T11:43:58.160398"
+      },
+      {
+        "pid": 33356,
+        "name": "AsusSystemAnalysis.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.003838598569762938,
+        "create_time": "2025-07-02T11:43:53.231249"
+      },
+      {
+        "pid": 33420,
+        "name": "msedgewebview2.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.12976939681005029,
+        "create_time": "2025-07-06T20:09:36.457294"
+      },
+      {
+        "pid": 33484,
+        "name": "com.docker.backend.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.668337158723822,
+        "create_time": "2025-07-06T22:28:10.312008"
+      },
+      {
+        "pid": 33580,
+        "name": "msedge.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.35347301539500914,
+        "create_time": "2025-07-06T21:50:23.076746"
+      },
+      {
+        "pid": 33712,
+        "name": "msedgewebview2.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.005299742541479153,
+        "create_time": "2025-07-06T19:37:43.878947"
+      },
+      {
+        "pid": 34060,
+        "name": "conhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0504466147523039,
+        "create_time": "2025-07-06T22:49:01.303459"
+      },
+      {
+        "pid": 34108,
+        "name": "powershell.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.015428689735240713,
+        "create_time": "2025-07-06T21:30:12.430932"
+      },
+      {
+        "pid": 34148,
+        "name": "conhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0027489318789915233,
+        "create_time": "2025-07-06T22:28:22.599783"
+      },
+      {
+        "pid": 34168,
+        "name": "LinkedIn.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.18762079202918722,
+        "create_time": "2025-07-06T20:09:35.158446"
+      },
+      {
+        "pid": 34448,
+        "name": "Cursor.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 3.848108388155125,
+        "create_time": "2025-07-06T21:39:47.021541"
+      },
+      {
+        "pid": 34452,
+        "name": "Cursor.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 2.113730493727978,
+        "create_time": "2025-07-06T21:41:35.170107"
+      },
+      {
+        "pid": 34584,
+        "name": "ShellHost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.031352682511741156,
+        "create_time": "2025-07-06T19:36:56.510810"
+      },
+      {
+        "pid": 34920,
+        "name": "chrome.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.038856523586826126,
+        "create_time": "2025-07-06T20:14:12.845310"
+      },
+      {
+        "pid": 34944,
+        "name": "Cursor.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 2.0015443548826477,
+        "create_time": "2025-07-06T21:30:15.874949"
+      },
+      {
+        "pid": 35204,
+        "name": "conhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.001807856100598029,
+        "create_time": "2025-07-06T22:28:18.511214"
+      },
+      {
+        "pid": 35252,
+        "name": "Cursor.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.21030567131888303,
+        "create_time": "2025-07-06T21:41:58.829236"
+      },
+      {
+        "pid": 35268,
+        "name": "Cursor.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.575393543031433,
+        "create_time": "2025-07-06T20:13:42.473102"
+      },
+      {
+        "pid": 35364,
+        "name": "OpenVPNConnect.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.013893250307335538,
+        "create_time": "2025-07-06T19:37:36.243404"
+      },
+      {
+        "pid": 35368,
+        "name": "wslhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0025508106624876296,
+        "create_time": "2025-07-06T22:28:17.431519"
+      },
+      {
+        "pid": 35392,
+        "name": "msrdc.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.03846028115381834,
+        "create_time": "2025-07-06T22:28:16.613732"
+      },
+      {
+        "pid": 35424,
+        "name": "ChatGPT.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0058445758868648605,
+        "create_time": "2025-07-06T19:37:38.807555"
+      },
+      {
+        "pid": 35516,
+        "name": "conhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.026226296034702914,
+        "create_time": "2025-07-06T22:44:01.479918"
+      },
+      {
+        "pid": 35620,
+        "name": "mc-extn-browserhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.020381720147838053,
+        "create_time": "2025-07-06T21:50:25.939836"
+      },
+      {
+        "pid": 35624,
+        "name": "chrome.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.005274977389416166,
+        "create_time": "2025-07-06T20:14:12.583451"
+      },
+      {
+        "pid": 35716,
+        "name": "msedgewebview2.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.034374031063425535,
+        "create_time": "2025-07-06T22:09:48.944493"
+      },
+      {
+        "pid": 35784,
+        "name": "AsusOptimizationStartupTask.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0017583257964720557,
+        "create_time": "2025-07-06T19:36:55.019760"
+      },
+      {
+        "pid": 36004,
+        "name": "conhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0004953030412597339,
+        "create_time": "2025-07-06T21:30:21.273213"
+      },
+      {
+        "pid": 36084,
+        "name": "chrome.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.19628859525123257,
+        "create_time": "2025-07-06T22:50:41.983784"
+      },
+      {
+        "pid": 36260,
+        "name": "Cursor.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.07226471371979519,
+        "create_time": "2025-07-06T22:24:10.495054"
+      },
+      {
+        "pid": 36300,
+        "name": "msedge.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.04130827364106181,
+        "create_time": "2025-07-06T21:50:23.585618"
+      },
+      {
+        "pid": 36328,
+        "name": "conhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.04789580408981627,
+        "create_time": "2025-07-06T22:50:35.884749"
+      },
+      {
+        "pid": 36352,
+        "name": "msedgewebview2.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.23435263397204315,
+        "create_time": "2025-07-06T20:09:35.998549"
+      },
+      {
+        "pid": 36460,
+        "name": "rsAppUI.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.011812977534044655,
+        "create_time": "2025-07-06T19:36:59.045640"
+      },
+      {
+        "pid": 36496,
+        "name": "OpenVPNConnect.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.008172500180785611,
+        "create_time": "2025-07-06T19:37:36.506094"
+      },
+      {
+        "pid": 36700,
+        "name": "conhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0013620833634642683,
+        "create_time": "2025-07-06T20:14:15.179203"
+      },
+      {
+        "pid": 36748,
+        "name": "wslhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0027489318789915233,
+        "create_time": "2025-07-06T22:28:18.137933"
+      },
+      {
+        "pid": 36880,
+        "name": "svchost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.013769424547020603,
+        "create_time": "2025-07-06T19:53:37.121110"
+      },
+      {
+        "pid": 36980,
+        "name": "wsl.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.005076856172912273,
+        "create_time": "2025-07-06T22:28:31.513529"
+      },
+      {
+        "pid": 37056,
+        "name": "Docker Desktop.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.018326212526610156,
+        "create_time": "2025-07-06T22:28:12.191671"
+      },
+      {
+        "pid": 37192,
+        "name": "RadeonSoftware.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.08875830499374432,
+        "create_time": "2025-07-06T19:37:21.706060"
+      },
+      {
+        "pid": 37224,
+        "name": "rsAppUI.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.039995720581723515,
+        "create_time": "2025-07-06T19:36:58.475843"
+      },
+      {
+        "pid": 37276,
+        "name": "msedge.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.04975319049454027,
+        "create_time": "2025-07-06T21:50:23.924846"
+      },
+      {
+        "pid": 37524,
+        "name": "StartMenuExperienceHost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.07303243343374777,
+        "create_time": "2025-07-06T19:36:58.300834"
+      },
+      {
+        "pid": 37600,
+        "name": "chrome.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0580990467397668,
+        "create_time": "2025-07-06T20:14:16.877560"
+      },
+      {
+        "pid": 37632,
+        "name": "Cursor.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.9360732176767712,
+        "create_time": "2025-07-06T21:49:18.795213"
+      },
+      {
+        "pid": 37800,
+        "name": "msrdc.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.026597773315647714,
+        "create_time": "2025-07-06T22:28:17.620981"
+      },
+      {
+        "pid": 37820,
+        "name": "msedgewebview2.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.12692140432280682,
+        "create_time": "2025-07-06T19:37:00.595842"
+      },
+      {
+        "pid": 38020,
+        "name": "svchost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.06847564545415821,
+        "create_time": "2025-07-06T19:36:55.474572"
+      },
+      {
+        "pid": 38056,
+        "name": "mc-fw-host.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.03672672050940927,
+        "create_time": "2025-07-06T19:36:55.145241"
+      },
+      {
+        "pid": 38196,
+        "name": "browserhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.014215197284154366,
+        "create_time": "2025-07-06T21:50:25.941024"
+      },
+      {
+        "pid": 38268,
+        "name": "conhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0021545682294798426,
+        "create_time": "2025-07-06T22:28:09.540896"
+      },
+      {
+        "pid": 38312,
+        "name": "ChatGPT.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.16689235975246736,
+        "create_time": "2025-07-06T19:37:38.115397"
+      },
+      {
+        "pid": 38436,
+        "name": "OfficeClickToRun.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.04497351614638384,
+        "create_time": "2025-07-06T19:48:41.276741"
+      },
+      {
+        "pid": 38476,
+        "name": "sihost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.08714857010965019,
+        "create_time": "2025-07-06T19:36:55.341313"
+      },
+      {
+        "pid": 38688,
+        "name": "wsl.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.00262510611867659,
+        "create_time": "2025-07-06T22:28:17.133940"
+      },
+      {
+        "pid": 38756,
+        "name": "SwUSB.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.01701365946727186,
+        "create_time": "2025-07-03T11:10:15.400049"
+      },
+      {
+        "pid": 38800,
+        "name": "taskhostw.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.04016907664616442,
+        "create_time": "2025-07-06T19:36:55.517228"
+      },
+      {
+        "pid": 38828,
+        "name": "fontdrvhost.exe",
+        "username": null,
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0004705378891967472,
+        "create_time": "2025-07-05T23:20:31.000927"
+      },
+      {
+        "pid": 38964,
+        "name": "conhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.004779674348156433,
+        "create_time": "2025-07-06T22:24:12.064236"
+      },
+      {
+        "pid": 39068,
+        "name": "Adobe Desktop Service.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.11513319194082516,
+        "create_time": "2025-07-06T19:37:57.533301"
+      },
+      {
+        "pid": 39104,
+        "name": "cmd.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.00017335606444090687,
+        "create_time": "2025-07-06T20:14:15.143773"
+      },
+      {
+        "pid": 39196,
+        "name": "Cursor.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.15054735939089614,
+        "create_time": "2025-07-06T20:13:41.142138"
+      },
+      {
+        "pid": 39212,
+        "name": "conhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0027241667269285365,
+        "create_time": "2025-07-06T22:28:16.917090"
+      },
+      {
+        "pid": 39232,
+        "name": "AdobeIPCBroker.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.018400507982799116,
+        "create_time": "2025-07-06T19:37:48.627882"
+      },
+      {
+        "pid": 39600,
+        "name": "mc-extn-browserhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.020208364083397146,
+        "create_time": "2025-07-06T20:14:15.250266"
+      },
+      {
+        "pid": 39604,
+        "name": "AdobeCollabSync.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.09039280502990145,
+        "create_time": "2025-07-06T19:37:34.055129"
+      },
+      {
+        "pid": 39780,
+        "name": "Cursor.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0073057198585810765,
+        "create_time": "2025-07-06T21:41:45.654165"
+      },
+      {
+        "pid": 39808,
+        "name": "svchost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.009410757783934945,
+        "create_time": "2025-07-06T19:38:55.513774"
+      },
+      {
+        "pid": 39948,
+        "name": "Cursor.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.007231424402392116,
+        "create_time": "2025-07-06T21:30:09.182905"
+      },
+      {
+        "pid": 40092,
+        "name": "ollama app.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.030708788558103505,
+        "create_time": "2025-07-06T19:37:47.870292"
+      },
+      {
+        "pid": 40516,
+        "name": "powershell.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.17447049628374128,
+        "create_time": "2025-07-06T22:42:55.121654"
+      },
+      {
+        "pid": 40584,
+        "name": "browserhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.014264727588280337,
+        "create_time": "2025-07-06T20:14:15.251412"
+      },
+      {
+        "pid": 40592,
+        "name": "msedge.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.011936803294359588,
+        "create_time": "2025-07-06T21:50:23.289468"
+      },
+      {
+        "pid": 40672,
+        "name": "Cursor.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.012258750271178415,
+        "create_time": "2025-07-06T20:13:38.303787"
+      },
+      {
+        "pid": 40700,
+        "name": "conhost.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.0004953030412597339,
+        "create_time": "2025-07-06T21:30:12.186442"
+      },
+      {
+        "pid": 40876,
+        "name": "AdobeNotificationClient.exe",
+        "username": "STSHADOW\\stser",
+        "cpu_percent": 0.0,
+        "memory_percent": 0.00042100758507077383,
+        "create_time": "2025-07-06T19:38:01.265658"
+      }
+    ]
+  },
+  "summary": {
+    "total_processes": 461,
+    "timestamp": "2025-07-06T22:55:16.609999",
+    "mode": "full"
+  },
+  "error": null
+}

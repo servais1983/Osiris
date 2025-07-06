@@ -8,6 +8,7 @@ from datetime import datetime
 from sigma.collection import SigmaCollection
 from sigma.backends.sqlite import SQLiteBackend
 from sigma.rule import SigmaRule
+from ..notifications.dispatcher import NotificationDispatcher
 
 logger = logging.getLogger(__name__)
 
@@ -15,10 +16,11 @@ class SigmaDetector:
     """
     Charge les règles Sigma et vérifie les événements par rapport à elles.
     """
-    def __init__(self, rules_path: Optional[str] = None):
+    def __init__(self, rules_path: Optional[str] = None, notification_dispatcher: NotificationDispatcher = None):
         self.rules: Optional[SigmaCollection] = None
         self.rules_metadata: Dict[str, Dict[str, Any]] = {}
         self.backend = SQLiteBackend()
+        self.dispatcher = notification_dispatcher
         
         if rules_path:
             self.load_rules(rules_path)
@@ -104,6 +106,14 @@ class SigmaDetector:
                         'detected_at': datetime.now().isoformat(),
                         'event': event
                     })
+                    if rule.level in ["high", "critical"]:
+                        alert = {
+                            "title": "Sigma Rule Match: " + rule.title,
+                            "severity": rule.level,
+                            "agent_name": event.get('agent_name', 'Unknown'),
+                            "details": event
+                        }
+                        self.dispatcher.dispatch(alert)
         except Exception as e:
             logging.debug(f"Erreur lors de la vérification de l'événement avec Sigma : {e}")
 

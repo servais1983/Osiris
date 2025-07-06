@@ -25,43 +25,118 @@ import hashlib
 import os
 from pathlib import Path
 from .base import WindowsCollector
+import re
 
-class WindowsProcessCollector(WindowsCollector):
-    """Collecteur pour les processus Windows"""
+class ProcessesCollector(WindowsCollector):
+    """Collecteur pour les processus Windows (multi-OS safe)"""
     
     def __init__(self):
         super().__init__()
-        self.requires_admin = True
+        self.psutil_available = self._check_psutil_availability()
+    
+    def _check_psutil_availability(self) -> bool:
+        """Vérifie si psutil est disponible"""
+        try:
+            import psutil
+            return True
+        except ImportError:
+            self.logger.warning("Module psutil non disponible sur ce système.")
+            return False
     
     def collect(self) -> Dict[str, Any]:
-        """Collecte les informations sur les processus"""
-        if not self._check_privileges():
-            return {'error': 'Privilèges insuffisants'}
-        
-        processes = []
+        # Utilise la gestion d'erreur de la base
+        return super().collect()
+
+    def _collect(self) -> Dict[str, Any]:
+        results = {
+            'system_info': self.get_system_info(),
+            'processes': [],
+            'suspicious_processes': [],
+            'network_processes': [],
+            'process_tree': {},
+            'summary': {}
+        }
         
         try:
-            # Parcours de tous les processus
-            for proc in psutil.process_iter(['pid', 'name', 'username', 'create_time', 'memory_info', 'cpu_percent']):
-                try:
-                    process_info = self._get_process_info(proc)
-                    if process_info:
-                        processes.append(process_info)
-                except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
-                    continue
+            if self.psutil_available:
+                # Utiliser psutil si disponible
+                results['processes'] = self._collect_processes_psutil()
+            else:
+                self.logger.warning("Aucune méthode de collecte de processus disponible sur ce système.")
             
-            # Tri par utilisation CPU
-            processes.sort(key=lambda x: x['cpu_percent'], reverse=True)
+            # Analyser les processus suspects
+            results['suspicious_processes'] = self._analyze_suspicious_processes(results['processes'])
             
-            return {
-                'timestamp': datetime.now().isoformat(),
-                'processes': processes,
-                'system_info': self._get_system_info()
-            }
+            # Collecter les processus avec des connexions réseau
+            results['network_processes'] = self._collect_network_processes(results['processes'])
+            
+            # Construire l'arbre des processus
+            results['process_tree'] = self._build_process_tree(results['processes'])
+            
+            # Générer un résumé
+            results['summary'] = self._generate_summary(results)
             
         except Exception as e:
             self.logger.error(f"Erreur lors de la collecte des processus: {e}")
-            return {'error': str(e)}
+            results['error'] = str(e)
+        
+        return results
+    
+    def _collect_processes_psutil(self) -> List[Dict[str, Any]]:
+        """Collecte les processus via psutil"""
+        processes = []
+        
+        try:
+            for proc in psutil.process_iter(['pid', 'name', 'exe', 'cmdline', 'create_time', 
+                                           'cpu_percent', 'memory_percent', 'status', 'username',
+                                           'ppid', 'num_threads']):
+                try:
+                    proc_info = proc.info
+                    
+                    # Informations de base
+                    process_data = {
+                        'pid': proc_info['pid'],
+                        'name': proc_info['name'],
+                        'exe': proc_info['exe'],
+                        'cmdline': proc_info['cmdline'],
+                        'create_time': datetime.fromtimestamp(proc_info['create_time']).isoformat() if proc_info['create_time'] else None,
+                        'cpu_percent': proc_info['cpu_percent'],
+                        'memory_percent': proc_info['memory_percent'],
+                        'status': proc_info['status'],
+                        'username': proc_info['username'],
+                        'ppid': proc_info['ppid'],
+                        'num_threads': proc_info['num_threads'],
+                        'connections': []
+                    }
+                    
+                    # Collecter les connexions réseau si Windows API disponible
+                    if self._windows_available():
+                        try:
+                            connections = proc.connections()
+                            for conn in connections:
+                                process_data['connections'].append({
+                                    'family': str(conn.family),
+                                    'type': str(conn.type),
+                                    'laddr': f"{conn.laddr.ip}:{conn.laddr.port}" if conn.laddr else None,
+                                    'raddr': f"{conn.raddr.ip}:{conn.raddr.port}" if conn.raddr else None,
+                                    'status': conn.status
+                                })
+                        except (psutil.AccessDenied, psutil.NoSuchProcess):
+                            pass
+                    
+                    # Collecter les informations du fichier exécutable
+                    if proc_info['exe']:
+                        process_data['file_info'] = self.get_file_info(proc_info['exe'])
+                    
+                    processes.append(process_data)
+                    
+                except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
+                    continue
+                    
+        except Exception as e:
+            self.logger.error(f"Erreur lors de la collecte via psutil: {e}")
+        
+        return processes
     
     def _get_process_info(self, proc: psutil.Process) -> Optional[Dict[str, Any]]:
         """Récupère les informations détaillées d'un processus"""

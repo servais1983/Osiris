@@ -1,19 +1,105 @@
-# API et Communication
-grpcio==1.73.0
-grpcio-tools==1.73.0
-protobuf>=6.30.0,<7.0.0
-fastapi==0.109.2
-uvicorn==0.27.1
-websockets==12.0
+# Core dependencies
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+pydantic==2.5.0
+sqlalchemy==2.0.23
+# psycopg2-binary==2.9.9  # Commenté temporairement pour Windows
+redis==5.0.1
+grpcio==1.59.3
+grpcio-tools==1.59.3
+protobuf==4.25.1
 
-# Sécurité
+# Data processing and analysis
+pandas==2.1.4
+numpy==1.25.2
+scikit-learn==1.3.2
+
+# System monitoring and collection
+psutil==5.9.6
+requests==2.31.0
+pyyaml==6.0.1
+
+# Security and forensics
+yara-python==4.3.1
+sigma==0.10.0
+geoip2==4.8.0
+
+# Web and API
+jinja2==3.1.2
+python-multipart==0.0.6
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+
+# Database and caching
+clickhouse-driver==0.2.6
+alembic==1.13.1
+
+# Logging and monitoring
+structlog==23.2.0
+prometheus-client==0.19.0
+
+# Development and testing
+pytest==7.4.3
+pytest-asyncio==0.21.1
+black==23.11.0
+flake8==6.1.0
+mypy==1.7.1
+
+# Additional utilities
+python-dotenv==1.0.0
+click==8.1.7
+rich==13.7.0
+typer==0.9.0
+
+# Collecte Windows
+pywin32==310; sys_platform == 'win32'
+psutil==5.9.8
+wmi==1.5.1; sys_platform == 'win32'
+
+# Collecte Linux
+python-magic==0.4.27; sys_platform != 'win32'
+pyudev==0.24.1; sys_platform == 'linux'
+systemd-python==235; sys_platform == 'linux'
+
+# Collecte macOS
+pyobjc-framework-SystemConfiguration==9.2; sys_platform == 'darwin'
+pyobjc-framework-Security==9.2; sys_platform == 'darwin'
+
+# Analyse
+scipy==1.10.1
+networkx==3.2.1
+
+# Visualisation
+matplotlib==3.7.2
+seaborn==0.12.2
+plotly==5.18.0
+dash==2.14.2
+
+# Tests
+pytest-cov==4.1.0
+pytest-mock==3.12.0
+pytest-xdist==3.5.0
+
+# Linting et Formatage
+isort==5.13.2
+pylint==3.0.3
+bandit==1.7.7
+
+# Documentation
+sphinx==7.2.6
+sphinx-rtd-theme==2.0.0
+mkdocs==1.5.3
+mkdocs-material==9.5.3
+
+# Utilitaires
+tqdm==4.66.1
+loguru==0.7.2
+
+# Autres dépendances
 cryptography==42.0.2
 pyjwt==2.8.0
 python-multipart==0.0.9
-passlib==1.7.4
 bcrypt==4.1.2
-
-# Base de données
 asyncpg==0.29.0
 clickhouse-driver==0.2.6
 alembic==1.13.1
@@ -73,4 +159,31 @@ PyYAML==6.0.2
 python-dotenv==1.0.1
 tqdm==4.66.1
 rich==13.7.0
-loguru==0.7.2 
+loguru==0.7.2
+
+# Autres dépendances
+geoip2>=4.0.0
+
+# Osiris - Collecteur Forensique Multi-OS
+# Dépendances principales
+
+# Informations système cross-platform
+psutil>=5.9.0
+
+# Windows (optionnel - installé automatiquement si disponible)
+# pywin32>=306
+# wmi>=1.5.1
+
+# Linux (optionnel)
+# python-prctl>=1.7.1
+
+# macOS (optionnel)
+# pyobjc-framework-SystemConfiguration>=9.0
+
+# Utilitaires
+pathlib2>=2.3.7; python_version < "3.4"
+typing-extensions>=4.0.0; python_version < "3.8"
+
+# Tests (optionnel)
+# pytest>=7.0.0
+# pytest-cov>=4.0.0 

@@ -48,25 +48,82 @@ class WindowsFileCollector(WindowsCollector):
         }
     
     def collect(self) -> Dict[str, Any]:
-        """Collecte les informations sur les fichiers"""
-        if not self._check_privileges():
-            return {'error': 'Privilèges insuffisants'}
+        return super().collect()
+
+    def _collect(self) -> Dict[str, Any]:
+        results = {
+            'system_info': self.get_system_info(),
+            'important_files': {},
+            'recent_files': [],
+            'startup_files': [],
+            'prefetch_files': [],
+            'temp_files': [],
+            'downloads': [],
+            'documents': [],
+            'suspicious_files': [],
+            'summary': {}
+        }
         
         try:
-            return {
-                'timestamp': datetime.now().isoformat(),
-                'important_paths': self._scan_important_paths(),
-                'recent_files': self._get_recent_files(),
-                'startup_files': self._get_startup_files(),
-                'prefetch_files': self._get_prefetch_files(),
-                'temp_files': self._get_temp_files(),
-                'downloads': self._get_downloads(),
-                'documents': self._get_documents()
+            # Scanner les chemins importants
+            results['important_files'] = self._scan_important_paths()
+            
+            # Collecter les fichiers récents
+            results['recent_files'] = self._get_recent_files()
+            
+            # Collecter les fichiers de démarrage
+            results['startup_files'] = self._get_startup_files()
+            
+            # Collecter les fichiers prefetch
+            results['prefetch_files'] = self._get_prefetch_files()
+            
+            # Collecter les fichiers temporaires
+            results['temp_files'] = self._get_temp_files()
+            
+            # Collecter les téléchargements
+            results['downloads'] = self._get_downloads()
+            
+            # Collecter les documents
+            results['documents'] = self._get_documents()
+            
+            # Analyser les fichiers suspects
+            all_files = []
+            for category, files in results['important_files'].items():
+                if isinstance(files, list):
+                    all_files.extend(files)
+            all_files.extend(results['recent_files'])
+            all_files.extend(results['startup_files'])
+            all_files.extend(results['prefetch_files'])
+            
+            results['suspicious_files'] = self._analyze_suspicious_files(all_files)
+            
+            # Générer un résumé
+            total_files = sum(len(files) for files in results['important_files'].values() if isinstance(files, list))
+            total_files += len(results['recent_files'])
+            total_files += len(results['startup_files'])
+            total_files += len(results['prefetch_files'])
+            total_files += len(results['temp_files'])
+            total_files += len(results['downloads'])
+            total_files += len(results['documents'])
+            
+            results['summary'] = {
+                'total_important_paths': len(results['important_files']),
+                'total_files_scanned': total_files,
+                'recent_files_count': len(results['recent_files']),
+                'startup_files_count': len(results['startup_files']),
+                'prefetch_files_count': len(results['prefetch_files']),
+                'temp_files_count': len(results['temp_files']),
+                'downloads_count': len(results['downloads']),
+                'documents_count': len(results['documents']),
+                'suspicious_files_count': len(results['suspicious_files']),
+                'timestamp': datetime.now().isoformat()
             }
             
         except Exception as e:
             self.logger.error(f"Erreur lors de la collecte des fichiers: {e}")
-            return {'error': str(e)}
+            results['error'] = str(e)
+        
+        return results
     
     def _scan_important_paths(self) -> Dict[str, List[Dict[str, Any]]]:
         """Scanne les chemins importants"""
@@ -475,4 +532,90 @@ class WindowsFileCollector(WindowsCollector):
         if ace_mask & win32con.FILE_WRITE_ATTRIBUTES:
             masks.append('FILE_WRITE_ATTRIBUTES')
         
-        return masks 
+        return masks
+    
+    def _analyze_suspicious_files(self, files: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """Analyse les fichiers pour détecter les fichiers suspects"""
+        suspicious_files = []
+        
+        for file_info in files:
+            suspicious_flags = []
+            
+            # Vérifier les extensions suspectes
+            file_path = file_info.get('path', '').lower()
+            suspicious_extensions = ['.exe', '.dll', '.bat', '.cmd', '.ps1', '.vbs', '.js', '.jar']
+            if any(file_path.endswith(ext) for ext in suspicious_extensions):
+                suspicious_flags.append("Extension suspecte")
+            
+            # Vérifier les noms de fichiers suspects
+            suspicious_names = ['malware', 'virus', 'trojan', 'backdoor', 'keylogger', 'spyware']
+            if any(name in file_path for name in suspicious_names):
+                suspicious_flags.append("Nom de fichier suspect")
+            
+            # Vérifier les fichiers cachés
+            attributes = file_info.get('attributes', [])
+            if 'HIDDEN' in attributes:
+                suspicious_flags.append("Fichier caché")
+            
+            # Vérifier les fichiers système
+            if 'SYSTEM' in attributes:
+                suspicious_flags.append("Fichier système")
+            
+            # Vérifier les fichiers temporaires
+            if 'TEMPORARY' in attributes:
+                suspicious_flags.append("Fichier temporaire")
+            
+            # Vérifier les fichiers avec des permissions élevées
+            security = file_info.get('security', {})
+            acl = security.get('acl', [])
+            for ace in acl:
+                if ace.get('name', '').lower() in ['everyone', 'users', 'guests']:
+                    if 'FULL_CONTROL' in ace.get('mask', []):
+                        suspicious_flags.append("Permissions trop permissives")
+                        break
+            
+            # Vérifier les fichiers récemment modifiés (moins de 24h)
+            try:
+                modified_time = datetime.fromisoformat(file_info.get('modified', ''))
+                if (datetime.now() - modified_time).days < 1:
+                    suspicious_flags.append("Modifié récemment")
+            except:
+                pass
+            
+            # Vérifier les fichiers avec des hashes suspects (placeholder pour future implémentation)
+            hashes = file_info.get('hashes', {})
+            if hashes:
+                # Ici on pourrait vérifier contre une base de données de hashes malveillants
+                pass
+            
+            # Si des flags suspects sont détectés, ajouter le fichier à la liste
+            if suspicious_flags:
+                suspicious_file = file_info.copy()
+                suspicious_file['suspicious_flags'] = suspicious_flags
+                suspicious_file['risk_level'] = self._calculate_file_risk_level(suspicious_flags)
+                suspicious_files.append(suspicious_file)
+        
+        return suspicious_files
+    
+    def _calculate_file_risk_level(self, suspicious_flags: List[str]) -> str:
+        """Calcule le niveau de risque basé sur les flags suspects"""
+        high_risk_flags = [
+            "Permissions trop permissives",
+            "Nom de fichier suspect"
+        ]
+        
+        medium_risk_flags = [
+            "Extension suspecte",
+            "Fichier caché",
+            "Modifié récemment"
+        ]
+        
+        high_count = sum(1 for flag in suspicious_flags if flag in high_risk_flags)
+        medium_count = sum(1 for flag in suspicious_flags if flag in medium_risk_flags)
+        
+        if high_count > 0:
+            return "HIGH"
+        elif medium_count > 1 or len(suspicious_flags) > 2:
+            return "MEDIUM"
+        else:
+            return "LOW" 

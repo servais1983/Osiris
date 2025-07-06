@@ -1,254 +1,304 @@
-# 🏺 Osiris - Plateforme DFIR de Nouvelle Génération
+# Osiris - Collecteur Forensique Multi-OS
 
-![Version](https://img.shields.io/badge/version-0.1.0-blue.svg)
-![License](https://img.shields.io/badge/license-MIT-yellow.svg)
-![Status](https://img.shields.io/badge/status-En%20Développement-orange.svg)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Platforms: Windows, Linux, macOS](https://img.shields.io/badge/platforms-Windows%20%7C%20Linux%20%7C%20macOS-green.svg)](https://github.com/your-repo/osiris)
 
-## 📋 Description
+**Osiris** est un collecteur forensique multi-OS robuste et portable, conçu pour collecter des artefacts forensiques sur Windows, Linux et macOS, même en l'absence de modules natifs spécifiques à la plateforme.
 
-Osiris est une plateforme unifiée de Réponse à Incidents et d'Investigation Numérique (DFIR) qui combine les meilleures fonctionnalités des outils existants dans un écosystème cohérent et intelligent. La plateforme intègre la puissance de collecte de Velociraptor, les capacités de parsing de KAPE, et l'analyse approfondie d'Autopsy, le tout enrichi par une couche d'intelligence artificielle.
+## 🌟 Fonctionnalités Principales
 
-## ✨ Fonctionnalités Principales
+### ✅ Portabilité Multi-OS
+- **Windows** : Collecteurs pour processus, services, registre, événements, réseau, fichiers, utilisateurs, historique navigateur
+- **Linux** : Collecteurs pour processus, services, logs système, historique shell, réseau, fichiers, utilisateurs
+- **macOS** : Collecteurs pour logs unifiés et persistance
 
-### 🏗️ Architecture Hybride et Distribuée
-- **Osiris Hive** : Serveur central déployable on-premise ou cloud
-- **Osiris Agents** : Agents légers multi-plateformes (Windows, Linux, macOS)
-- Communication sécurisée via gRPC sur TLS mutuel
+### ✅ Robustesse et Fiabilité
+- **Gestion d'erreurs avancée** : Chaque collecteur retourne toujours une structure de données cohérente
+- **Mode dégradé** : Fonctionne même sans privilèges administrateur (données limitées)
+- **Imports conditionnels** : Gère automatiquement les modules manquants
+- **Tests multi-OS** : Validation automatique sur toutes les plateformes
 
-### 🔍 Collecte Puissante via OQL
-- **Osiris Query Language (OQL)** : Langage de requêtes unifié
-- **Recettes de Collecte** : Bibliothèque modulaire d'artefacts forensiques
-- Support des artefacts courants (Prefetch, Amcache, Shellbags, etc.)
+### ✅ Architecture Modulaire
+- **Gestionnaire universel** : Interface unifiée pour tous les collecteurs
+- **Structure homogène** : Format de sortie JSON standardisé
+- **Extensibilité** : Ajout facile de nouveaux collecteurs
 
-### 🔄 Pipeline d'Analyse Automatisé
-- Parsing automatisé des artefacts
-- Normalisation des données (ECS)
-- Enrichissement :
-  - Threat Intelligence
-  - Géolocalisation
-  - Contexte Interne
-- Moteurs de détection :
-  - Règles Sigma
-  - Règles YARA
+## 🚀 Installation Rapide
 
-### 🤖 Assistance par IA
-- Détection d'anomalies
-- Résumé d'incidents
-- Assistance à l'investigation
-- Traducteur OQL (langage naturel vers OQL)
-
-### 🌐 Interface Web Moderne
-- Tableau de bord global
-- Gestion des agents
-- Console de hunting OQL
-- Timeline interactive
-- Visualisations avancées
-- Gestion de cas
-
-## 🛠️ Stack Technologique
-
-| Composant | Technologie | Justification |
-|-----------|-------------|---------------|
-| Backend | Python (FastAPI) / Go | Performance, asynchronisme |
-| Base de Données | PostgreSQL + ClickHouse | Optimisé pour l'analytique |
-| Frontend | React / TypeScript | Interface moderne et réactive |
-| Communication | gRPC / Protobuf | Performance et efficacité |
-| Agents | Python / Go | Multi-plateforme, léger |
-
-## 📚 Exemples d'Utilisation
-
-### Collecte de Données Windows
-
-```python
-from collectors.windows import (
-    WindowsCollector,
-    BrowserHistoryCollector,
-    WindowsEventLogCollector,
-    WindowsFileCollector,
-    WindowsNetworkCollector,
-    WindowsProcessCollector,
-    WindowsRegistryCollector,
-    WindowsServiceCollector,
-    WindowsUserCollector
-)
-
-# Collecte d'historique de navigation
-browser_collector = BrowserHistoryCollector()
-browser_data = browser_collector.collect()
-print(f"Historique de navigation collecté : {len(browser_data['history'])} entrées")
-
-# Collecte de journaux d'événements
-event_collector = WindowsEventLogCollector()
-event_data = event_collector.collect()
-print(f"Événements collectés : {len(event_data['events'])} entrées")
-
-# Collecte de fichiers
-file_collector = WindowsFileCollector()
-file_data = file_collector.collect()
-print(f"Fichiers analysés : {len(file_data['files'])} entrées")
-
-# Collecte réseau
-network_collector = WindowsNetworkCollector()
-network_data = network_collector.collect()
-print(f"Connexions réseau : {len(network_data['connections'])} entrées")
-
-# Collecte de processus
-process_collector = WindowsProcessCollector()
-process_data = process_collector.collect()
-print(f"Processus en cours : {len(process_data['processes'])} entrées")
-
-# Collecte du registre
-registry_collector = WindowsRegistryCollector()
-registry_data = registry_collector.collect()
-print(f"Clés de registre analysées : {len(registry_data['keys'])} entrées")
-
-# Collecte de services
-service_collector = WindowsServiceCollector()
-service_data = service_collector.collect()
-print(f"Services analysés : {len(service_data['services'])} entrées")
-
-# Collecte d'utilisateurs
-user_collector = WindowsUserCollector()
-user_data = user_collector.collect()
-print(f"Utilisateurs analysés : {len(user_data['users'])} entrées")
-```
-
-### Utilisation de l'API
-
-```python
-import grpc
-from osiris_pb2 import CollectRequest
-from osiris_pb2_grpc import OsirisStub
-
-# Connexion au serveur
-channel = grpc.secure_channel(
-    'hive.example.com:443',
-    grpc.ssl_channel_credentials()
-)
-stub = OsirisStub(channel)
-
-# Collecte de données
-request = CollectRequest(
-    target="windows",
-    collectors=["browser_history", "event_logs", "files"],
-    options={
-        "browser_history": {"browsers": ["chrome", "firefox", "edge"]},
-        "event_logs": {"logs": ["security", "system", "application"]},
-        "files": {"paths": ["C:\\Windows\\System32", "C:\\Program Files"]}
-    }
-)
-
-response = stub.Collect(request)
-print(f"Données collectées : {response.data}")
-```
-
-### Utilisation de l'Interface Web
-
-1. Accédez à l'interface web : `https://hive.example.com`
-2. Connectez-vous avec vos identifiants
-3. Sélectionnez un agent dans la liste
-4. Choisissez les collecteurs à utiliser
-5. Configurez les options de collecte
-6. Lancez la collecte
-7. Visualisez les résultats dans le tableau de bord
-
-## 🗺️ Roadmap
-
-### Phase 1 : Le Cœur ✅
-- [x] Agent de base (collecte simple)
-- [x] Serveur Hive avec gRPC
-- [x] Implémentation OQL
-
-### Phase 2 : Intelligence de Collecte ✅
-- [x] Enrichissement OQL
-- [x] Bibliothèque de Recettes
-- [x] Pipeline de parsing
-
-### Phase 3 : Interface et Analyse ✅
-- [x] Interface web React
-- [x] Timeline unifiée
-- [x] Moteurs Sigma/YARA
-
-### Phase 4 : IA ✅
-- [x] Enrichissement TI
-- [x] Détection d'anomalies
-- [x] Assistance IA
-
-### Phase 5 : Améliorations et Optimisations ✅
-- [x] Optimisation des performances
-- [x] Tests automatisés
-- [x] Documentation complète
-- [x] Support multi-langues
-- [x] Intégration continue
-
-### Phase 6 : Évolution Future 🚧
-- [ ] Support de nouvelles plateformes (macOS, Linux)
-- [ ] Intégration avec d'autres outils DFIR (Velociraptor, KAPE)
-- [ ] Amélioration des capacités d'IA (analyse comportementale)
-- [ ] API publique pour les développeurs
-- [ ] Marketplace de plugins et recettes OQL
-- [ ] Support des environnements cloud (AWS, Azure, GCP)
-
-## 🚀 Installation
-
+### Prérequis
 ```bash
-# Cloner le dépôt
-git clone https://github.com/votre-org/osiris.git
+Python 3.8+
+```
 
-# Accéder au répertoire
+### Installation
+```bash
+git clone https://github.com/your-repo/osiris.git
 cd osiris
-
-# Méthode recommandée : Utiliser Docker Compose
-docker-compose up -d
-
-# Alternative : Installation manuelle
 pip install -r requirements.txt
 ```
 
-## 💻 Utilisation
+### Dépendances Optionnelles
+```bash
+# Windows
+pip install pywin32 psutil
+
+# Linux
+pip install psutil
+
+# macOS
+pip install psutil
+```
+
+## 📖 Utilisation
+
+### Interface en Ligne de Commande
 
 ```bash
-# Avec Docker Compose (recommandé)
-# Le serveur Hive et les services associés sont déjà démarrés
-# Accédez à l'interface web : https://localhost:8443
+# Informations système
+python osiris_cli.py --system-info
 
-# Installation manuelle
-# Démarrer le serveur Hive
-python osiris_hive.py
+# Liste des collecteurs disponibles
+python osiris_cli.py --list
 
-# Démarrer un agent
-python osiris_agent.py --server https://hive.example.com
+# Collecte d'un artefact spécifique
+python osiris_cli.py --collect users --output results.json
+
+# Collecte de tous les artefacts
+python osiris_cli.py --collect-all --output full_scan.json
+
+# Collecte pour une plateforme spécifique
+python osiris_cli.py --platform windows --collect processes
+```
+
+### Utilisation Programmée
+
+```python
+from collectors import collect_all, collect_specific, list_collectors
+
+# Collecte tous les artefacts
+results = collect_all()
+
+# Collecte d'un artefact spécifique
+users_data = collect_specific('windows', 'users')
+
+# Liste des collecteurs disponibles
+collectors = list_collectors()
+```
+
+## 🔧 Architecture
+
+### Structure des Collecteurs
+
+```
+collectors/
+├── __init__.py              # Gestionnaire universel
+├── windows/                 # Collecteurs Windows
+│   ├── base.py             # Classe de base Windows
+│   ├── processes.py        # Collecteur de processus
+│   ├── services.py         # Collecteur de services
+│   ├── registry.py         # Collecteur de registre
+│   ├── events.py           # Collecteur d'événements
+│   ├── network.py          # Collecteur réseau
+│   ├── files.py            # Collecteur de fichiers
+│   ├── users.py            # Collecteur d'utilisateurs
+│   └── browser_history.py  # Collecteur d'historique navigateur
+├── linux/                   # Collecteurs Linux
+│   ├── base.py             # Classe de base Linux
+│   ├── processes.py        # Collecteur de processus
+│   ├── services.py         # Collecteur de services
+│   ├── system_logs.py      # Collecteur de logs système
+│   ├── shell_history.py    # Collecteur d'historique shell
+│   ├── network.py          # Collecteur réseau
+│   ├── files.py            # Collecteur de fichiers
+│   └── users.py            # Collecteur d'utilisateurs
+└── macos/                   # Collecteurs macOS
+    ├── unified_logs.py     # Collecteur de logs unifiés
+    └── persistence.py      # Collecteur de persistance
+```
+
+### Format de Sortie Standard
+
+Tous les collecteurs retournent une structure JSON homogène :
+
+```json
+{
+  "system_info": {
+    "platform": "win32",
+    "hostname": "COMPUTER-NAME",
+    "current_user": "username",
+    "is_admin": false
+  },
+  "data": {
+    // Données spécifiques au collecteur
+  },
+  "summary": {
+    "total_items": 42,
+    "timestamp": "2025-07-06T22:30:00",
+    "mode": "full|degraded"
+  },
+  "error": null  // ou message d'erreur si applicable
+}
+```
+
+## 🧪 Tests et Validation
+
+### Test Simple
+```bash
+python test_osiris_simple.py
+```
+
+### Test Complet
+```bash
+python test_osiris_complete.py
+```
+
+### Tests Multi-OS
+```bash
+# Tests Windows
+python -m pytest tests/test_windows_*.py
+
+# Tests Linux
+python -m pytest tests/test_linux_*.py
+
+# Tests macOS
+python -m pytest tests/test_macos_*.py
+```
+
+## 🔒 Sécurité et Privilèges
+
+### Windows
+- **Mode complet** : Privilèges administrateur requis
+- **Mode dégradé** : Fonctionne avec privilèges utilisateur standard
+- **Collecteurs sensibles** : Services, registre, événements système
+
+### Linux
+- **Mode complet** : Privilèges root requis
+- **Mode dégradé** : Fonctionne avec privilèges utilisateur
+- **Collecteurs sensibles** : Services système, logs d'authentification
+
+### macOS
+- **Mode complet** : Privilèges administrateur requis
+- **Mode dégradé** : Fonctionne avec privilèges utilisateur
+- **Collecteurs sensibles** : Logs unifiés, persistance système
+
+## 📝 Ajout d'un Nouveau Collecteur
+
+### 1. Créer le Collecteur
+```python
+# collectors/windows/my_collector.py
+from .base import WindowsCollector
+
+class MyCollector(WindowsCollector):
+    def _collect(self) -> Dict[str, Any]:
+        results = {
+            'system_info': self.get_system_info(),
+            'my_data': [],
+            'summary': {}
+        }
+        
+        try:
+            # Logique de collecte
+            results['my_data'] = self._collect_my_data()
+            results['summary'] = self._generate_summary(results)
+        except Exception as e:
+            results['error'] = str(e)
+        
+        return results
+```
+
+### 2. Enregistrer le Collecteur
+```python
+# collectors/windows/__init__.py
+from .my_collector import MyCollector
+
+class WindowsCollectorManager:
+    def __init__(self):
+        self.collectors = {
+            # ... autres collecteurs
+            'my_collector': MyCollector
+        }
+```
+
+## 🐛 Dépannage
+
+### Erreurs Courantes
+
+#### Module 'win32xxx' has no attribute 'XXX'
+**Solution** : Les modules pywin32 peuvent avoir des versions différentes. Osiris gère automatiquement ces cas avec des fallbacks.
+
+#### Privilèges insuffisants
+**Solution** : Exécutez en tant qu'administrateur pour une collecte complète, ou utilisez le mode dégradé.
+
+#### Collecteur non trouvé
+**Solution** : Vérifiez la liste des collecteurs avec `python osiris_cli.py --list`
+
+### Logs et Debug
+```bash
+# Mode verbeux
+python osiris_cli.py --collect users --verbose
+
+# Logs détaillés
+export OSIRIS_LOG_LEVEL=DEBUG
+python osiris_cli.py --collect-all
 ```
 
 ## 🤝 Contribution
 
-Les contributions sont les bienvenues ! Consultez notre [guide de contribution](CONTRIBUTING.md) pour plus de détails.
+1. Fork le projet
+2. Créez une branche feature (`git checkout -b feature/AmazingFeature`)
+3. Commit vos changements (`git commit -m 'Add some AmazingFeature'`)
+4. Push vers la branche (`git push origin feature/AmazingFeature`)
+5. Ouvrez une Pull Request
 
 ## 📄 Licence
 
-Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
-
-## 👥 Auteurs
-
-- **Votre Nom** - *Travail initial* - [GitHub](https://github.com/votre-username)
+Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
 
 ## 🙏 Remerciements
 
-- La communauté DFIR pour son inspiration
-- Les projets open source qui ont inspiré Osiris
-- Tous les contributeurs
+- **pywin32** : Modules Windows
+- **psutil** : Informations système cross-platform
+- **pytest** : Framework de tests
 
 ## 📞 Support
 
-Pour toute question ou problème :
-- Ouvrir une issue sur GitHub
-- Consulter la [documentation](docs/)
-- Rejoindre notre [Discord](https://discord.gg/osiris)
+- **Issues** : [GitHub Issues](https://github.com/your-repo/osiris/issues)
+- **Documentation** : [Wiki](https://github.com/your-repo/osiris/wiki)
+- **Email** : support@osiris-forensics.com
 
-## ⚠️ Configuration en Production
+## 🛡️ Robustesse, gestion des erreurs et mode dégradé
 
-Pour une utilisation en production, veuillez consulter la [documentation de configuration](docs/configuration.md) pour :
-- Configurer correctement les certificats TLS
-- Définir des identifiants sécurisés
-- Configurer les bases de données
-- Optimiser les performances
+Osiris est conçu pour **ne jamais bloquer la collecte**, même si certaines commandes ou modules sont absents ou si les privilèges sont insuffisants.
+
+- **Gestion d'erreur avancée** :
+  - Toutes les erreurs (commandes manquantes, modules non trouvés, accès refusé) sont loguées dans `osiris.log` et affichées en mode verbeux.
+  - Les erreurs critiques n'arrêtent jamais la collecte : Osiris continue avec ce qui est disponible.
+  - Les collecteurs non implémentés affichent un avertissement mais ne bloquent pas le scan.
+
+- **Mode dégradé** :
+  - Si un artefact ne peut pas être collecté (ex : pas admin, commande absente), Osiris passe automatiquement en mode dégradé pour ce collecteur.
+  - Les résultats partiels sont toujours sauvegardés, avec une indication claire du mode (`"mode": "degraded"`).
+
+- **Philosophie** :
+  - Osiris privilégie la **résilience** : il collecte tout ce qu'il peut, informe sur ce qui manque, mais ne s'arrête jamais brutalement.
+  - Les messages d'erreur sont là pour la transparence, pas pour bloquer l'utilisateur.
+
+**Exemple de résultat en mode dégradé** :
+```json
+{
+  "system_info": { ... },
+  "data": { ... },
+  "summary": {
+    "mode": "degraded",
+    ...
+  },
+  "error": "Commande net user absente"
+}
+```
+
+Pour une collecte complète, exécutez Osiris en tant qu'administrateur ou sur une version de Windows avec toutes les commandes système disponibles.
+
+---
+
+**Osiris** - Collecteur forensique multi-OS robuste et portable 🚀

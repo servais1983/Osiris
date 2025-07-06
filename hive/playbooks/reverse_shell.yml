@@ -1,0 +1,67 @@
+# Playbook pour une détection de Reverse Shell
+name: "Automatic Response to Reverse Shell"
+description: "Isolates the host and kills the suspicious process upon detection of a common reverse shell."
+
+# Le 'trigger' est l'alerte qui déclenche ce playbook.
+# On se base ici sur le titre de la règle Sigma.
+trigger:
+  sigma_rule_title: "Suspicious Network Connection by Shell Process"
+
+# La 'sequence' est la liste des actions à exécuter, dans l'ordre.
+sequence:
+  - name: "Kill Malicious Process"
+    action: "kill_process"
+    # Le moteur de playbook injectera les paramètres de l'alerte ici.
+    # '{{ alert.process.pid }}' sera remplacé par le PID du processus de l'alerte.
+    parameters:
+      pid: "{{ alert.process.pid }}"
+    timeout: 30  # Timeout en secondes pour cette action
+
+  - name: "Isolate Host"
+    action: "isolate"
+    # Pas besoin de paramètre ici, l'action s'applique à l'agent qui a levé l'alerte.
+    parameters: {}
+    timeout: 60
+
+  - name: "Create High-Priority Case"
+    action: "create_case" # C'est une action interne au Hive
+    parameters:
+      title: "Automated Response: Reverse Shell on {{ alert.agent.name }}"
+      priority: "Critical"
+      description: "Host was automatically isolated and process {{ alert.process.name }} (PID: {{ alert.process.pid }}) was terminated."
+      tags: ["automated", "reverse_shell", "critical"]
+    timeout: 10
+
+  - name: "Send Critical Notification"
+    action: "send_notification"
+    parameters:
+      channel: "slack"
+      message: "🚨 CRITICAL: Reverse shell detected on {{ alert.agent.name }}. Host isolated automatically."
+      priority: "high"
+    timeout: 15
+
+  - name: "Collect Forensic Evidence"
+    action: "collect_evidence"
+    parameters:
+      type: "process_memory"
+      target: "{{ alert.process.pid }}"
+      description: "Memory dump of suspicious process {{ alert.process.name }}"
+    timeout: 120
+
+# Conditions d'exécution
+conditions:
+  - field: "alert.severity"
+    operator: "gte"
+    value: "high"
+  
+  - field: "alert.confidence"
+    operator: "gte"
+    value: 0.8
+
+# Paramètres globaux du playbook
+settings:
+  enabled: true
+  dry_run_enabled: true  # Permet de tester sans exécuter
+  max_execution_time: 300  # Timeout global en secondes
+  retry_failed_actions: true
+  max_retries: 2 
